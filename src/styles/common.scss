@@ -1,0 +1,26 @@
+@mixin box {
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin box_spacing_common {
+    margin-bottom: 2rem;
+}
+
+@mixin box_min_height {
+    min-height: 150px;
+}
+
+@mixin heading {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    color: rgb(146, 146, 146);
+}
+
+@mixin section {
+    margin-top: 10rem;
+}

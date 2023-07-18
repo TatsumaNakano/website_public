@@ -1,0 +1,12 @@
+@use "../../styles/common" as c;
+
+.gridItem {
+    background-color: black;
+    height: 100%;
+
+    @include c.box;
+
+    * {
+        color: white;
+    }
+}

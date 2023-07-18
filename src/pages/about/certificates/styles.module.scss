@@ -1,0 +1,9 @@
+@use "../../../styles/common" as c;
+
+.certs {
+    @include c.section;
+
+    h1 {
+        @include c.heading;
+    }
+}

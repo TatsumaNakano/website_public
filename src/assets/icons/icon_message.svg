@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="home_work" data-name="home/work" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="m15.49,2.43H4.51c-1.76,0-3.19,1.43-3.19,3.19v6.5c0,1.76,1.43,3.19,3.19,3.19h8.39c.37,0,.72.14.98.41l2.31,2.31c.28.28.65.43,1.03.43.19,0,.38-.04.56-.11.54-.23.9-.75.9-1.34V5.62c0-1.76-1.43-3.19-3.19-3.19Z"/>
+</svg>
