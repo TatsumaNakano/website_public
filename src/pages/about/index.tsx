@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Layout from '../../components/layout'
 import GridSystem from '../../components/grid';
 import * as styles from "./styles.module.scss"
-import Skills from './skills';
-import Certificates from './certificates';
-import History from './history';
+import Skills from '../../components/aboutPage/skills';
+import Certificates from '../../components/aboutPage/certificates';
+import History from '../../components/aboutPage/history';
 
 export default class About extends Component {
     render() {

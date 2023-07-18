@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import * as styles from './styles.module.scss';
+import { Link } from 'gatsby';
 
 export default class Logo extends Component {
     render() {
         return (
-            <div className={styles.logo}>Tatsuma<br />Nakano</div>
+            <Link className={styles.logo} to="/">
+                <div>Tatsuma<br />Nakano</div>
+            </Link>
         )
     }
 }

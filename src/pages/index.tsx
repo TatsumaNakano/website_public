@@ -15,7 +15,7 @@ export default class index extends Component {
 
 var foo = [
   {
-    title: "Title",
+    title: "DEMOREEL",
     description: "Lorem ipsum",
     width: 1,
     height: 1

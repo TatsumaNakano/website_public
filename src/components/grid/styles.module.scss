@@ -3,6 +3,7 @@
 .gridItem {
     background-color: black;
     height: 100%;
+    cursor: pointer;
 
     @include c.box;
 

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import * as styles from './styles.module.scss';
+
 
 export default class Footer extends Component {
     render() {
         return (
-            <div>Footer</div>
+            <div className={styles.footer}></div>
         )
     }
 }

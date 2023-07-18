@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Header from '../header'
+import Header from './header'
 import "../../styles/global.scss"
 import * as styles from "./styles.module.scss"
-import Widget from '../widget'
-import Footer from '../footer'
+import Widget from './widget'
+import Footer from './footer'
 // import { useLocation } from "@reach/router"
 
 

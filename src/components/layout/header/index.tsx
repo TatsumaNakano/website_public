@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import HeaderLink from './headerLink'
-import Logo from '../logo/index';
+import Logo from '../../logo';
 import * as styles from './styles.module.scss';
 
 export default class Header extends Component {
