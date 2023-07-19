@@ -5,6 +5,7 @@ import * as styles from "./styles.module.scss"
 import Skills from '../../components/aboutPage/skills';
 import Certificates from '../../components/aboutPage/certificates';
 import History from '../../components/aboutPage/history';
+import Hobbies from '../../components/aboutPage/hobbies';
 
 export default class About extends Component {
     render() {
@@ -19,6 +20,7 @@ export default class About extends Component {
                 <History />
                 <Skills />
                 <Certificates />
+                <Hobbies />
 
             </Layout>
         )

@@ -1,0 +1,22 @@
+@use "../../../styles/common.scss" as c;
+
+.hobbies {
+    @include c.section;
+
+    div {
+        @include c.box;
+        background-color: gray;
+        height: 300px;
+
+        p {
+            color: white;
+            display: block;
+        }
+    }
+
+    h1 {
+        @include c.heading;
+    }
+
+
+}

@@ -1,3 +1,46 @@
+@use "../../../styles/common.scss" as c;
+
 .footer {
-    height: 200px;
+    height: 50px;
+    position: relative;
+    @include c.section;
+    margin-bottom: 2rem;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        // bottom: 1rem;
+        // left: 50%;
+        // transform: translateX(-50%);
+        // position: absolute;
+
+
+        li {
+            $size: 25px;
+            width: $size;
+            height: $size;
+            font-size: 0;
+            list-style: none;
+            background: rgb(197, 197, 197);
+            margin-right: 1rem;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+
+        :last-child {
+            margin-right: 0;
+        }
+    }
+
+    label {
+        display: block;
+        text-align: center;
+        font-size: 0.618rem;
+        color: gray;
+        margin-top: 1rem;
+
+    }
 }

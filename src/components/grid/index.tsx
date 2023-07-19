@@ -3,7 +3,7 @@ import { Grid, Cell } from "styled-css-grid"
 import * as styles from './styles.module.scss';
 
 interface propsType {
-    data: Object[],
+    data: any,
     columns: number
 }
 
@@ -15,15 +15,18 @@ interface Item {
 
 export default class GridSystem extends Component<propsType>{
     render() {
+        var postData = this.props.data.allWpPost.nodes;
+
         return (
-            <Grid minRowHeight={"270px"} flow="row dense" columns={this.props.columns}>{this.props.data.map((item: any, index: number) => {
-                // var randCol = Math.floor(Math.random() * index).toString(16);
-                return <Cell width={item.width} height={item.height} key={index}>
-                    <div className={styles.gridItem}>
-                        <p>{item.title}</p>
-                    </div>
-                </Cell>
-            })
+            <Grid minRowHeight={"270px"} flow="row dense" columns={this.props.columns}>{
+                postData.map((post: any, index: number) => {
+
+                    return <Cell width={post.post_setting.width} height={post.post_setting.height} key={index}>
+                        <div className={styles.gridItem}>
+                            <p>{post.title}</p>
+                        </div>
+                    </Cell>
+                })
             }</Grid >
         )
     }

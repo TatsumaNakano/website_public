@@ -30,7 +30,15 @@ const config: GatsbyConfig = {
           include: /assets/ // See below to configure properly
         }
       }
-    }
+    },
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        url:
+          process.env.WPGRAPHQL_URL ||
+          `https://cm5y5tem.tatsuma.co/56f1640ab297138e177caa3c684c1c6e`,
+      },
+    },
   ],
 }
 

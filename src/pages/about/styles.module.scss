@@ -1,18 +1,21 @@
+@use "sass:math";
+
 .intro {
     margin: 5rem 0 10rem 0;
 
     h3 {
-        font-size: 2rem;
+        font-size: (math.pow(1.618, 2)*1rem);
         margin: 0;
-        margin-bottom: 1rem;
+        margin-bottom: 1.618rem;
         font-weight: 100;
     }
 
     p {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin: 0;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
         font-weight: 600;
+        color: #333333;
     }
 
     div {
