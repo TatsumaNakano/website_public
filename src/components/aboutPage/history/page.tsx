@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
 import HistoryItem from './historyItem';
-import * as styles from './styles.module.scss';
+import styles from './styles.module.scss';
 
-export default class History extends Component {
-    render() {
-        return (
-            <div className={styles.history}>
-                <h1>Experiences & Education</h1>
-                {history.map((item, index) => {
-                    return <HistoryItem key={index} data={item} isCurrent={index == 0} />
-                })}
-            </div>
-        )
-    }
+export default () => {
+    return (
+        <div className={styles.history}>
+            <h1>Experiences & Education</h1>
+            {history.map((item, index) => {
+                return <HistoryItem key={index} data={item} isCurrent={index == 0} />
+            })}
+        </div>
+    )
 }
 
 var history = [

@@ -4,10 +4,9 @@
     background-color: black;
     height: 100%;
     cursor: pointer;
+    text-decoration: none;
+    color: white;
 
     @include c.box;
 
-    * {
-        color: white;
-    }
 }
