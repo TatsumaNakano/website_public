@@ -1,5 +1,4 @@
 // 'use client'
-import { GetStaticProps } from 'next';
 import { GET_WORK_POSTS_LIST, fetchGQL } from '@/graphql/queries';
 import GridSystem from '../components/grid/page';
 

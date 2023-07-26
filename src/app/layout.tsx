@@ -1,3 +1,5 @@
+// "use client"
+
 import '../styles/global.scss'
 import type { Metadata } from 'next'
 import { M_PLUS_1p } from 'next/font/google'
@@ -7,6 +9,10 @@ import Footer from "../components/layout/footer/pages"
 import Widget from "../components/layout/widget/pages"
 
 import styles from "../styles/layout.module.scss"
+import { languageState } from '@/states'
+import { useRecoilState } from "recoil"
+import RecoilWrapper from '@/components/recoilWrapper'
+import HtmlWrapper from '@/components/htmlWrapper'
 
 const inter = M_PLUS_1p({ weight: ["100", "300", "400", "500", "700", "800", "900"], subsets: ['latin'] })
 
@@ -20,15 +26,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
 
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        <main className={styles.contents}>{children}</main>
-        <Footer />
-        <Widget />
-      </body>
-    </html>
+  return (
+    <RecoilWrapper>
+      <HtmlWrapper>
+        <body className={inter.className}>
+          <Header />
+          <main className={styles.contents}>{children}</main>
+          <Footer />
+          <Widget />
+        </body>
+      </HtmlWrapper>
+    </RecoilWrapper>
   )
 }
+

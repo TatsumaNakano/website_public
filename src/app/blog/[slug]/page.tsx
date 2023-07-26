@@ -1,6 +1,4 @@
 import { GET_POST, fetchGQL } from "@/graphql/queries";
-import client from "../../../lib/apolloClient"
-import { gql } from "@apollo/client"
 
 export default async (props: any) => {
 
