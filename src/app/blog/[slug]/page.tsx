@@ -1,13 +1,12 @@
-import { GET_POST } from "@/graphql/queries";
+import { GET_POST, fetchGQL } from "@/graphql/queries";
 import client from "../../../lib/apolloClient"
 import { gql } from "@apollo/client"
 
 export default async (props: any) => {
 
     const slug = props.params.slug;
-    const res = await client.query({
-        query: GET_POST(slug)
-    })
+
+    const res = await fetchGQL(GET_POST(slug))
 
     return (
         <div>

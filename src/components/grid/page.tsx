@@ -18,6 +18,7 @@ interface propsType {
 
 export default ({ data, columns, path }: propsType) => {
 
+    if (data == undefined) return null
     const posts = data.posts.nodes
 
     return (
