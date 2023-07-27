@@ -1,0 +1,8 @@
+.jp {
+    display: none;
+    opacity: 0;
+}
+
+.en {
+    transition: opacity 1 0.5s ease-in;
+}

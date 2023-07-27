@@ -14,12 +14,15 @@ export default () => {
     const [lang, setLang] = useRecoilState(languageState)
     return (
         <div className={styles.widget}>
-            <ul>
-                <li onClick={() => setLanguage(lang, setLang)}><Icon_lang_EN /></li>
-                <li><Icon_search /></li>
-                <li><Icon_msg /></li>
-                <li><Icon_switch /></li>
-            </ul>
+            <div className={styles.buttons}>
+                <ul>
+                    <li onClick={() => setLanguage(lang, setLang)}><Icon_lang_EN /></li>
+                    <li><Icon_search /></li>
+                    <li><Icon_msg /></li>
+                    <li><Icon_switch /></li>
+                </ul>
+            </div>
+            {/* <div className={styles.options}></div> */}
         </div>
     );
 }

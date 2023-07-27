@@ -6,6 +6,8 @@ export default async (props: any) => {
 
     const res = await fetchGQL(GET_POST(slug))
 
+    console.log(typeof (res.data.post.content))
+
     return (
         <div>
             <h1>{res.data.post.title}</h1>
