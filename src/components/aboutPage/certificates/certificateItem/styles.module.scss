@@ -2,33 +2,48 @@
 
 .certificateItem {
     width: 100%;
-    background-color: rgb(179, 179, 179);
-    padding: 3em 0;
-    @include c.box_spacing_common;
-    @include c.box;
-    @include c.box_min_height;
+    // background-color: var(--secondary);
+    padding: 1em 2em;
+    // @include c.box_spacing_common;
+    // @include c.box;
+    // @include c.box_min_height;
+
+    border-bottom: solid 1px var(--secondary);
+
 
     * {
         display: block;
         text-decoration: none;
     }
 
-    label {
-        color: white;
-        text-align: center;
+    a {
+        //Link
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        label {
+            color: white;
+            text-align: center;
+        }
+
+        h3 {
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            // margin: 0;
+        }
+
+        img {
+            $icon-size: 80px;
+            width: $icon-size;
+            height: $icon-size;
+            // margin: 0 auto;
+            margin-right: 50px;
+        }
     }
 
-    h3 {
-        color: white;
-        text-align: center;
-        font-size: 1.5rem;
-        margin: 0;
-    }
-
-    img {
-        $icon-size: 100px;
-        width: $icon-size;
-        height: $icon-size;
-        margin: 0 auto;
+    &:last-child {
+        border-bottom: none;
     }
 }

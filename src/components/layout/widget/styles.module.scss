@@ -13,7 +13,8 @@ $min-height: $icon-size*6+20px;
     .buttons {
         width: $width;
         height: $min-height;
-        background: black;
+        background: var(--background);
+        border: solid 1.25px var(--primary);
         border-radius: 999px;
         display: flex;
         justify-content: center;

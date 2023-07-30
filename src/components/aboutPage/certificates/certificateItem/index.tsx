@@ -11,7 +11,7 @@ export default ({ data }: { data: any }) => {
     return (
         <div className={styles.certificateItem} >
             <Link href={data.link}>
-                <label>{data.date}</label>
+                {/* <label>{data.date}</label> */}
                 <img src={data.icon} />
                 <h3>{data.title}</h3>
             </Link>

@@ -12,10 +12,10 @@ export default ({ data, isCurrent }: { data: any, isCurrent: boolean }) => {
     return (
         <div className={`${styles.historyItem}  ${style}`}>
             <div>
-                <label>{data.time}</label>
-                <h3>{data.title}</h3>
-                <h4>{org === "" ? "" : "@" + org}</h4>
-                <p>{data.description}</p>
+                <label dangerouslySetInnerHTML={{ __html: data.time }}></label>
+                <h3 dangerouslySetInnerHTML={{ __html: data.title }}></h3>
+                <h4 dangerouslySetInnerHTML={{ __html: org === "" ? "" : "@" + org }}></h4>
+                <p dangerouslySetInnerHTML={{ __html: data.description }}></p>
             </div>
         </div>
     )

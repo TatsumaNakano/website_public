@@ -5,8 +5,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    margin: 0;
+html {
+    background-color: var(--background);
+
+    body {
+        margin: 0;
+    }
 }
 
 // .jp {

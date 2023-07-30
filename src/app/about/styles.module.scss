@@ -8,6 +8,7 @@
         margin: 0;
         margin-bottom: 1.618rem;
         font-weight: 100;
+        color: var(--primary);
     }
 
     p {
@@ -15,7 +16,7 @@
         margin: 0;
         margin-bottom: 0.75rem;
         font-weight: 600;
-        color: #333333;
+        color: var(--secondary);
     }
 
     div {
@@ -24,9 +25,21 @@
         width: $profile-size;
         height: $profile-size;
         border-radius: 9999px;
-        background-color: black;
         margin: 0 auto;
         margin-bottom: 2.5rem;
+
+        div {
+            position: absolute;
+            background-image: url("/profile.png");
+            background-color: var(--primary);
+            background-size: cover;
+        }
+
+        //For glow effect
+        div:first-child {
+            filter: blur(30px);
+            opacity: 0.6;
+        }
     }
 
     * {

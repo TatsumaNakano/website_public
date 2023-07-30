@@ -1,5 +1,6 @@
-"use client"
+// "use client"
 import { atom } from "recoil"
+import { useRouter } from "next/router";
 
 export const languageState = atom({
     key: "language",
@@ -8,12 +9,18 @@ export const languageState = atom({
 
 export const initState = ({ set }: { set: any }) => {
 
-    var lang = "";
-    console.log(navigator.language)
-    if (navigator.language.startsWith("en")) lang = "en";
-    else if (navigator.language.startsWith("ja")) lang = "ja";
-    else lang = "en";
+
+    var lang = "en";
+    // console.log(navigator.language)
+    // if (navigator.language.startsWith("en")) lang = "en";
+    // else if (navigator.language.startsWith("ja")) lang = "ja";
 
     set(languageState, lang);
 
 }
+
+
+export const colorThemeState = atom({
+    key: "colorTheme",
+    default: "light" //light
+})

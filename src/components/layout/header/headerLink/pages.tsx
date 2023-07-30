@@ -7,10 +7,10 @@ interface LinkProps {
     name: string
 }
 
-export default async ({ href, name }: { href: string, name: string }) => {
+export default async ({ href, name_en, name_jp }: { href: string, name_en: string, name_jp: string }) => {
     return (
         <li className={styles.listItem}>
-            <Link href={href}>{name}</Link>
+            <Link href={href}><span className='en'>{name_en}</span><span className='jp'>{name_jp}</span></Link>
         </li>
     )
 }

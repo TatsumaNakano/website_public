@@ -4,7 +4,8 @@ import styles from "./styles.module.scss"
 export default () => {
     return (
         <div className={styles.skills}>
-            <h1>Skills & Softwares</h1>
+            <h1 className='en'>Skills&Softwares</h1>
+            <h1 className='jp'>スキルとソフトウェア</h1>
             <div>
                 <div>
                     <ul>

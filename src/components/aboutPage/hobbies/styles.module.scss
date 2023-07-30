@@ -5,7 +5,8 @@
 
     div {
         @include c.box;
-        background-color: gray;
+        // background-color: gray;
+
         height: 300px;
 
         p {

@@ -10,13 +10,21 @@ export default () => {
     return (
         <>
             <div className={styles.intro}>
-                <div></div>
-                <h3>Hi! I'm Tatsuma.</h3>
-                <p>I am a freelance designer/developer living in Japan.</p>
-                <p>My Ikigai is making people happy with what I make.</p>
+                <div><div></div><div></div></div>
+                <h3 className="en">Hi! I'm Tatsuma.</h3>
+                <h3 className="jp">こんにちは！</h3>
+
+                <p className="en">I am a freelance designer/developer living in Japan.</p>
+                <p className="jp">フリーでデザイナー・開発者をやっております。</p>
+                <p className="en">My Ikigai is making people happy with what I make.</p>
+                <p className="jp">僕の作った物で人が喜んでくれるのが生き甲斐です。</p>
+                <br />
+                <p className="en">Feel free to drop me a message if you're interested in</p>
+                <p className="en">working together and bringing our ideas to life.</p>
+                <p className="jp">お仕事のご依頼は右のメッセージ欄から受け付けております。</p>
             </div>
-            <History />
             <Skills />
+            <History />
             <Certificates />
             <Hobbies />
         </>

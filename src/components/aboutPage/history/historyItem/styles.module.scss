@@ -6,33 +6,49 @@
     @include c.box_min_height;
     @include c.box;
 
-    label {
+    label * {
         width: 100%;
         display: block;
         margin-bottom: 1em;
+        color: var(--primary);
     }
 
     p {
+        * {
+            line-height: 1.618rem;
+            color: var(--primary);
+        }
+
         margin: 0;
         margin-top: 1.25em;
-        // margin-bottom: 1em;
-        line-height: 1.618rem;
     }
 
     h3 {
-        font-size: 1.618em;
+        * {
+            font-size: 1.618em;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+
         margin: 0;
-        font-weight: 700;
+        margin-top: 1.25em;
     }
 
     h4 {
-        font-size: 1.618em;
+        * {
+            font-size: 1.618em;
+            font-weight: 100;
+            color: var(--primary);
+        }
+
+
         margin: 0;
-        font-weight: 100;
+        margin-top: 0.5em;
     }
 
     div {
-        width: 70%;
+        width: 80%;
     }
 
     * {
@@ -42,10 +58,16 @@
 }
 
 .current {
-    background-image: linear-gradient(0deg, rgb(22, 22, 22), #414141);
-
+    // background-image: linear-gradient(0deg, rgb(22, 22, 22), #414141);
+    background-color: var(--background);
+    border: solid var(--primary);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
 .past {
-    background-image: linear-gradient(10deg, rgb(95, 95, 95), #b8b8b8);
+    // background-image: linear-gradient(10deg, rgb(95, 95, 95), #b8b8b8);
+    // background-color: ;
+    background-color: var(--background);
+    border: solid var(--secondary);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }

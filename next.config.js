@@ -15,6 +15,10 @@ const nextConfig = {
     images: {
         disableStaticImages: true, // importした画像の型定義設定を無効にする
     },
+    // i18n: {
+    //     locales: ["en", "ja"],
+    //     defaultLocale: "en",
+    // },
 }
 
 module.exports = nextConfig

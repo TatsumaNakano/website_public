@@ -6,11 +6,11 @@ export default () => {
     return (
         <header className={styles.header}>
             <ul>
-                <HeaderLink href="/" name="Work" />
-                <HeaderLink href="/products" name="Products" />
+                <HeaderLink href="/" name_en="Work" name_jp="過去の案件" />
+                <HeaderLink href="/lab" name_en="Lab" name_jp="個人制作" />
                 <Logo />
-                <HeaderLink href="/blog" name="Blog" />
-                <HeaderLink href="/about" name="About" />
+                <HeaderLink href="/blog" name_en="Blog" name_jp="ブログ" />
+                <HeaderLink href="/about" name_en="About" name_jp="あなたはだあれ" />
             </ul>
         </header >
     );

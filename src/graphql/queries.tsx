@@ -1,7 +1,7 @@
 
 export const fetchGQL = async (query: string) => {
   return await fetch(
-    "https://cm5y5tem.tatsuma.co/56f1640ab297138e177caa3c684c1c6e",
+    "https://cm5y5tem.tatsuma.co/graphql",
     {
       method: "POST",
       body: JSON.stringify({
@@ -11,10 +11,14 @@ export const fetchGQL = async (query: string) => {
         "Content-Type": "application/json",
       },
       next: {
-        revalidate: 60
+        revalidate: 1
       }
     }
-  ).then((res) => res.json());
+  ).then((res) => {
+    return res.json()
+  }).catch((err) => {
+    console.error("err", err)
+  });
 }
 
 export const GET_WORK_POSTS_LIST = `
@@ -27,6 +31,13 @@ export const GET_WORK_POSTS_LIST = `
       post_setting {
         height
         width
+        thumbnail {
+          sourceUrl
+        }
+        jptitle
+        icon{
+          sourceUrl
+        }
       }
       tags {
         nodes {
@@ -39,9 +50,9 @@ export const GET_WORK_POSTS_LIST = `
 }
 `
 
-export const GET_PRODUCTS_POSTS_LIST = `
+export const GET_LAB_POSTS_LIST = `
 {
-  posts(where: {categoryName: "Products"}) {
+  posts(where: {categoryName: "Lab"}) {
     nodes {
       title
       slug
@@ -49,6 +60,13 @@ export const GET_PRODUCTS_POSTS_LIST = `
       post_setting {
         height
         width
+        thumbnail {
+          sourceUrl
+        }
+        jptitle
+        icon{
+          sourceUrl
+        }
       }
       tags {
         nodes {
@@ -71,6 +89,13 @@ export const GET_BLOG_POSTS_LIST = `
       post_setting {
         height
         width
+        thumbnail {
+          sourceUrl
+        }
+        jptitle
+        icon{
+          sourceUrl
+        }
       }
       tags {
         nodes {
