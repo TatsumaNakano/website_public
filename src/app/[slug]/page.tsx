@@ -1,5 +1,6 @@
 import { GET_POST, fetchGQL } from "@/graphql/queries";
-import styles from "@/styles/post.module.scss"
+// import styles from "@/styles/post.module.scss"
+import Post from "@/components/post";
 
 export default async (props: any) => {
 
@@ -7,10 +8,5 @@ export default async (props: any) => {
 
     const res = await fetchGQL(GET_POST(slug));
 
-    return (
-        <div className={styles.post}>
-            <h1 dangerouslySetInnerHTML={{ __html: res.data.post.title }}></h1>
-            <div dangerouslySetInnerHTML={{ __html: res.data.post.content }}></div>
-        </div>
-    );
+    return <Post data={res.data} />;
 }

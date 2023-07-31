@@ -9,12 +9,18 @@ interface propType {
 
 export default ({ data }: { data: any }) => {
     return (
-        <div className={styles.certificateItem} >
-            <Link href={data.link}>
-                {/* <label>{data.date}</label> */}
+        <a className={styles.certificateItem} href={data.link} target="_blank">
+            <div>
+                {/* <div></div> */}
                 <img src={data.icon} />
+            </div>
+            <div>
                 <h3>{data.title}</h3>
-            </Link>
-        </div>
+            </div>
+            <label>
+                <span className='en'>See Certificate</span>
+                <span className='jp'>証明書を見る</span>
+            </label>
+        </a>
     )
 }

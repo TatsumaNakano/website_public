@@ -121,6 +121,12 @@ export const GET_POST = (id: string) => {
                 }
                 }
                 date
+                post_setting {
+                    jptitle
+                    icon{
+                      sourceUrl
+                    }
+                  }
             }
         }
     `;

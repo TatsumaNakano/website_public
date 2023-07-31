@@ -25,9 +25,8 @@ export default ({ data, columns, path, gap = "8px", showTitle = false, showBorde
     if (data == undefined) return null
     const posts = data.posts.nodes;
 
-
     return (
-        <Grid minRowHeight={"270px"} flow="row dense" columns={columns} gap={gap}>{
+        <Grid minRowHeight={`${800 / 3}px`} flow="row dense" columns={columns} gap={gap}>{
             posts.map((post: any, index: number) => {
 
                 const bg = post.post_setting.thumbnail ? { backgroundImage: `url(${post.post_setting.thumbnail.sourceUrl})` } : {};

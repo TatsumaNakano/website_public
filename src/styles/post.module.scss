@@ -1,9 +1,79 @@
 .post {
+
     h1 {
-        color: var(--primary)
+        span {
+            color: var(--primary);
+            font-size: 1.618em;
+            // text-align: center;
+        }
+
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        color: var(--primary);
+        font-size: 1.618em;
+        margin: 0;
+        margin-top: 1em;
+
+    }
+
+    h5 {
+        color: var(--primary);
+        font-size: 1.2rem;
+        margin: 0;
+        margin-top: 1em;
+
     }
 
     p {
-        color: var(--primary)
+        color: var(--primary);
+        // font
+    }
+
+    div {
+        // width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        // * {
+        //     max-width: 100%;
+        //     height: auto;
+        //     // width: inherit;
+        //     // object-fit: cover;
+        //     margin: 0;
+        // }
+
+        img {
+            border-radius: 10px;
+            margin-bottom: 2em;
+        }
+
+        p {
+            margin-bottom: 2em;
+        }
+
+        div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            iframe {
+                width: 50%;
+                height: 50vh;
+
+                -webkit-box-sizing: border-box;
+                /* Safari/Chrome, other WebKit */
+                -moz-box-sizing: border-box;
+                /* Firefox, other Gecko */
+                box-sizing: border-box;
+                /* Opera/IE 8+ */
+            }
+        }
+
+    }
+
+    code {
+        border-radius: 5px;
     }
 }

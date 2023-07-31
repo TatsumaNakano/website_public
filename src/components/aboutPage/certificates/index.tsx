@@ -6,9 +6,11 @@ export default () => {
         <div className={styles.certs}>
             <h1 className="en">Certificates</h1>
             <h1 className="jp">資格</h1>
-            {certificates.map((item: any, index: number) => {
-                return <CertificateItem data={item} key={index} />
-            })}
+            <div>
+                {certificates.map((item: any, index: number) => {
+                    return <CertificateItem data={item} key={index} />
+                })}
+            </div>
         </div>
     )
 }
