@@ -3,4 +3,6 @@
     --primary: white;
     --secondary: rgb(214, 214, 214);
     --tertiary: rgb(96 96 96);
+    --accent: #008be5;
+    --accent-gradient: linear-gradient(0, #008be5 0%, #003de5 100%);
 }

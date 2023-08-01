@@ -69,13 +69,13 @@
         overflow: hidden;
         filter: brightness(1);
         flex-direction: column;
-        transition: filter 0.1s ease-out;
+        transition: filter 0.2s ease-out;
 
         * {
             font-size: 1.618rem;
             text-align: center;
             // opacity: 0;
-            // transition: opacity 0.1s ease-in-out;
+            // transition: opacity 0.2s ease-in-out;
         }
 
         z-index: 1;
@@ -83,27 +83,27 @@
 
     }
 
-    >div:hover {
-        * {
-            // opacity: 1;
-            // transition: opacity 0.1s ease-in-out;
-        }
-
+    >div.main:hover {
         filter: brightness(1.2);
-        transition: filter 0.1s ease-out;
+        transition: filter 0.2s ease-out;
     }
 
-    >div:first-child {
-        filter: brightness(5) saturate(5) blur(20px) opacity(0.4);
-        transition: all 0.1s ease-out;
+    >div.glow {
+        filter: brightness(5) saturate(5) blur(7px) opacity(0.5);
+        transition: filter 0.1s ease-out;
         z-index: 0;
         mix-blend-mode: hard-light;
     }
 
-    >&:hover {
-        div:first-child {
-            filter: brightness(5) saturate(5) blur(30px) opacity(0.8);
-            transition: all 0.1s ease-out;
+    // >div:last-child {
+    //     // pointer-events: none;
+    // }
+
+    &:hover {
+        div.glow {
+            filter: brightness(5) saturate(5) blur(18px) opacity(0.4);
+            transition: filter 0.5s ease-out;
+
         }
     }
 

@@ -16,7 +16,10 @@ const Widget = function () {
 
     const iconColor = color == "light" ? "white" : "black";
 
-    const langIcon = lang == "en" ? <Icon_lang_EN fill={iconColor} /> : <Icon_lang_JP fill={iconColor} />
+    var langIcon = <Icon_lang_EN fill={iconColor} />;
+    // if (typeof (window) !== undefined) {
+    langIcon = lang == "en" ? <Icon_lang_EN fill={iconColor} /> : <Icon_lang_JP fill={iconColor} />
+    // }
     return (
         <div className={styles.widget}>
             <div className={styles.buttons}>
@@ -35,8 +38,8 @@ const Widget = function () {
 export default Widget;
 
 const setLanguage = (lang: string, setLang: any) => {
-    if (lang.startsWith("en")) setLang("jp");
-    else if (lang.startsWith("jp")) setLang("en");
+    if (lang.startsWith("en")) setLang("ja");
+    else if (lang.startsWith("ja")) setLang("en");
 }
 
 const setColorTheme = (color: string, setColor: any) => {

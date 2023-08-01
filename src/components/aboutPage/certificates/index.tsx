@@ -22,7 +22,7 @@ var certificates = [
         date: "May 29, 2023",
         title: "Introduction to Deep Learning & Neural Networks with Keras",
         icon: "https://cdn-icons-png.flaticon.com/512/5969/5969083.png",
-        link: "https://www.coursera.org/account/accomplishments/verify/DQA7ULANY7UB"
+        link: "https://www.coursera.org/account/accomplishments/certificate/DQA7ULANY7UB"
     },
     {
         date: "July 23, 2023",

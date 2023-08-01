@@ -51,9 +51,9 @@ const Cell = ({ post,
     return (
         <div className={styles.cell} style={gridStyle}>
             <Link href={path + "/" + post.slug} className={styles.gridItem} style={borderStyle}>
-                <div style={bg}></div>{ /*For glow*/}
-                <div style={bg}>
-                    <div>
+                <div className={styles.glow} style={bg}></div>{ /*For glow*/}
+                <div className={styles.main} style={bg}>
+                    <div className={styles.imageWrapper}>
                         <img src={icon} alt='' />
                         {/* <Image src={icon} fill={true} alt='' /> */}
                         <div></div>

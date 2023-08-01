@@ -4,9 +4,9 @@ import '../styles/global.scss'
 import type { Metadata } from 'next'
 import { M_PLUS_1p } from 'next/font/google'
 
-import Header from "../components/layout/header/pages"
-import Footer from "../components/layout/footer/pages"
-import Widget from "../components/layout/widget/pages"
+import Header from "../components/layout/header/page"
+import Footer from "../components/layout/footer/page"
+import Widget from "../components/layout/widget/page"
 
 import styles from "../styles/layout.module.scss"
 // import { languageState } from '@/states'
@@ -34,9 +34,9 @@ export default function RootLayout({
     <RecoilWrapper>
       <HtmlWrapper>
 
-        {/* <Head>
-          <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.3.2/build/styles/default.min.css"></link>
-        </Head> */}
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        </Head>
 
         <body className={inter.className}>
           <Header />
@@ -45,6 +45,7 @@ export default function RootLayout({
           <Widget />
         </body>
         <ConsoleMessage />
+
       </HtmlWrapper>
     </RecoilWrapper>
   )

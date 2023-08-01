@@ -1,3 +1,11 @@
+@use "./breakpoints.scss" as bp;
+
+:root {
+    --mobile: #{map-get(bp.$breakpoints, mobile)};
+    --tablet: #{map-get(bp.$breakpoints, tablet)};
+    --desktop: #{map-get(bp.$breakpoints, desktop)};
+}
+
 * {
     // font-family: 'M PLUS 1p', sans-serif;
     font-size: 12px;
@@ -12,11 +20,3 @@ html {
         margin: 0;
     }
 }
-
-// .jp {
-//     opacity: 0;
-// }
-
-// .en {
-//     opacity: 0;
-// }
