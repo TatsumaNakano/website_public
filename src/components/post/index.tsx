@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "@/styles/post.module.scss"
+import styles from "./styles.module.scss"
 
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';

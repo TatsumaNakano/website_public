@@ -8,11 +8,8 @@ export const languageState = atom({
 })
 
 export const initState = ({ set }: { set: any }) => {
-
-
     var lang = "en";
     set(languageState, lang);
-
 }
 
 

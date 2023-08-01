@@ -1,6 +1,6 @@
 // 'use client'
 import { GET_WORK_POSTS_LIST, fetchGQL } from '@/graphql/queries';
-import GridSystem from '../components/grid/page';
+import GridSystem from '../components/GridSystem/page';
 import styles from "./page.module.scss";
 
 const App = async function () {
@@ -10,10 +10,10 @@ const App = async function () {
 
   return (
     <>
-      <div className={styles.demoreel}>
+      {/* <div className={styles.demoreel}>
         <div><h3 className="en">Demoreel</h3><h3 className="jp">デモリール</h3></div>
-      </div>
-      <GridSystem columns={1} data={res.data} path="" gap='50px' />
+      </div> */}
+      <GridSystem columns={[1, 1, 1]} data={res.data} path={""} gap={30} />
     </>
   )
 }
