@@ -8,15 +8,13 @@ import json from 'highlight.js/lib/languages/json';
 
 import { useEffect } from "react";
 
-
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('json', json);
-
-
 export default (data: any, props: any) => {
 
+    hljs.registerLanguage('javascript', javascript);
+    hljs.registerLanguage('json', json);
+
     useEffect(() => {
-        // client side で invoke
+        // invoke on client side
         hljs.highlightAll();
     }, [hljs]);
 

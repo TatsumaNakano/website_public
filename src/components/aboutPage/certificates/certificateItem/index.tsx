@@ -12,7 +12,7 @@ export default ({ data }: { data: any }) => {
         <a className={styles.certificateItem} href={data.link} target="_blank">
             <div>
                 {/* <div></div> */}
-                <img src={data.icon} />
+                <img src={data.icon} alt='' />
             </div>
             <div>
                 <h3>{data.title}</h3>

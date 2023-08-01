@@ -2,7 +2,7 @@ import { GET_POST, fetchGQL } from "@/graphql/queries";
 // import styles from "@/styles/post.module.scss"
 import Post from "@/components/post";
 
-export default async (props: any) => {
+const WorkPost = async function (props: any) {
 
     const slug = props.params.slug;
 
@@ -10,3 +10,5 @@ export default async (props: any) => {
 
     return <Post data={res.data} />;
 }
+
+export default WorkPost;

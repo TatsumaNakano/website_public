@@ -6,7 +6,7 @@ import Certificates from '../../components/aboutPage/certificates';
 import History from '../../components/aboutPage/history/page';
 import Hobbies from '../../components/aboutPage/hobbies';
 
-export default () => {
+const About = function () {
     return (
         <>
             <div className={styles.intro}>
@@ -30,3 +30,5 @@ export default () => {
         </>
     )
 }
+
+export default About;

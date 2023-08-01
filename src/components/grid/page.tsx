@@ -56,7 +56,7 @@ export default ({ data, columns, path, gap = "8px", showTitle = false, showBorde
                             <div style={bg}></div>{ /*For glow*/}
                             <div style={bg}>
                                 <div>
-                                    <img src={icon} />
+                                    <img src={icon} alt='' />
                                     <div></div>
                                 </div>
                                 {title}

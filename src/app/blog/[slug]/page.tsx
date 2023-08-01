@@ -2,7 +2,7 @@
 import { GET_POST, fetchGQL } from "@/graphql/queries";
 import Post from "@/components/post";
 
-export default async (props: any) => {
+const BlogPost = async function (props: any) {
 
     const slug = props.params.slug;
 
@@ -11,3 +11,4 @@ export default async (props: any) => {
     return <Post data={res.data} />;
 }
 
+export default BlogPost;
