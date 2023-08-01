@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { languageState } from '@/states';
 import { useRecoilState } from 'recoil';
 
-export default () => {
+const LangTheme = function () {
 
     const [lang] = useRecoilState(languageState);
 
@@ -16,11 +16,13 @@ export default () => {
     );
 }
 
+export default LangTheme;
+
 const switchLanguage = (lang: string) => {
     const langStyle = lang == "en" ? "/styles/lang/en.css" : "/styles/lang/jp.css";//From public folder
-    const existingLink = document.getElementById("lang-stylesheet")
+    const existingLink = document.getElementById("lang-stylesheet") as HTMLLinkElement
 
-    if (existingLink) {
+    if (existingLink as HTMLLinkElement) {
         existingLink.href = langStyle;
     } else {
         const link = document.createElement("link");

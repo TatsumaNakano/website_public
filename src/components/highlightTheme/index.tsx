@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { colorThemeState } from '@/states';
 import { useRecoilState } from 'recoil';
 
-export default () => {
+const HighlightTheme = function () {
 
     const [color] = useRecoilState(colorThemeState);
 
@@ -16,11 +16,13 @@ export default () => {
     );
 }
 
+export default HighlightTheme;
+
 const switchHighlightTheme = (color: string) => {
     const langStyle = color == "dark" ? "/styles/color/highlight/light_highlight.css" : "/styles/color/highlight/dark_highlight.css";//From public folder
-    const existingLink = document.getElementById("highlight-stylesheet")
+    const existingLink = document.getElementById("highlight-stylesheet") as HTMLLinkElement
 
-    if (existingLink) {
+    if (existingLink as HTMLLinkElement) {
         existingLink.href = langStyle;
     } else {
         const link = document.createElement("link");

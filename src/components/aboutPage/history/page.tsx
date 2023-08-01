@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import HistoryItem from './historyItem';
 import styles from './styles.module.scss';
 
-export default () => {
+const History = function () {
     return (
         <div className={styles.history}>
             <h1><span className="en">Experiences & Education</span><span className="jp">経歴</span></h1>
@@ -12,6 +12,8 @@ export default () => {
         </div>
     )
 }
+
+export default History;
 
 var history = [
     {

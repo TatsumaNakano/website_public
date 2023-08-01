@@ -4,11 +4,11 @@ import { useRecoilState } from "recoil"
 import LangTheme from "@/components/langtheme"
 import ColorTheme from '../colorTheme'
 import HighlightTheme from '@/components/highlightTheme'
-export default ({
+const HtmlWrapper = function ({
     children,
 }: {
     children: React.ReactNode
-}) => {
+}) {
 
     const [lang] = useRecoilState(languageState);
 
@@ -22,3 +22,4 @@ export default ({
     );
 }
 
+export default HtmlWrapper;

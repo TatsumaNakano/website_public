@@ -1,6 +1,6 @@
 "use client"
 
-export default () => {
+const ConsoleMessage = function () {
 
     console.log("Interested see my source code? It's public on github.");
     console.log("ソースコードを見たいですか？Githubで公開しています。");
@@ -10,3 +10,5 @@ export default () => {
         <></>
     );
 }
+
+export default ConsoleMessage;

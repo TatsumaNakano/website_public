@@ -8,7 +8,7 @@ import json from 'highlight.js/lib/languages/json';
 
 import { useEffect } from "react";
 
-export default (data: any, props: any) => {
+export default function PostTemplate(data: any, props: any) {
 
     hljs.registerLanguage('javascript', javascript);
     hljs.registerLanguage('json', json);

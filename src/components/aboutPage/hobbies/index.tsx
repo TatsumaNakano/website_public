@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss"
 
-export default () => {
+const Hobbies = function () {
     return (
         <div className={styles.hobbies}>
             <h1 className="en">Hobbies</h1>
@@ -12,3 +12,5 @@ export default () => {
         </div>
     )
 }
+
+export default Hobbies;

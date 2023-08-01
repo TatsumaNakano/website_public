@@ -3,6 +3,7 @@
 import { Grid, Cell } from "styled-css-grid"
 import styles from './styles.module.scss';
 import Link from 'next/link';
+import Image from "next/image";
 
 interface propsType {
     data: any,
@@ -14,13 +15,7 @@ interface propsType {
     showDate?: boolean
 }
 
-// interface Item {
-//     width: number,
-//     height: number,
-//     title: string
-// }
-
-export default ({ data, columns, path, gap = "8px", showTitle = false, showBorder = false, showDate = false }: propsType) => {
+const GridSystem = function ({ data, columns, path, gap = "8px", showTitle = false, showBorder = false, showDate = false }: propsType) {
 
     if (data == undefined) return null
     const posts = data.posts.nodes;
@@ -57,6 +52,7 @@ export default ({ data, columns, path, gap = "8px", showTitle = false, showBorde
                             <div style={bg}>
                                 <div>
                                     <img src={icon} alt='' />
+                                    {/* <Image src={icon} fill={true} alt='' /> */}
                                     <div></div>
                                 </div>
                                 {title}
@@ -69,3 +65,5 @@ export default ({ data, columns, path, gap = "8px", showTitle = false, showBorde
         }</Grid >
     )
 }
+
+export default GridSystem;

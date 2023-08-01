@@ -1,7 +1,7 @@
 import CertificateItem from './certificateItem'
 import styles from "./styles.module.scss"
 
-export default () => {
+const Certificate = function () {
     return (
         <div className={styles.certs}>
             <h1 className="en">Certificates</h1>
@@ -14,6 +14,8 @@ export default () => {
         </div>
     )
 }
+
+export default Certificate;
 
 var certificates = [
     {

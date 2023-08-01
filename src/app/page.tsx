@@ -3,7 +3,7 @@ import { GET_WORK_POSTS_LIST, fetchGQL } from '@/graphql/queries';
 import GridSystem from '../components/grid/page';
 import styles from "./page.module.scss";
 
-export default async () => {
+const App = async function () {
 
   const res = await fetchGQL(GET_WORK_POSTS_LIST)
   if (res == undefined) return null;
@@ -17,4 +17,4 @@ export default async () => {
     </>
   )
 }
-
+export default App;

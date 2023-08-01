@@ -10,7 +10,7 @@ import Icon_switch from "../../../assets/icons/icon_switch_theme.svg"
 import { useRecoilState } from "recoil"
 import { languageState, colorThemeState } from "@/states"
 
-export default () => {
+const Widget = function () {
     const [lang, setLang] = useRecoilState(languageState);
     const [color, setColor] = useRecoilState(colorThemeState);
 
@@ -31,6 +31,8 @@ export default () => {
         </div >
     );
 }
+
+export default Widget;
 
 const setLanguage = (lang: string, setLang: any) => {
     if (lang.startsWith("en")) setLang("jp");

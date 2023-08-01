@@ -2,7 +2,7 @@ import HeaderLink from "./headerLink/pages";
 import Logo from "@/components/logo/page";
 import styles from "./styles.module.scss"
 
-export default () => {
+const Header = function () {
     return (
         <header className={styles.header}>
             <ul>
@@ -15,3 +15,5 @@ export default () => {
         </header >
     );
 }
+
+export default Header;

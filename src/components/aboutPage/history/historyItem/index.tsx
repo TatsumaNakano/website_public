@@ -6,7 +6,7 @@ interface propsType {
     isCurrent: boolean
 }
 
-export default ({ data, isCurrent }: { data: any, isCurrent: boolean }) => {
+const HistoryItem = function ({ data, isCurrent }: { data: any, isCurrent: boolean }) {
     var org = data.organization
     var style = isCurrent ? styles.current : styles.past
     return (
@@ -20,3 +20,5 @@ export default ({ data, isCurrent }: { data: any, isCurrent: boolean }) => {
         </div>
     )
 }
+
+export default HistoryItem;

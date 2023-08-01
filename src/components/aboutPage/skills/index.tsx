@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styles from "./styles.module.scss"
 
-export default () => {
+const Skills = function () {
     return (
         <div className={styles.skills}>
             <h1 className='en'>Services</h1>
@@ -48,3 +48,5 @@ export default () => {
         </div>
     )
 }
+
+export default Skills;
