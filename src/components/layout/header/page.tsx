@@ -24,11 +24,11 @@ import JPIcon from "@/assets/icons/icon_lang_JP.svg"
 const Header = function () {
 
     const [lang, setLang] = useRecoilState(languageState);
-    const [color, setColor] = useRecoilState(colorThemeState);
-    const iconColor = color == "light" ? "white" : "black";
+    // const [color, setColor] = useRecoilState(colorThemeState);
+    // const iconColor = color == "light" ? "white" : "black";
 
-    var langIcon = <ENIcon fill={iconColor} />;
-    langIcon = lang == "en" ? <ENIcon fill={iconColor} /> : <JPIcon fill={iconColor} />
+    var langIcon = <ENIcon />;
+    langIcon = lang == "en" ? <ENIcon /> : <JPIcon />
 
 
     return (
@@ -37,16 +37,16 @@ const Header = function () {
             <Logo />
             <ul>
                 <HeaderLink href="/" name_en="Work" name_jp="過去の案件">
-                    <WorkIcon fill={iconColor} />
+                    <WorkIcon />
                 </HeaderLink>
                 <HeaderLink href="/lab" name_en="Lab" name_jp="個人制作">
-                    <LabIcon fill={iconColor} />
+                    <LabIcon />
                 </HeaderLink>
                 <HeaderLink href="/blog" name_en="Blog" name_jp="ブログ">
-                    <BlogIcon fill={iconColor} />
+                    <BlogIcon />
                 </HeaderLink>
                 <HeaderLink href="/about" name_en="About" name_jp="あなたはだあれ">
-                    <AboutIcon fill={iconColor} />
+                    <AboutIcon />
                 </HeaderLink>
                 {/* <HeaderLink name_en="Language" name_jp="言語">
                     {langIcon}

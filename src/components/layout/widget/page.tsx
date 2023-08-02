@@ -24,10 +24,10 @@ const Widget = function () {
         <div className={styles.widget}>
             <div className={styles.buttons}>
                 <ul>
-                    <li onClick={() => setLanguage(lang, setLang)}>{langIcon}</li>
-                    <li ><Icon_search fill={iconColor} /></li>
-                    <li><Icon_msg fill={iconColor} /></li>
-                    <li onClick={() => setColorTheme(color, setColor)}><Icon_switch fill={iconColor} /></li>
+                    <li onClick={() => { setLang(lang === "en" ? "ja" : "en") }}>{langIcon}</li>
+                    <li onClick={() => { search() }}><Icon_search fill={iconColor} /></li>
+                    <li onClick={() => { message() }}><Icon_msg fill={iconColor} /></li>
+                    <li onClick={() => { setColor(color === "light" ? "dark" : "light") }}><Icon_switch fill={iconColor} /></li>
                 </ul>
             </div>
             {/* <div className={styles.options}></div> */}
@@ -37,12 +37,20 @@ const Widget = function () {
 
 export default Widget;
 
-const setLanguage = (lang: string, setLang: any) => {
-    if (lang.startsWith("en")) setLang("ja");
-    else if (lang.startsWith("ja")) setLang("en");
+const search = () => {
+
 }
 
-const setColorTheme = (color: string, setColor: any) => {
-    if (color == "dark") setColor("light");
-    else if (color == "light") setColor("dark");
+const message = () => {
+
 }
+
+// const setLanguage = (lang: string, setLang: any) => {
+//     if (lang.startsWith("en")) setLang("ja");
+//     else if (lang.startsWith("ja")) setLang("en");
+// }
+
+// const setColorTheme = (color: string, setColor: any) => {
+//     if (color == "dark") setColor("light");
+//     else if (color == "light") setColor("dark");
+// }

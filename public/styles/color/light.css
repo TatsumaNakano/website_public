@@ -3,6 +3,8 @@
     --primary: black;
     --secondary: gray;
     --tertiary: rgb(180, 180, 180);
-    --accent: #00acff;
+    --accent: #ffdd80;
     --accent-gradient: linear-gradient(0, #008be5 0%, #003de5 100%);
+    --header-shadow: rgba(10, 10, 10, 0);
+    --header-text-color: var(--primary);
 }

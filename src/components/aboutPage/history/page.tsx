@@ -40,7 +40,7 @@ var history = [
     {
         time: "Jan 2014 - Dec 2017",
         title: "<span class='en'>Bachelor of Fine Art | Web Design & New Media</span><span class='jp'>学士（美術）| ウェブデザイン＆ニューメディア学部（現IxD）</span>",
-        organization: "Academy of Art University",
+        organization: "<a href='https://www.academyart.edu//'>Academy of Art University</a>",
         description: `<span class='en'>I have studied UI/UX designs and development, primarily for websites, mobile applications, and VR/AR experiences.</span>
                     <span class='jp'>主にウェブサイトやアプリ、VR/ARのUI・UXのデザインと開発の授業を受講しました。</span>`
     },

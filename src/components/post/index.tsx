@@ -18,13 +18,13 @@ export default function PostTemplate(data: any, props: any) {
         hljs.highlightAll();
     }, [hljs]);
 
-    // console.log(data);
+    const jpTitle = data.data.post.post_setting.jptitle ? data.data.post.post_setting.jptitle : data.data.post.title
 
     return (
         <div className={styles.post}>
             <h1>
                 <span className="en">{data.data.post.title}</span>
-                <span className="jp">{data.data.post.post_setting.jptitle}</span>
+                <span className="jp">{jpTitle}</span>
             </h1>
             <div dangerouslySetInnerHTML={{ __html: data.data.post.content }}></div>
         </div>

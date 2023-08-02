@@ -18,9 +18,10 @@ const HeaderLink = function ({ href, name_en, name_jp, children }: LinkProps) {
             <li className={styles.listItem}>
 
                 <Link href={href}>
+                    <div></div>
                     <span className='en'>{name_en}</span>
                     <span className='jp'>{name_jp}</span>
-                    <div></div>
+
                     {children}
                 </Link>
 
@@ -31,9 +32,10 @@ const HeaderLink = function ({ href, name_en, name_jp, children }: LinkProps) {
             <li className={styles.listItem}>
 
                 <a>
+                    <div></div>
                     <span className='en'>{name_en}</span>
                     <span className='jp'>{name_jp}</span>
-                    <div></div>
+
                     {children}
                 </a>
 
