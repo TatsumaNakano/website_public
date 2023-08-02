@@ -1,9 +1,13 @@
+@use "../../../styles/breakpoints.scss" as bp;
+
 .header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    // margin: 2rem 0;
+    justify-content: space-between;
+    margin: 0 auto;
     // margin-bottom: 2rem;
+    max-width: map-get(bp.$breakpoints, tablet);
+    height: 200px;
 
     ul {
         display: flex;
@@ -11,8 +15,6 @@
         padding: 0;
         align-items: center;
         justify-content: space-evenly;
-        width: 900px;
-        height: 200px;
 
     }
 }

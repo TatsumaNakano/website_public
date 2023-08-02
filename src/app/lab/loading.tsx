@@ -1,9 +1,7 @@
+import LoadingTemplate from "@/components/loading";
+
 const Loading = () => {
-    return (
-        <div style={{ color: "white" }}>
-            Loading
-        </div>
-    );
+    return <LoadingTemplate />;
 }
 
 export default Loading;

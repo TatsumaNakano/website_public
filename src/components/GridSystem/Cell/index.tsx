@@ -9,7 +9,8 @@ interface propsType {
     gap?: string,
     showTitle?: boolean,
     showBorder?: boolean,
-    showDate?: boolean
+    showDate?: boolean,
+    borderGlow?: boolean
 }
 
 
@@ -20,7 +21,8 @@ const Cell = ({ post,
     gap = "8px",
     showTitle = false,
     showBorder = false,
-    showDate = false }: propsType) => {
+    showDate = false,
+    borderGlow = false }: propsType) => {
 
     const bg = post.post_setting.thumbnail ? { backgroundImage: `url(${post.post_setting.thumbnail.sourceUrl})` } : {};
     const jpTitle = post.post_setting.jptitle ? post.post_setting.jptitle : post.title;
@@ -39,7 +41,7 @@ const Cell = ({ post,
     const dateComponent = showDate ?
         (<>
             <label className="en">{date.toDateString()}</label>
-            <label className="jp">{`${date.getFullYear()}年${date.getMonth()}月${date.getDate()}日`}</label>
+            <label className="jp">{`${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`}</label>
         </>)
         : null
 
@@ -48,9 +50,11 @@ const Cell = ({ post,
         gridRowEnd: `span ${height}`
     }
 
+    const borderGlowStyle = borderGlow ? styles.borderGlow : null;
+
     return (
         <div className={styles.cell} style={gridStyle}>
-            <Link href={path + "/" + post.slug} className={styles.gridItem} style={borderStyle}>
+            <Link href={path + "/" + post.slug} className={`${styles.gridItem} ${borderGlowStyle}`} style={borderStyle}>
                 <div className={styles.glow} style={bg}></div>{ /*For glow*/}
                 <div className={styles.main} style={bg}>
                     <div className={styles.imageWrapper}>

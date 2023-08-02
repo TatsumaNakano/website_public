@@ -17,6 +17,8 @@
     position: relative;
 
     border-color: var(--primary);
+    background-color: var(--background);
+
     border-width: 3px;
 
     @include c.box;
@@ -85,7 +87,7 @@
 
     >div.main:hover {
         filter: brightness(1.2);
-        transition: filter 0.2s ease-out;
+        transition: filter 0.5s ease-out;
     }
 
     >div.glow {
@@ -95,31 +97,66 @@
         mix-blend-mode: hard-light;
     }
 
-    // >div:last-child {
-    //     // pointer-events: none;
-    // }
-
     &:hover {
         div.glow {
             filter: brightness(5) saturate(5) blur(18px) opacity(0.4);
-            transition: filter 0.5s ease-out;
+            transition: filter 0.3s ease-out;
 
         }
     }
-
-    // div:hover:first-child {
-    //     filter: saturate(3) brightness(10) blur(20px) opacity(0.);
-    //     transition: all 0.5s ease-in-out;
-    // }
-
-
-    // div:first-child:hover {
-    //     filter: saturate(100) blur(30px) opacity(0.1);
-    // }
 
     label {
         font-size: 1em;
         color: var(--secondary);
     }
 
+    //////////////////////////////////
+    // ANIMATION /////////////////////
+    //////////////////////////////////
+
+    @keyframes show {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    animation: show 0.5s;
+
+    // $delay-increment: 0.05;
+
+    // &:nth-child(1) {
+    //     animation-delay: 0.5s;
+    // }
+
+    // &:nth-child(2) {
+    //     animation-delay: ($delay-increment*2)s;
+    // }
+
+    // &:nth-child(3) {
+    //     animation-delay: $delay-increment*3;
+    // }
+
+    // &:nth-child(4) {
+    //     animation-delay: $delay-increment*4;
+    // }
+
+    // &:nth-child(5) {
+    //     animation-delay: $delay-increment*5;
+    // }
+
+
+}
+
+.borderGlow {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    transition: filter 0.5s ease-out;
+
+    &:hover {
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+        transition: filter 0.3s ease-out;
+    }
 }

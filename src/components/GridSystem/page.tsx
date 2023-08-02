@@ -12,7 +12,8 @@ interface propsType {
     gap?: number,
     showTitle?: boolean,
     showBorder?: boolean,
-    showDate?: boolean
+    showDate?: boolean,
+    borderGlow?: boolean
 }
 
 const GridSystem = function ({ data,
@@ -21,7 +22,8 @@ const GridSystem = function ({ data,
     gap = 8,
     showTitle = false,
     showBorder = false,
-    showDate = false }:
+    showDate = false,
+    borderGlow = false }:
     propsType) {
 
     if (data == undefined) return null;
@@ -30,7 +32,7 @@ const GridSystem = function ({ data,
 
 
     return (
-        <Grid posts={posts} path={path} columns={columns} gap={gap} showTitle={showTitle} showBorder={showBorder} showDate={showDate} />
+        <Grid posts={posts} path={path} columns={columns} gap={gap} showTitle={showTitle} showBorder={showBorder} showDate={showDate} borderGlow={borderGlow} />
     )
 }
 

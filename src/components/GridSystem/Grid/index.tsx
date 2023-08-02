@@ -11,7 +11,8 @@ interface propType {
     gap: number,
     showTitle?: boolean,
     showBorder?: boolean,
-    showDate?: boolean
+    showDate?: boolean,
+    borderGlow?: boolean
 }
 
 const Grid = ({
@@ -21,7 +22,8 @@ const Grid = ({
     gap,
     showTitle = false,
     showBorder = false,
-    showDate = false }: propType) => {
+    showDate = false,
+    borderGlow = false }: propType) => {
 
     const [containerWidth, setContainerWidth] = useState(0);
     const elementRef = useRef(null);
@@ -62,7 +64,7 @@ const Grid = ({
     return (
         <div className={styles.grid} style={gridStyle} ref={elementRef}>
             {posts.map((post: any, index: number) => {
-                return <Cell width={post.post_setting.width} height={post.post_setting.height} post={post} path={path} key={index} showTitle={showTitle} showBorder={showBorder} showDate={showDate} />
+                return <Cell width={post.post_setting.width} height={post.post_setting.height} post={post} path={path} key={index} showTitle={showTitle} showBorder={showBorder} showDate={showDate} borderGlow={borderGlow} />
             })}
         </div>
     )

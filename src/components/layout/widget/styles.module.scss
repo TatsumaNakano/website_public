@@ -1,6 +1,8 @@
-$icon-size: 18px;
-$width: $icon-size+20px;
-$min-height: $icon-size*6+20px;
+@use "../../../styles/breakpoints.scss" as bp;
+
+$icon-size: 1.618rem;
+$width: $icon-size+1rem;
+$min-height: $icon-size*6+1rem;
 
 .widget {
     width: $width;
@@ -14,7 +16,7 @@ $min-height: $icon-size*6+20px;
         width: $width;
         height: $min-height;
         background: var(--background);
-        border: solid 1.25px var(--primary);
+        border: solid 2px var(--tertiary);
         border-radius: 999px;
         display: flex;
         justify-content: center;
@@ -46,5 +48,15 @@ $min-height: $icon-size*6+20px;
         top: 0;
         background-color: gray;
         // border-radius: 50px;
+    }
+
+    @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
+        //Desktop
+
+    }
+
+    @media screen and (max-width: map-get(bp.$breakpoints, tablet)) {
+        //Mobile & Tablet
+        display: none;
     }
 }

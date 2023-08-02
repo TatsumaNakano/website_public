@@ -3,6 +3,7 @@
 .blog {
     display: flex;
 
+
     @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
         flex-direction: row;
 

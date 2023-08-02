@@ -1,6 +1,18 @@
+@use "../../styles/breakpoints.scss" as bp;
+
 .sideBar {
-    border: solid 1px white;
+    border: solid 1px var(--tertiary);
     border-radius: 30px;
+
+    @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
+        //Desktop
+        height: 500px;
+    }
+
+    @media screen and (max-width: map-get(bp.$breakpoints, tablet)) {
+        //Mobile & Tablet
+        // height: 500px;
+    }
 
     >div {
         height: 100%;
@@ -24,6 +36,10 @@
                 height: 100%;
                 border-radius: 999999px;
             }
+        }
+
+        p {
+            color: var(--primary);
         }
     }
 

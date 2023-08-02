@@ -8,7 +8,7 @@ const Blog = async function () {
     if (res == undefined) return null;
 
     return (
-        <GridSystem columns={[1, 2, 2]} data={res.data} path={"/blog"} gap={25} showTitle={true} showBorder={true} showDate={true} />
+        <GridSystem columns={[1, 2, 2]} data={res.data} path={"/blog"} gap={25} showTitle={true} showBorder={true} showDate={true} borderGlow={true} />
     )
 }
 

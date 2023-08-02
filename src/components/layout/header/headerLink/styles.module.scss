@@ -1,14 +1,94 @@
 .listItem {
 
-    text-decoration: none;
+    $icon-size: 1.618rem;
+    $icon-click-size: 70px;
+
     list-style: none;
-    padding: 0;
-    letter-spacing: -0.08em;
+    // padding: 0;
+    // letter-spacing: -0.08em;
+
+    // width: $icon-click-size;
+    // height: $icon-click-size;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    position: relative;
+    // cursor: pointer;
+
+
+
 
     a {
+        width: $icon-click-size;
+        height: $icon-click-size;
+
         text-decoration: none;
         color: var(--primary);
         font-size: 1.2rem;
         font-weight: 800;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        position: relative;
+
+        span {
+            color: var(--background);
+
+            position: absolute;
+            filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0));
+            transition: color 0.12s ease-in-out, filter 0.12s ease-in-out;
+            bottom: 55px;
+            font-size: 0.618rem;
+        }
+
+        div {
+
+            width: $icon-click-size;
+            height: 90px;
+            background-color: var(--accent);
+            // border: solid 1px white;
+            position: absolute;
+            border-radius: 99999px;
+            // top: -50%;
+            // left: -50%;
+            bottom: 0;
+            // transform: translate(-50% -50%);
+            scale: 0;
+            opacity: 0;
+
+            filter: blur(30px);
+            transition: scale 0.1s ease-in-out, opacity 0.1s ease-in-out;
+        }
+
+        svg {
+            width: $icon-size;
+            height: $icon-size;
+            z-index: 1;
+
+        }
+
+    }
+
+
+
+    &:hover {
+        div {
+            scale: 1;
+            opacity: 1;
+            // filter: drop-shadow(0 0 10px var(--accent));
+            // transition: filter 0.1s ease-in-out;
+            transition: scale 0.1s ease-in-out, opacity 0.1s ease-in-out;
+        }
+
+        span {
+
+            filter: drop-shadow(0 2px 3px var(--secondary));
+            color: var(--primary);
+            transition: color 0.12s ease-in-out, filter 0.12s ease-in-out;
+
+
+
+        }
     }
 }
