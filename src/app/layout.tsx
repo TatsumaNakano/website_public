@@ -4,9 +4,9 @@ import '../styles/global.scss'
 import type { Metadata } from 'next'
 import { M_PLUS_1p } from 'next/font/google'
 
-import Header from "../components/layout/header/page"
+import Header from "../components/layout/header"
 import Footer from "../components/layout/footer/page"
-import Widget from "../components/layout/widget/page"
+import Widget from "../components/layout/widget"
 
 import styles from "../styles/layout.module.scss"
 // import { languageState } from '@/states'
@@ -14,6 +14,7 @@ import styles from "../styles/layout.module.scss"
 import RecoilWrapper from '@/components/recoilWrapper'
 import HtmlWrapper from '@/components/htmlWrapper'
 import ConsoleMessage from '@/components/layout/consoleMessage/page'
+import MobileMenu from '@/components/layout/mobileMenu'
 
 import Head from 'next/head'
 
@@ -30,6 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
+
   return (
     <RecoilWrapper>
       <HtmlWrapper>
@@ -40,9 +42,13 @@ export default function RootLayout({
 
         <body className={inter.className}>
           <Header />
-          <main className={styles.contents}>{children}</main>
+          <main className={styles.contents}>
+            {children}
+            {<MobileMenu />}
+          </main>
           <Footer />
           <Widget />
+
         </body>
         <ConsoleMessage />
 

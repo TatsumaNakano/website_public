@@ -18,9 +18,11 @@ export default function PostTemplate(data: any, props: any) {
         hljs.highlightAll();
     }, [hljs]);
 
-    const jpTitle = data.data.post.post_setting.jptitle ? data.data.post.post_setting.jptitle : data.data.post.title
+    // console.log(javascript);
 
+    const jpTitle = data.data.post.post_setting.jptitle ? data.data.post.post_setting.jptitle : data.data.post.title
     return (
+
         <div className={styles.post}>
             <h1>
                 <span className="en">{data.data.post.title}</span>

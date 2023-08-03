@@ -1,26 +1,16 @@
-.listItem {
+// $transition-fast: var(--transition-speed-fast);
 
+.listItem {
     $icon-size: 1.618rem;
     $icon-click-size: 80px;
-
     list-style: none;
-    // padding: 0;
-    // letter-spacing: -0.08em;
-
-    // width: $icon-click-size;
-    // height: $icon-click-size;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     position: relative;
-    // cursor: pointer;
 
     a {
         width: $icon-click-size;
         height: $icon-click-size;
 
         text-decoration: none;
-        // color: var(--tertiary);
         font-size: 1.2rem;
         font-weight: 800;
         display: flex;
@@ -33,7 +23,7 @@
             color: var(--background);
 
             position: absolute;
-            filter: brightness(1);
+            filter: drop-shadow(0 0 0 var(--background)) brightness(1);
             transition: color 0.12s ease-in-out, filter 0.12s ease-in-out;
             bottom: 55px;
             font-size: 0.618rem;
@@ -44,18 +34,14 @@
             width: $icon-click-size;
             height: 90px;
             background-color: var(--accent);
-            // border: solid 1px white;
             position: absolute;
             border-radius: 99999px;
-            // top: -50%;
-            // left: -50%;
             bottom: 0;
-            // transform: translate(-50% -50%);
             scale: 0;
             opacity: 0;
 
             filter: blur(30px);
-            transition: scale 0.1s ease-in-out, opacity 0.1s ease-in-out;
+            transition: scale var(--transition-speed-fast) ease-in-out, opacity var(--transition-speed-fast) ease-in-out;
         }
 
         svg {
@@ -64,7 +50,7 @@
             z-index: 1;
             fill: var(--primary);
             filter: brightness(1) drop-shadow(0 0 5px rgba(0, 0, 0, 0));
-            transition: fill 0.1s ease-in-out, filter 0.1s ease-in-out;
+            transition: fill var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
         }
 
     }
@@ -75,25 +61,62 @@
         div {
             scale: 1;
             opacity: 1;
-            // filter: drop-shadow(0 0 10px var(--accent));
-            // transition: filter 0.1s ease-in-out;
-            transition: scale 0.1s ease-in-out, opacity 0.1s ease-in-out;
+            transition: scale var(--transition-speed-fast) ease-in-out, opacity var(--transition-speed-fast) ease-in-out;
         }
 
         span {
 
-            // filter: var(--header-dropshadow);
             color: var(--header-text-color);
-            filter: brightness(1.7);
-            transition: color 0.12s ease-in-out, filter 0.12s ease-in-out;
+            filter: drop-shadow(0 0 2px var(--accent-bright)) brightness(1.7);
+            transition: color var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
 
         }
 
         svg {
-            // fill: var(--accent);
             filter: brightness(2) drop-shadow(0 5px 2px var(--header-shadow));
-            transition: fill 0.1s ease-in-out, filter 0.1s ease-in-out;
+            transition: fill var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
 
         }
+    }
+}
+
+.listItemMobile {
+    $icon-size-mobile: 1.618rem;
+    $icon-click-size-mobile: 80px;
+
+    a {
+        width: 100%;
+        height: $icon-click-size-mobile;
+        display: flex;
+        text-decoration: none;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+                width: $icon-size-mobile;
+                height: $icon-size-mobile;
+                fill: var(--primary);
+                transition: fill var(--transition-speed-fast);
+            }
+
+            span {
+                width: 100%;
+                color: var(--primary);
+                transition: fill var(--transition-speed-fast);
+            }
+        }
+
+        div:first-child {
+            min-width: $icon-click-size-mobile;
+            height: $icon-click-size-mobile;
+        }
+
+        div:last-child {
+            width: calc(100vw - $icon-click-size-mobile);
+        }
+
     }
 }

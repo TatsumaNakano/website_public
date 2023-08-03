@@ -27,4 +27,10 @@ export const initState = ({ set }: { set: any }) => {
 export const colorThemeState = atom({
     key: "colorTheme",
     default: "light" //light
+})
+
+
+export const mobileMenuState = atom({
+    key: "mobileMenu",
+    default: false
 })  

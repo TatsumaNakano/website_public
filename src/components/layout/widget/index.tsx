@@ -10,7 +10,7 @@ import Icon_switch from "../../../assets/icons/icon_theme.svg"
 import { useRecoilState } from "recoil"
 import { languageState, colorThemeState } from "@/states"
 
-const Widget = function () {
+const Widget = function ({ forMobile = false }: { forMobile?: boolean }) {
     const [lang, setLang] = useRecoilState(languageState);
     const [color, setColor] = useRecoilState(colorThemeState);
 
@@ -20,8 +20,10 @@ const Widget = function () {
     // if (typeof (window) !== undefined) {
     langIcon = lang == "en" ? <Icon_lang_EN fill={iconColor} /> : <Icon_lang_JP fill={iconColor} />
     // }
+
+    const style = forMobile ? styles.widgetMobile : styles.widget;
     return (
-        <div className={styles.widget}>
+        <div className={style}>
             <div className={styles.buttons}>
                 <ul>
                     <li onClick={() => { setLang(lang === "en" ? "ja" : "en") }}>{langIcon}</li>

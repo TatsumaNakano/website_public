@@ -8,7 +8,7 @@ $min-height: $icon-size*6+1rem;
     width: $width;
     min-height: $min-height;
     position: fixed;
-    right: 10px;
+
     top: 50%;
     transform: translateY(-50%);
 
@@ -50,13 +50,54 @@ $min-height: $icon-size*6+1rem;
         // border-radius: 50px;
     }
 
-    @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
+    @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
         //Desktop
-
+        right: 10px;
+        transition: right 0.2s ease-in-out;
     }
 
-    @media screen and (max-width: map-get(bp.$breakpoints, tablet)) {
+    @media screen and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
         //Mobile & Tablet
-        display: none;
+        right: -50px;
+        transition: right 0.2s ease-in-out;
+    }
+}
+
+$icon-click-size: 80px;
+
+.widgetMobile {
+    width: 100%;
+    height: $icon-click-size;
+
+    .buttons {
+        width: 100%;
+        height: 100%;
+
+        ul {
+            width: 100%;
+            // max-width: 500px;
+            height: 100%;
+            padding: 0;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            li {
+                width: $icon-click-size;
+                height: $icon-click-size;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                svg {
+                    width: $icon-size;
+                    height: $icon-size;
+
+                    transition: fill var(--transition-speed-fast);
+                }
+            }
+        }
     }
 }

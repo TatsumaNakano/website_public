@@ -1,18 +1,25 @@
+@use "./breakpoints.scss" as bp;
+
 @mixin box {
-    border-radius: 50px;
+
+    border-radius: 4.235rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    // filter: drop-shadow(0px 0px 20px #FFFFFF66);
-    // filter: drop-shadow(0px 0px 2px #8a8a8a);
 
-    // :hover {
-    //     filter: drop-shadow(0px 0px 5px #c9c9c9);
+    // @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+    //     //Desktop
+    //     border-radius: 4.235rem;
+    // }
+
+    // @media screen and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+    //     //Mobile & Tablet
+    //     border-radius: 2.617rem;
     // }
 }
 
 @mixin box_spacing_common {
-    margin-bottom: 2rem;
+    margin-bottom: 2.617rem;
 }
 
 @mixin box_min_height {
@@ -22,11 +29,11 @@
 @mixin heading {
     font-size: 1rem;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.618rem;
     font-weight: 800;
     color: var(--secondary);
 }
 
 @mixin section {
-    margin-top: 10rem;
+    margin-top: 11.089rem;
 }

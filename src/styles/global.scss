@@ -4,6 +4,8 @@
     --mobile: #{map-get(bp.$breakpoints, mobile)};
     --tablet: #{map-get(bp.$breakpoints, tablet)};
     --desktop: #{map-get(bp.$breakpoints, desktop)};
+    --transition-speed-normal: 0.5s ease-in-out;
+    --transition-speed-fast: 0.2s ease-in-out;
 }
 
 * {
@@ -16,6 +18,7 @@
 
 html {
     background-color: var(--background);
+    transition: background 0.2s ease-in-out;
 
     body {
         margin: 0;

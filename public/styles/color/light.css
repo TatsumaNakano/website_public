@@ -4,7 +4,8 @@
     --secondary: gray;
     --tertiary: rgb(180, 180, 180);
     --accent: #ffdd80;
+    --accent-bright: #ffedba;
     --accent-gradient: linear-gradient(0, #008be5 0%, #003de5 100%);
     --header-shadow: rgba(10, 10, 10, 0);
-    --header-text-color: var(--primary);
+    --header-text-color: var(--accent);
 }
