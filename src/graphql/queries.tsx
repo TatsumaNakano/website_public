@@ -108,6 +108,30 @@ export const GET_BLOG_POSTS_LIST = `
 }
 `
 
+export const GET_ALLPOSTS = `
+{
+  posts {
+    nodes {
+      content
+      tags {
+        nodes {
+          name
+        }
+      }
+      slug
+      title
+      date
+      categories {
+        nodes {
+          name
+          slug
+        }
+      }
+    }
+  }
+}
+`
+
 export const GET_POST = (id: string) => {
   return `
         {

@@ -6,11 +6,11 @@ import styles from "./styles.module.scss"
 import { Suspense } from 'react'
 import Link from "next/link";
 import Widget from "../widget";
-import MobileMenu from "../mobilePageNavigator"
+import MobileMenu from "../../mobile/mobilePageNavigator"
 
 import { useRecoilState } from "recoil";
 import React, { useEffect, useState, useRef } from 'react';
-import { languageState, mobileMenuState, headerShrinkState, headerHeightState } from "@/states";
+import { languageState, mobileMenuState, headerShrinkState, headerHeightState, mobileSearchState } from "@/states";
 
 import WorkIcon from "@/assets/icons/icon_home.svg"
 import LabIcon from "@/assets/icons/icon_lab.svg"
@@ -25,7 +25,8 @@ import ThemeIcon from "@/assets/icons/icon_theme.svg"
 import ENIcon from "@/assets/icons/icon_lang_EN.svg"
 import JPIcon from "@/assets/icons/icon_lang_JP.svg"
 
-import MobileSettingView from '@/components/mobileSettingView'
+import MobileSettingView from '@/components/mobile/mobileSettingView'
+import MobileSearchView from '@/components/mobile/mobileSearchView'
 
 
 const Header = function () {
@@ -34,29 +35,30 @@ const Header = function () {
     const [menuVisible, setMenuVisible] = useRecoilState(mobileMenuState);
     const [headerShrink, setHeaderShrinkState] = useRecoilState(headerShrinkState);
     const [headerHeight, setHeaderHeightState] = useRecoilState(headerHeightState);
+    const [searchVisible, setSearchVisible] = useRecoilState(mobileSearchState);
+
     const headerRef = useRef<any>(null);
 
-    const getScroll = () => {
+    const setScroll = () => {
         setHeaderShrinkState(window.scrollY > 80);
     };
 
-    const getHeight = () => {
+    const setHeight = () => {
         setHeaderHeightState(headerRef.current.offsetHeight);
     }
 
-
     useEffect(() => {
 
-        getHeight();
-        getScroll();
+        setHeight();
+        setScroll();
         if (headerRef.current != null) {
-            document.addEventListener("scroll", () => { getScroll(); });
-            window.addEventListener("resize", getHeight);
+            document.addEventListener("scroll", () => { setScroll(); });
+            window.addEventListener("resize", setHeight);
         }
 
         return () => {
-            document.removeEventListener("scroll", () => { getScroll(); });
-            window.removeEventListener("resize", getHeight);
+            document.removeEventListener("scroll", () => { setScroll(); });
+            window.removeEventListener("resize", setHeight);
         };
     }, [])
 
@@ -89,10 +91,10 @@ const Header = function () {
                         </ul>
                         <ul className={styles.mobile}>
 
-                            <HeaderLink method={() => setMenuVisible(!menuVisible)} name_en="Setting" name_jp="設定">
+                            <HeaderLink method={() => { setMenuVisible(!menuVisible); }} name_en="Setting" name_jp="設定">
                                 <SettingIcon />
                             </HeaderLink>
-                            <HeaderLink method={openSearch} name_en="Search" name_jp="サイト内検索">
+                            <HeaderLink method={() => { setSearchVisible(!searchVisible); setHeight(); }} name_en="Search" name_jp="サイト内検索">
                                 <SearchIcon />
                             </HeaderLink>
 
@@ -100,17 +102,11 @@ const Header = function () {
                     </div>
                 </div>
                 <MobileSettingView />
+                <MobileSearchView />
             </div>
         </header >
     );
 }
 
-const openSetting = () => {
-
-}
-
-const openSearch = () => {
-
-}
 
 export default Header;

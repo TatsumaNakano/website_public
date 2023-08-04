@@ -7,7 +7,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     // z-index: 999;
+    h1 {
+        color: var(--primary);
+    }
 
     div {
         $icon-size: 100px;

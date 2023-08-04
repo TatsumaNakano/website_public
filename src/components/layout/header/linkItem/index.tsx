@@ -4,6 +4,10 @@ import Link from 'next/link'
 import React, { Component } from 'react'
 import styles from "./styles.module.scss"
 // import { useSearchParams } from "next/navigation";
+import { useRecoilState } from "recoil";
+import { mobileMenuState, mobileSearchState } from "@/states";
+
+
 
 interface LinkProps {
     href?: string,
@@ -18,13 +22,23 @@ const linkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
 
     // const router = useSearchParams();
     // console.log(router)
+    const [menuVisible, setMenuVisible] = useRecoilState(mobileMenuState);
+    const [searchVisible, setSearchVisible] = useRecoilState(mobileSearchState);
+
+    const onClickFunc = () => {
+        method();
+        if (menuVisible) setMenuVisible(false);
+        if (searchVisible) setSearchVisible(false);
+
+    }
+
 
     if (!forMobileMenuIcon) {//forMobileMenuIcon is the icon setting for the bottom bar. This is not for the mobile menu on the top
         if (href !== undefined) {
             return (
                 <li className={styles.listItem}>
 
-                    <Link onClick={() => { method() }} href={href}>
+                    <Link onClick={onClickFunc} href={href}>
                         <div></div>
                         <span className='en'>{name_en}</span>
                         <span className='jp'>{name_jp}</span>
@@ -37,7 +51,7 @@ const linkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
         } else if (method !== undefined) {
             return (
                 <li className={styles.listItem}>
-                    <a onClick={() => { method() }}>
+                    <a onClick={onClickFunc}>
                         <div></div>
                         <span className='en'>{name_en}</span>
                         <span className='jp'>{name_jp}</span>
@@ -55,7 +69,7 @@ const linkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
             return (
                 <li className={styles.listItemMobile}>
 
-                    <Link onClick={() => { method() }} href={href}>
+                    <Link onClick={onClickFunc} href={href}>
                         <div>
                             <span className='en'>{name_en}</span>
                             <span className='jp'>{name_jp}</span>
@@ -70,7 +84,7 @@ const linkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
         } else if (method !== undefined) {
             return (
                 <li className={styles.listItemMobile}>
-                    <a onClick={() => { method }}>
+                    <a onClick={onClickFunc}>
                         <div>
                             <span className='en'>{name_en}</span>
                             <span className='jp'>{name_jp}</span>

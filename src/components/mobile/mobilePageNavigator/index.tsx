@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 
 import styles from "./styles.module.scss"
 
-import HeaderLink from "../header/linkItem";
+import HeaderLink from "../../layout/header/linkItem";
 
 import WorkIcon from "@/assets/icons/icon_home.svg"
 import LabIcon from "@/assets/icons/icon_lab.svg"
@@ -21,20 +21,9 @@ import { languageState, mobileMenuState } from "@/states";
 
 const MobilePageBar = function () {
 
-    const thisElement = useRef(null);
-
-    const clickEvent = () => {
-
-    }
-
-    useEffect(() => {
-
-    }, [])
-    const [menuVisible, setMenuVisible] = useRecoilState(mobileMenuState);
-
 
     return (
-        <div className={styles.mobilePageNavigator} ref={thisElement} >
+        <div className={styles.mobilePageNavigator} >
             <ul>
                 <HeaderLink href="/" name_en="Work" name_jp="過去の案件" forMobileMenuIcon={true}>
                     <WorkIcon />
@@ -51,12 +40,7 @@ const MobilePageBar = function () {
                 <HeaderLink name_en="Blog" name_jp="ブログ" forMobileMenuIcon={true}>
                     <MsgIcon />
                 </HeaderLink>
-                {/* <HeaderLink method={() => { setMenuVisible(true) }} name_en="Setting" name_jp="設定" forMobileMenuIcon={true}>
-                    <SettingIcon />
-                </HeaderLink> */}
-
             </ul>
-            {/* <Widget forMobile={true} /> */}
         </div>
     )
     // } else {

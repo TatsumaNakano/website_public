@@ -13,10 +13,14 @@ import Widget from "../components/layout/widget"
 import RecoilWrapper from '@/components/recoilWrapper'
 import HtmlWrapper from '@/components/htmlWrapper'
 import ConsoleMessage from '@/components/layout/consoleMessage/page'
-import MobilePageBar from '@/components/layout/mobilePageNavigator'
+import MobilePageBar from '@/components/mobile/mobilePageNavigator'
 
 import Head from 'next/head'
 import MainWrapper from '@/components/layout/mainWrapper'
+
+import { fetchGQL, GET_ALLPOSTS } from '@/graphql/queries'
+import PassAllPostsToClient from '@/components/passAllPostsToClient'
+
 const inter = M_PLUS_1p({ weight: ["100", "300", "400", "500", "700", "800", "900"], subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -24,11 +28,13 @@ export const metadata: Metadata = {
   description: 'Tatsuma Nakano Website',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+  const allPostsFromWP = await fetchGQL(GET_ALLPOSTS);
 
   return (
     <RecoilWrapper>
@@ -49,6 +55,7 @@ export default function RootLayout({
 
         </body>
         <ConsoleMessage />
+        <PassAllPostsToClient allPostsWP={allPostsFromWP} />
 
       </HtmlWrapper>
     </RecoilWrapper>

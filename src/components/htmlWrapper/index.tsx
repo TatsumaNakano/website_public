@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil"
 import LangTheme from "@/components/langtheme"
 import ColorTheme from '../colorTheme'
 import HighlightTheme from '@/components/highlightTheme'
-import SettingSync from "@/components/settingSync"
+
 const HtmlWrapper = function ({
     children,
 }: {
@@ -18,7 +18,6 @@ const HtmlWrapper = function ({
             <LangTheme />
             <ColorTheme />
             <HighlightTheme />
-            <SettingSync />
             {children}
         </html>
     );

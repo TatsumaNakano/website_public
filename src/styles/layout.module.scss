@@ -1,3 +1,5 @@
+@use "../styles/breakpoints.scss" as bp;
+
 .contents {
     max-width: var(--tablet);
     padding: 2.617924rem;
@@ -6,6 +8,27 @@
     // margin-top: 2.617924rem;
     box-sizing: border-box;
     position: relative;
+
+    ///////////////////
+    //Desktop /////////
+    ///////////////////
+    @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+        padding-top: 23rem;
+    }
+
+    ///////////////////
+    // Tablet /////////
+    ///////////////////
+    @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+        padding-top: 20rem;
+    }
+
+    ///////////////////
+    // Mobile /////////
+    ///////////////////
+    @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+        padding-top: 17rem;
+    }
 }
 
 .blog {

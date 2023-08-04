@@ -34,6 +34,12 @@ export const mobileMenuState = atom({
     default: false
 })
 
+export const mobileSearchState = atom({
+    key: "mobileSearch",
+    default: false
+})
+
+
 export const headerShrinkState = atom({
     key: "headerShrinkState",
     default: false
@@ -42,4 +48,9 @@ export const headerShrinkState = atom({
 export const headerHeightState = atom({
     key: "headerHeightState",
     default: 0
-})  
+})
+
+export const allPosts = atom({
+    key: "allPosts",
+    default: null
+})
