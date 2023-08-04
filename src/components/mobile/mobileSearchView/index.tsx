@@ -13,6 +13,7 @@ const MobileSearchView = () => {
     const [searchVisible, setSearchVisible] = useRecoilState(mobileSearchState);
     const [headerHeight, setHeaderHeight] = useRecoilState(headerHeightState);
     const menuOpenStyle = searchVisible ? styles.show : styles.hide;
+
     const ref = useRef<any>(null);
     var [windowHeight, setWindowHeight] = useState<number>(0);
 
@@ -26,6 +27,11 @@ const MobileSearchView = () => {
         window.addEventListener("resize", register);
         return window.removeEventListener("resize", register)
     }, [])
+
+    useEffect(() => {
+        //Disable scroll on search bar open
+        document.body.style.overflow = searchVisible ? "hidden" : "scroll";
+    }, [searchVisible])
 
 
     return (

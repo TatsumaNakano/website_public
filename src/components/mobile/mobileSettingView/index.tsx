@@ -28,7 +28,7 @@ const MobileSettingView = () => {
 
     const closeMobileMenus = () => {
         setMenuVisible(false);
-        setSearchVisible(false);
+        // setSearchVisible(false);
     }
 
     useEffect(() => {

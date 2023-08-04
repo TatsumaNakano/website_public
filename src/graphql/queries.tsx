@@ -120,6 +120,9 @@ export const GET_ALLPOSTS = `
       }
       slug
       title
+      post_setting {
+        jptitle
+      }
       date
       categories {
         nodes {

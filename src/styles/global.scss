@@ -21,7 +21,14 @@
 html {
     background-color: var(--background);
 
+
     body {
+
         margin: 0;
     }
+}
+
+html,
+body {
+    touch-action: none;
 }
