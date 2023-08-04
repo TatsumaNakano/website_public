@@ -18,7 +18,7 @@ interface LinkProps {
     children: any,
 }
 
-const linkItem = function ({ href, method = () => { }, forMobileMenuIcon = false, name_en, name_jp, children }: LinkProps) {
+const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false, name_en, name_jp, children }: LinkProps) {
 
     // const router = useSearchParams();
     // console.log(router)
@@ -100,4 +100,4 @@ const linkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
 
 }
 
-export default linkItem;
+export default LinkItem;
