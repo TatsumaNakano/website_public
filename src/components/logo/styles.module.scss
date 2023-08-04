@@ -4,6 +4,7 @@
     text-decoration: none;
     padding-left: 2.617924rem;
 
+
     div {
         text-align: center;
         font-size: 1.618rem;
@@ -18,11 +19,13 @@
 
     // @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
     //     //Desktop
-    //     padding-left: 0rem;
+    //     padding-left: 4.2358rem;
     // }
 
     // @media screen and (max-width: map-get(bp.$breakpoints, tablet)) {
     //     //Mobile & Tablet
-    //     padding-left: 2rem;
+    //     padding-left: 2.617924rem;
     // }
+
+    transition: padding var(--transition-speed-fast);
 }

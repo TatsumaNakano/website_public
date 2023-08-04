@@ -9,7 +9,7 @@ const Lab = async function () {
     if (res == undefined) return null;
     return (
         <>
-            <GridSystem columns={[2, 2, 3]} data={res.data} path={"/lab"} gap={10} />
+            <GridSystem columns={[2, 3, 3]} data={res.data} path={"/lab"} gap={10} />
         </>
     )
 }

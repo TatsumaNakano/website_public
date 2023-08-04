@@ -1,0 +1,44 @@
+@use "../../../styles/breakpoints.scss" as bp;
+
+.mobilePageNavigator {
+    width: 100%;
+
+    position: fixed;
+
+    z-index: 8;
+    background-color: var(--background);
+    display: flex;
+
+    flex-direction: row;
+    transition: background var(--transition-speed-fast);
+    border-top: solid 1px var(--tertiary);
+
+    // transform: translateY(600px);
+
+
+    ul {
+        display: flex;
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+        justify-content: space-evenly;
+        margin: 0;
+    }
+
+    @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+        //Desktop
+        bottom: -200px;
+        transition: bottom 0.2s ease-in-out;
+    }
+
+    @media screen and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+        //Mobile & Tablet
+        bottom: 0;
+        transition: bottom 0.2s ease-in-out;
+    }
+
+}
+
+.visible {
+    // transform: translateY(0);
+}

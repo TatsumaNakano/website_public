@@ -23,7 +23,6 @@ export const initState = ({ set }: { set: any }) => {
 
 }
 
-
 export const colorThemeState = atom({
     key: "colorTheme",
     default: "light" //light
@@ -33,4 +32,14 @@ export const colorThemeState = atom({
 export const mobileMenuState = atom({
     key: "mobileMenu",
     default: false
+})
+
+export const headerShrinkState = atom({
+    key: "headerShrinkState",
+    default: false
+})
+
+export const headerHeightState = atom({
+    key: "headerHeightState",
+    default: 0
 })  

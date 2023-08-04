@@ -1,86 +1,209 @@
 @use "../../../styles/breakpoints.scss" as bp;
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    z-index: 9;
-    max-width: map-get(bp.$breakpoints, tablet);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
 
-    position: relative;
-
-    ul.desktop {
-        display: flex;
-        margin: 0;
-        padding: 0;
-        align-items: center;
-        justify-content: space-evenly;
-        position: absolute;
-        right: 0;
-
+    * {
+        transition: all var(--transition-speed-fast);
     }
 
-    ul.mobile {
-        position: absolute;
-        right: 0;
+    >div {
+        width: 100%;
+        max-width: map-get(bp.$breakpoints, tablet);
+        margin: 0 auto;
+        position: relative;
+
+        >div.navigation {
+            width: 100%;
+            max-width: map-get(bp.$breakpoints, tablet);
+            margin: 0 auto;
+            position: relative;
+            z-index: 99;
+            background-color: var(--background);
+
+            >div {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0 auto;
+                z-index: 10;
+                max-width: map-get(bp.$breakpoints, tablet);
+                background-color: var(--background);
+                position: relative;
+
+                ul.desktop {
+                    display: flex;
+                    margin: 0;
+                    padding: 0;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    position: absolute;
+                    right: 0;
+
+                }
+
+                ul.mobile {
+                    // position: absolute;
+                    // right: 0;
+                    display: flex;
+                }
+
+
+
+                ///////////////////
+                //Desktop /////////
+                ///////////////////
+                @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+                    ul.desktop {
+                        // display: none;
+                        padding-right: 0rem;
+
+                        li {
+                            scale: 1;
+
+                        }
+                    }
+
+                    ul.mobile {
+                        // display: none;
+                        pointer-events: none;
+                        padding-right: 2.617924rem;
+
+
+
+                        li {
+                            scale: 0;
+
+                            pointer-events: none;
+                        }
+                    }
+                }
+
+                ///////////////////
+                // Tablet /////////
+                ///////////////////
+                @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+                    ul.desktop {
+                        // display: none;
+                        pointer-events: none;
+                        padding-right: 0;
+
+                        li {
+                            scale: 0;
+
+                            pointer-events: none;
+                        }
+                    }
+
+                    ul.mobile {
+                        // display: none;
+                        margin: 0;
+                        padding: 0;
+                        // padding-right: 2.617924rem;
+
+                        li {
+                            scale: 1;
+
+                        }
+                    }
+
+                }
+
+                ///////////////////
+                // Mobile /////////
+                ///////////////////
+                @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+
+                    ul.desktop {
+                        // display: none;
+                        pointer-events: none;
+                        padding-right: 2.617924rem;
+
+                        li {
+                            scale: 0;
+
+                            pointer-events: none;
+                        }
+                    }
+
+                    ul.mobile {
+                        // display: none;
+                        margin: 0;
+                        padding: 0;
+                        padding-right: 1.2rem;
+
+                        li {
+                            scale: 1;
+
+                        }
+                    }
+
+                }
+            }
+
+        }
+    }
+}
+
+.wide,
+.shrink {}
+
+///////////////////
+//Desktop /////////
+///////////////////
+@media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+    // height: 200px;
+
+    .wide {
+        padding-top: 6.853rem;
+        padding-bottom: 2.617rem;
     }
 
-    transition: margin 0.5s ease-in-out;
-
-    @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
-        // height: 200px;
-        margin-top: 11.089rem;
-        margin-bottom: 2.617rem;
-
-        //Desktop
-        ul.desktop {
-            // display: none;
-
-            li {
-                scale: 1;
-                transition: scale 0.2s ease-in-out;
-            }
-        }
-
-        ul.mobile {
-            // display: none;
-            pointer-events: none;
-
-            li {
-                scale: 0;
-                transition: scale 0.2s ease-in-out;
-                pointer-events: none;
-            }
-        }
+    .shrink {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
-    @media screen and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
-        // height: 11.08rem;
-        margin-top: 6.853rem;
-        margin-bottom: 2.617rem;
+}
 
-        //Mobile & Tablet
-        ul.desktop {
-            // display: none;
-            pointer-events: none;
+///////////////////
+// Tablet /////////
+///////////////////
+@media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
 
-            li {
-                scale: 0;
-                transition: scale 0.2s ease-in-out;
-                pointer-events: none;
-            }
-        }
-
-        ul.mobile {
-            // display: none;
-
-            li {
-                scale: 1;
-                transition: scale 0.2s ease-in-out;
-            }
-        }
-
-        transition: margin 0.2s ease-in-out;
+    // height: 11.08rem;
+    .wide {
+        padding-top: 6.853rem;
+        padding-bottom: 2.617rem;
     }
+
+    .shrink {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+}
+
+///////////////////
+// Mobile /////////
+///////////////////
+@media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+
+    // height: 11.08rem;
+    .wide {
+        padding-top: 6.853rem;
+        padding-bottom: 2.617rem;
+    }
+
+    .shrink {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+
 }

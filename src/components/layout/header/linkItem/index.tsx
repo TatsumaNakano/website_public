@@ -1,8 +1,9 @@
-// "use client"
+"use client"
 
 import Link from 'next/link'
 import React, { Component } from 'react'
 import styles from "./styles.module.scss"
+// import { useSearchParams } from "next/navigation";
 
 interface LinkProps {
     href?: string,
@@ -13,9 +14,12 @@ interface LinkProps {
     children: any,
 }
 
-const HeaderLink = function ({ href, method = () => { }, forMobileMenuIcon = false, name_en, name_jp, children }: LinkProps) {
+const linkItem = function ({ href, method = () => { }, forMobileMenuIcon = false, name_en, name_jp, children }: LinkProps) {
 
-    if (!forMobileMenuIcon) {
+    // const router = useSearchParams();
+    // console.log(router)
+
+    if (!forMobileMenuIcon) {//forMobileMenuIcon is the icon setting for the bottom bar. This is not for the mobile menu on the top
         if (href !== undefined) {
             return (
                 <li className={styles.listItem}>
@@ -52,11 +56,12 @@ const HeaderLink = function ({ href, method = () => { }, forMobileMenuIcon = fal
                 <li className={styles.listItemMobile}>
 
                     <Link onClick={() => { method() }} href={href}>
-                        <div>{children}</div>
                         <div>
                             <span className='en'>{name_en}</span>
                             <span className='jp'>{name_jp}</span>
                         </div>
+                        <div>{children}</div>
+
 
                     </Link>
 
@@ -66,14 +71,12 @@ const HeaderLink = function ({ href, method = () => { }, forMobileMenuIcon = fal
             return (
                 <li className={styles.listItemMobile}>
                     <a onClick={() => { method }}>
-                        <div>{children}</div>
                         <div>
                             <span className='en'>{name_en}</span>
                             <span className='jp'>{name_jp}</span>
                         </div>
-
+                        <div>{children}</div>
                     </a>
-
                 </li>
             )
         } else {
@@ -83,4 +86,4 @@ const HeaderLink = function ({ href, method = () => { }, forMobileMenuIcon = fal
 
 }
 
-export default HeaderLink;
+export default linkItem;

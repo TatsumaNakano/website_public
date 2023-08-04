@@ -1,8 +1,8 @@
 .jp {
-    display: none;
+    display: none !important;
     opacity: 0;
 }
 
 .en {
-    transition: opacity 1 0.5s ease-in;
+    /* transition: opacity 1 0.5s ease-in; */
 }

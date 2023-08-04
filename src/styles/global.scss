@@ -14,11 +14,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
+    transition: all var(--transition-speed-fast);
+
 }
 
 html {
     background-color: var(--background);
-    transition: background 0.2s ease-in-out;
 
     body {
         margin: 0;

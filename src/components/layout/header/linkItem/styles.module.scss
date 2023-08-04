@@ -1,14 +1,59 @@
+@use "../../../../styles/breakpoints.scss" as bp;
 // $transition-fast: var(--transition-speed-fast);
+$icon-size: 1.618rem;
+$icon-click-size: 80px;
+$icon-size-mobile: 1.618rem;
+$icon-click-size-mobile: 60px;
 
 .listItem {
-    $icon-size: 1.618rem;
-    $icon-click-size: 80px;
+
+    // $icon-click-size-mobile: 80px;
     list-style: none;
     position: relative;
 
+    @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+        //Desktop
+        p,
+        a {
+            width: $icon-click-size;
+            height: $icon-click-size;
+        }
+
+    }
+
+    @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+        //Tablet
+        p,
+        a {
+            width: $icon-click-size;
+            height: $icon-click-size;
+        }
+    }
+
+    @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+
+        //Mobile
+        p,
+        a {
+            width: $icon-click-size-mobile;
+            height: $icon-click-size-mobile;
+        }
+    }
+
+    p,
     a {
-        width: $icon-click-size;
-        height: $icon-click-size;
+        // transition: width 0.2s ease-in-out,
+        // height 0.2s ease-in-out;
+    }
+
+    // height var(--transition-speed-fast);
+
+
+
+    a {
+
 
         text-decoration: none;
         font-size: 1.2rem;
@@ -24,7 +69,7 @@
 
             position: absolute;
             filter: drop-shadow(0 0 0 var(--background)) brightness(1);
-            transition: color 0.12s ease-in-out, filter 0.12s ease-in-out;
+            // transition: color 0.12s ease-in-out, filter 0.12s ease-in-out;
             bottom: 55px;
             font-size: 0.618rem;
         }
@@ -81,14 +126,17 @@
 }
 
 .listItemMobile {
-    $icon-size-mobile: 1.618rem;
-    $icon-click-size-mobile: 80px;
+
+    width: $icon-click-size-mobile;
+    height: $icon-click-size-mobile;
+    list-style: none;
 
     a {
-        width: 100%;
+        width: $icon-click-size-mobile;
         height: $icon-click-size-mobile;
         display: flex;
         text-decoration: none;
+        flex-direction: column;
 
         div {
             display: flex;
@@ -106,17 +154,22 @@
                 width: 100%;
                 color: var(--primary);
                 transition: fill var(--transition-speed-fast);
+                text-align: center;
+                font-size: 0.381rem;
+                display: none;
+                position: absolute;
+                bottom: 0;
             }
         }
 
-        div:first-child {
-            min-width: $icon-click-size-mobile;
+        div:last-child {
+            width: $icon-click-size-mobile;
             height: $icon-click-size-mobile;
         }
 
-        div:last-child {
-            width: calc(100vw - $icon-click-size-mobile);
-        }
+        // div:last-child {
+        //     width: calc(100vw - $icon-click-size-mobile);
+        // }
 
     }
 }
