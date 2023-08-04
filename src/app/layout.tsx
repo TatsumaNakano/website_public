@@ -55,7 +55,7 @@ export default async function RootLayout({
 
         </body>
         <ConsoleMessage />
-        <PassAllPostsToClient allPostsWP={allPostsFromWP} />
+        {/* <PassAllPostsToClient allPostsWP={allPostsFromWP} /> */}
 
       </HtmlWrapper>
     </RecoilWrapper>
