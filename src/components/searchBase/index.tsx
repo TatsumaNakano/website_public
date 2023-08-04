@@ -64,19 +64,19 @@ function SearchBase() {
 }
 
 
-function Search(keyword: string, posts: object[]): object[] {
+function Search(keyword: string, posts: any[]): object[] {
     if (keyword == "") return [];
     var searchResults: object[] = [];
 
     // Search from english title of posts
-    for (const item of posts) {
+    for (var item of posts) {
         if (item.title.toLowerCase().includes(keyword)) {
             searchResults.push(item);
         }
     }
 
     // Search from japanese title of posts
-    for (const item of posts) {
+    for (var item of posts) {
 
         if (item.post_setting.jptitle && item.post_setting.jptitle.toLowerCase().includes(keyword)) {
             if (searchResults.indexOf(item) == -1) {//If object doesn't exist on the english search yet
@@ -159,7 +159,7 @@ const generateItemSection = (showSearchResultTag: boolean, searchResults: object
                                 <label className="en">Message</label>
                                 <label className="jp">お問い合わせ</label>
                             </div>
-                            <p className="en">Feel free to drop me a message if you're interested in working together and bringing our ideas to life.</p>
+                            <p className="en">Feel free to drop me a message if you&#39;re interested in working together and bringing our ideas to life.</p>
                             <p className="jp">お仕事の依頼はこちらまで。</p>
                         </Link>
                     </li>
@@ -185,7 +185,7 @@ const FrequentlyViewedItem = (children: any, href: string) => {
 const generateSearchResultListElements = (searchResults: object[], hasInputVal: boolean, setSearchVisible: Function) => {
     var res = null;
     if (searchResults.length > 0) {
-        res = (searchResults.map((item, key) => {
+        res = (searchResults.map((item: any, key) => {
             const categorySlug = item.categories.nodes[0].slug;
             const url = (categorySlug == "work" ? "/" : `/${categorySlug}/`) + item.slug;
             return (<li key={key}>
