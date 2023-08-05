@@ -2,15 +2,13 @@
 
 .mobilePageNavigator {
     width: 100%;
-
     position: fixed;
-
     z-index: 10;
     background-color: var(--background);
     display: flex;
 
     flex-direction: row;
-    transition: background var(--transition-speed-fast);
+    // transition: background var(--transition-speed-fast);
     border-top: solid 1px var(--tertiary);
 
     // transform: translateY(600px);
@@ -28,13 +26,14 @@
     @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
         //Desktop
         bottom: -200px;
-        transition: bottom 0.2s ease-in-out;
+        // transition: bottom 0.2s ease-in-out;
+
     }
 
     @media screen and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
         //Mobile & Tablet
         bottom: 0;
-        transition: bottom 0.2s ease-in-out;
+        // transition: bottom 0.2s ease-in-out;
     }
 
 }

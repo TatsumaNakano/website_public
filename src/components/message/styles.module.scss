@@ -1,6 +1,6 @@
-@use "../../../styles/breakpoints.scss" as bp;
+@use "../../styles/breakpoints.scss" as bp;
 
-.mobileSearchView {
+.message {
     position: absolute;
     left: 0;
     top: 0;
@@ -10,9 +10,10 @@
     background-color: var(--background);
     z-index: 2;
     padding: 2.617924rem;
+    padding-bottom: 0;
     box-sizing: border-box;
     margin: 0 auto;
-
+    // overflow: scroll;
 
     // filter: drop-shadow(0 5px 1px var(--primary))
 

@@ -1,0 +1,85 @@
+[
+    {
+        "page": "/",
+        "keywords": [
+            "work",
+            "仕事"
+        ]
+    },
+    {
+        "page": "/lab",
+        "keywords": [
+            "research",
+            "lab",
+            "研究",
+            "実験"
+        ]
+    },
+    {
+        "page": "/blog",
+        "keywords": [
+            "blog",
+            "ブログ"
+        ]
+    },
+    {
+        "page": "/about",
+        "keywords": [
+            "about",
+            "誰",
+            "tatsuma",
+            "竜磨",
+            "たつま",
+            "タツマ",
+            {
+                "detailedKeywords": [
+                    "what can he do",
+                    "what can you do",
+                    "what can she do",
+                    "何ができる",
+                    "何できる"
+                ]
+            },
+            {
+                "detailedKeywords": [
+                    "resume",
+                    "履歴書",
+                    "履歴"
+                ],
+                "description": {
+                    "en": "My resume is here.",
+                    "jp": "履歴書はこちらのページから。"
+                }
+            },
+            {
+                "detailedKeywords": [
+                    "software",
+                    "ソフトウェア"
+                ],
+                "description": {
+                    "en": "My skills & softwares are here.",
+                    "jp": "使用できるソフトウェア一覧はこちら。"
+                }
+            }
+        ]
+    },
+    {
+        "page": "",
+        "keywords": [
+            {
+                "detailedKeywords": [
+                    "fuck you",
+                    "fuck tatsuma",
+                    "you are stupid",
+                    "you are dumb",
+                    "ばか",
+                    "バカ",
+                    "馬鹿",
+                    "頭悪い",
+                    "あたまわるい",
+                    "死ね"
+                ]
+            }
+        ]
+    }
+]

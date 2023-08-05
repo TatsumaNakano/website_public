@@ -16,14 +16,21 @@ import MsgIcon from "@/assets/icons/icon_message.svg"
 
 import { useRecoilState } from "recoil";
 // import React, { useEffect, useState, useRef } from 'react';
-import { languageState, mobileMenuState } from "@/states";
+import { mobilePageNavigatorHeight, messageViewState } from "@/states";
 
 
 const MobilePageBar = function () {
+    const ref = useRef<any>(null);
+    const [mpnHeight, setMpnHeight] = useRecoilState(mobilePageNavigatorHeight);
+    const [messageVisible, setMessageVisible] = useRecoilState(messageViewState);
 
+    useEffect(() => {
+        if (!ref?.current) return;
+        setMpnHeight(ref.current.offsetHeight);
+    }, [])
 
     return (
-        <div className={styles.mobilePageNavigator} >
+        <div className={styles.mobilePageNavigator} ref={ref}>
             <ul>
                 <HeaderLink href="/" name_en="Work" name_jp="過去の案件" forMobileMenuIcon={true}>
                     <WorkIcon />
@@ -37,7 +44,7 @@ const MobilePageBar = function () {
                 <HeaderLink href="/about" name_en="About" name_jp="あなたはだあれ" forMobileMenuIcon={true}>
                     <AboutIcon />
                 </HeaderLink>
-                <HeaderLink name_en="Blog" name_jp="ブログ" forMobileMenuIcon={true}>
+                <HeaderLink method={() => { setMessageVisible(!messageVisible) }} name_en="Message" name_jp="お問い合わせ" forMobileMenuIcon={true}>
                     <MsgIcon />
                 </HeaderLink>
             </ul>

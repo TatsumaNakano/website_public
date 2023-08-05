@@ -18,7 +18,7 @@ export default History;
 var history = [
     {
         time: "Jun 2023 - Current",
-        title: "<span class='en'>Freelance Designer/Developer</span><span class='jp'>デザイナー・個人開発者</span>",
+        title: "<span class='en'>Freelance Creative Technologist</span><span class='jp'>デザイナー・個人開発者</span>",
         organization: "",
         description: `<span class='en'>Trying things that I could not challenge while working in the corporate world, learning more to make more.</span>
                     <span class='jp'>フリーだからこそできる自由な考え方で色々勉強したり作ったりしています。</span>`

@@ -1,9 +1,9 @@
-// "use client"
+"use client"
 
 import styles from "./styles.module.scss"
 import { useRef, useState, useEffect } from "react"
 
-import { languageState, mobileSearchState } from "@/states"
+import { languageState, searchState, messageViewState } from "@/states"
 import { allPosts } from "@/states";
 import { useRecoilState } from "recoil"
 import Link from "next/link";
@@ -16,15 +16,14 @@ import SettingIcon from "@/assets/icons/icon_setting.svg"
 import MsgIcon from "@/assets/icons/icon_message.svg"
 
 
-
 function SearchBase() {
 
     const inputRef = useRef<any>(null);
     // const [inputVal, setInputState] = useState("");
     const [posts, setAllPostToGlobal] = useRecoilState<any>(allPosts);
     const [searchResults, setSearchResults] = useState<object[]>([]);
-
-    const [searchVisible, setSearchVisible] = useRecoilState(mobileSearchState);
+    const [messageVisible, setMessageVisible] = useRecoilState(messageViewState);
+    const [searchVisible, setSearchVisible] = useRecoilState(searchState);
     const [hasInputVal, setIsNotEmpty] = useState(false);
 
     useEffect(() => {
@@ -46,8 +45,9 @@ function SearchBase() {
 
     const [lang, setLang] = useRecoilState(languageState);
     const placeholderText = lang == "en" ? "Type Anything" : "何か入力してください";
+    const searchResultTag = getSearchResultTag(hasInputVal, searchResults.length);
 
-    const itemSection = generateItemSection(hasInputVal && searchResults.length > 0, searchResults, hasInputVal, setSearchVisible);
+    const itemSection = generateItemSection(searchResults, hasInputVal, setSearchVisible, setMessageVisible);
     return (
         <div className={styles.searchBase}>
             <div>
@@ -57,6 +57,7 @@ function SearchBase() {
                     onFocus={(e) => { e.target.select() }}
                     ref={inputRef}
                 />
+                {searchResultTag}
                 {itemSection}
             </div>
         </div >
@@ -66,11 +67,12 @@ function SearchBase() {
 
 function Search(keyword: string, posts: any[]): object[] {
     if (keyword == "") return [];
+    const keywordLowered = keyword.toLowerCase()
     var searchResults: object[] = [];
 
     // Search from english title of posts
     for (var item of posts) {
-        if (item.title.toLowerCase().includes(keyword)) {
+        if (item.title.toLowerCase().includes(keywordLowered)) {
             searchResults.push(item);
         }
     }
@@ -78,7 +80,7 @@ function Search(keyword: string, posts: any[]): object[] {
     // Search from japanese title of posts
     for (var item of posts) {
 
-        if (item.post_setting.jptitle && item.post_setting.jptitle.toLowerCase().includes(keyword)) {
+        if (item.post_setting.jptitle && item.post_setting.jptitle.toLowerCase().includes(keywordLowered)) {
             if (searchResults.indexOf(item) == -1) {//If object doesn't exist on the english search yet
                 searchResults.push(item);
             }
@@ -89,33 +91,58 @@ function Search(keyword: string, posts: any[]): object[] {
     return searchResults;
 }
 
-const generateItemSection = (showSearchResultTag: boolean, searchResults: object[], hasInputVal: boolean, setSearchVisible: Function) => {
+const generateItemSection = (searchResults: object[], hasInputVal: boolean, setSearchVisible: Function, setMessageVisible: Function) => {
     const searchResultElements = generateSearchResultListElements(searchResults, hasInputVal, setSearchVisible);
-    const searchResultTag = (showSearchResultTag) ? <><span className="en">Search Result</span><span className="jp">検索結果</span></> : null;
-    const disableSearchView = () => { setSearchVisible(false) }
+    const disableSearchView = () => {
+        setSearchVisible(false);
+    }
+
+    const disableSearchViewAndEnableMessage = () => {
+        setMessageVisible(true)
+        // disableSearchView();
+
+        setTimeout(() => {
+            disableSearchView();
+        }, 200);
+
+    }
+
     if ((searchResults.length > 0)) {
 
         return (<div className={styles.results}>
-            <label>{searchResultTag}</label>
+
             <ul>{searchResultElements}</ul>
         </div>)
     } else {
         if (!hasInputVal) {
             return (<div className={styles.frequentlyViewed}>
-                <label><span className="en">Pages</span><span className="jp">ページ一覧</span></label>
+
                 <ul>
+
+
                     <li>
-                        <Link href={"/"} onClick={disableSearchView}>
+                        <Link href={"/about"} onClick={disableSearchView}>
                             <div>
-                                <div><WorkIcon /></div>
-                                <label className="en">Work</label>
-                                <label className="jp">過去の案件</label>
+                                <div><AboutIcon /></div>
+                                <label className="en">About</label>
+                                <label className="jp">経歴</label>
                             </div>
-                            <p className="en">This page shows featured work that I have worked on.</p>
-                            <p className="jp">過去の案件の中で僕にとって特別な物を選んだページです。</p>
+                            <p className="en">About myself. My resume, services, certificates, and other informations.</p>
+                            <p className="jp">僕の経歴、履歴書、サービス内容、保有中の資格などを載せています。</p>
                         </Link>
                     </li>
 
+                    <li>
+                        <Link href={""} onClick={disableSearchViewAndEnableMessage}>
+                            <div>
+                                <div><MsgIcon /></div>
+                                <label className="en">Contact</label>
+                                <label className="jp">お問い合わせ</label>
+                            </div>
+                            <p className="en">Feel free to drop me a message if you&#39;re interested in working together and bringing our ideas to life.</p>
+                            <p className="jp">お仕事の依頼はこちらまで。</p>
+                        </Link>
+                    </li>
                     <li>
                         <Link href={"/lab"} onClick={disableSearchView}>
                             <div>
@@ -125,6 +152,18 @@ const generateItemSection = (showSearchResultTag: boolean, searchResults: object
                             </div>
                             <p className="en">This page shows my personal works that I did on my free time.</p>
                             <p className="jp">自分の空き時間で作った物を寄せ集めたページです。</p>
+                        </Link>
+                    </li>
+
+                    <li>
+                        <Link href={"/"} onClick={disableSearchView}>
+                            <div>
+                                <div><WorkIcon /></div>
+                                <label className="en">Work</label>
+                                <label className="jp">過去の案件</label>
+                            </div>
+                            <p className="en">This page shows featured work that I have worked on.</p>
+                            <p className="jp">過去の案件の中で僕にとって特別な物を選んだページです。</p>
                         </Link>
                     </li>
 
@@ -140,29 +179,7 @@ const generateItemSection = (showSearchResultTag: boolean, searchResults: object
                         </Link>
                     </li>
 
-                    <li>
-                        <Link href={"/about"} onClick={disableSearchView}>
-                            <div>
-                                <div><AboutIcon /></div>
-                                <label className="en">About</label>
-                                <label className="jp">経歴</label>
-                            </div>
-                            <p className="en">About myself. My resume, services, certificates, and other informations.</p>
-                            <p className="jp">僕の経歴やサービス内容、保有中の資格などを載せています。</p>
-                        </Link>
-                    </li>
 
-                    <li>
-                        <Link href={""} onClick={disableSearchView}>
-                            <div>
-                                <div><MsgIcon /></div>
-                                <label className="en">Message</label>
-                                <label className="jp">お問い合わせ</label>
-                            </div>
-                            <p className="en">Feel free to drop me a message if you&#39;re interested in working together and bringing our ideas to life.</p>
-                            <p className="jp">お仕事の依頼はこちらまで。</p>
-                        </Link>
-                    </li>
                 </ul>
             </div>)
         } else {
@@ -198,7 +215,15 @@ const generateSearchResultListElements = (searchResults: object[], hasInputVal: 
     } else {
         res = null;
     }
-    console.log(res)
     return res;
+}
+
+const getSearchResultTag = (hasInputVal: boolean, searchResultsLength: number) => {
+    if (searchResultsLength > 0) {
+        return (<label><span className="en">Search Result</span><span className="jp">検索結果</span></label>)
+    } else {
+        if (hasInputVal) return null;
+        else return (<label><span className="en">Pages</span><span className="jp">ページ一覧</span></label>);
+    }
 }
 export default SearchBase;

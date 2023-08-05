@@ -8,6 +8,7 @@ import Header from "../components/layout/header"
 import Footer from "../components/layout/footer/page"
 import Widget from "../components/layout/widget"
 
+
 // import { languageState } from '@/states'
 // import { useRecoilState } from "recoil"
 import RecoilWrapper from '@/components/recoilWrapper'
@@ -50,7 +51,7 @@ export default async function RootLayout({
             {children}
           </MainWrapper>
           <Footer />
-          <Widget />
+
           <MobilePageBar />
 
         </body>

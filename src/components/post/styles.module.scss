@@ -93,7 +93,7 @@
 
     img {
         border-radius: 10px;
-        margin-bottom: 2em;
+        margin-bottom: 1.618em;
     }
 
     iframe {
@@ -102,6 +102,9 @@
         max-height: 450px;
         border-radius: 10px;
 
+        body {
+            height: fit-content;
+        }
     }
 
     // li::before {
@@ -127,6 +130,7 @@
 
     video {
         border-radius: 10px;
+        margin-bottom: 1.618em;
     }
 
     // div {

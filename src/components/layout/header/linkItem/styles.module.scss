@@ -86,7 +86,7 @@ $icon-click-size-mobile: 60px;
             opacity: 0;
 
             filter: blur(30px);
-            transition: scale var(--transition-speed-fast) ease-in-out, opacity var(--transition-speed-fast) ease-in-out;
+            // transition: scale var(--transition-speed-fast) ease-in-out, opacity var(--transition-speed-fast) ease-in-out;
         }
 
         svg {
@@ -95,7 +95,7 @@ $icon-click-size-mobile: 60px;
             z-index: 1;
             fill: var(--primary);
             filter: brightness(1) drop-shadow(0 0 5px rgba(0, 0, 0, 0));
-            transition: fill var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
+            // transition: fill var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
         }
 
     }
@@ -106,20 +106,20 @@ $icon-click-size-mobile: 60px;
         div {
             scale: 1;
             opacity: 1;
-            transition: scale var(--transition-speed-fast) ease-in-out, opacity var(--transition-speed-fast) ease-in-out;
+            // transition: scale var(--transition-speed-fast) ease-in-out, opacity var(--transition-speed-fast) ease-in-out;
         }
 
         span {
 
             color: var(--header-text-color);
             filter: drop-shadow(0 0 2px var(--accent-bright)) brightness(1.7);
-            transition: color var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
+            // transition: color var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
 
         }
 
         svg {
             filter: brightness(2) drop-shadow(0 5px 2px var(--header-shadow));
-            transition: fill var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
+            // transition: fill var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
 
         }
     }
@@ -147,13 +147,15 @@ $icon-click-size-mobile: 60px;
                 width: $icon-size-mobile;
                 height: $icon-size-mobile;
                 fill: var(--primary);
-                transition: fill var(--transition-speed-fast);
+
+                // transition: fill var(--transition-speed-fast);
+
             }
 
             span {
                 width: 100%;
                 color: var(--primary);
-                transition: fill var(--transition-speed-fast);
+                // transition: fill var(--transition-speed-fast);
                 text-align: center;
                 font-size: 0.381rem;
                 display: none;
@@ -171,5 +173,35 @@ $icon-click-size-mobile: 60px;
         //     width: calc(100vw - $icon-click-size-mobile);
         // }
 
+    }
+
+    &:nth-child(1) {
+        a>div>svg {
+            transition-delay: 0.2s !important;
+        }
+    }
+
+    &:nth-child(2) {
+        a>div>svg {
+            transition-delay: 0.1s !important;
+        }
+    }
+
+    &:nth-child(3) {
+        a>div>svg {
+            transition-delay: 0s !important;
+        }
+    }
+
+    &:nth-child(4) {
+        a>div>svg {
+            transition-delay: 0.1s !important;
+        }
+    }
+
+    &:nth-child(5) {
+        a>div>svg {
+            transition-delay: 0.2s !important;
+        }
     }
 }

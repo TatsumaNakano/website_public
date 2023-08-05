@@ -10,7 +10,7 @@ import MobileMenu from "../../mobile/mobilePageNavigator"
 
 import { useRecoilState } from "recoil";
 import React, { useEffect, useState, useRef } from 'react';
-import { languageState, mobileMenuState, headerShrinkState, headerHeightState, mobileSearchState } from "@/states";
+import { languageState, mobileMenuState, headerShrinkState, headerHeightState, searchState } from "@/states";
 
 import WorkIcon from "@/assets/icons/icon_home.svg"
 import LabIcon from "@/assets/icons/icon_lab.svg"
@@ -26,7 +26,8 @@ import ENIcon from "@/assets/icons/icon_lang_EN.svg"
 import JPIcon from "@/assets/icons/icon_lang_JP.svg"
 
 import MobileSettingView from '@/components/mobile/mobileSettingView'
-import MobileSearchView from '@/components/mobile/mobileSearchView'
+import SearchView from '@/components/searchView'
+import Message from "@/components/message";
 
 
 const Header = function () {
@@ -35,7 +36,7 @@ const Header = function () {
     const [menuVisible, setMenuVisible] = useRecoilState(mobileMenuState);
     const [headerShrink, setHeaderShrinkState] = useRecoilState(headerShrinkState);
     const [headerHeight, setHeaderHeightState] = useRecoilState(headerHeightState);
-    const [searchVisible, setSearchVisible] = useRecoilState(mobileSearchState);
+    const [searchVisible, setSearchVisible] = useRecoilState(searchState);
 
     const headerRef = useRef<any>(null);
 
@@ -51,14 +52,16 @@ const Header = function () {
 
         setHeight();
         setScroll();
+
+
         if (headerRef.current != null) {
             document.addEventListener("scroll", () => { setScroll(); });
-            window.addEventListener("resize", setHeight);
+            window.addEventListener("resize", () => { setHeight(); });
         }
 
         return () => {
             document.removeEventListener("scroll", () => { setScroll(); });
-            window.removeEventListener("resize", setHeight);
+            window.removeEventListener("resize", () => { setHeight(); });
         };
     }, [])
 
@@ -102,8 +105,10 @@ const Header = function () {
                     </div>
                 </div>
                 <MobileSettingView />
-                <MobileSearchView />
+                <SearchView />
+                <Message />
             </div>
+            <Widget setHeaderHeight={setHeight} />
         </header >
     );
 }

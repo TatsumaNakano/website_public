@@ -3,13 +3,7 @@
     opacity: 0;
 }
 
-.jp {
-    transition: opacity 1 0.5s ease-in;
-    -webkit-transition: all 0.5s ease-in;
-    -moz-transition: all 0.5s ease-in;
-    -o-transition: all 0.5s ease-in;
-    transition: all 0.5s ease-in;
-}
+.jp {}
 
 * {
     /* letter-spacing: 0.05rem; */

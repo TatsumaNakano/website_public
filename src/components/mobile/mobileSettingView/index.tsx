@@ -9,7 +9,7 @@ import ThemeIcon from "@/assets/icons/icon_theme.svg"
 
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { languageState, colorThemeState, mobileMenuState, mobileSearchState } from "@/states";
+import { languageState, colorThemeState, mobileMenuState, searchState } from "@/states";
 
 
 const MobileSettingView = () => {
@@ -17,7 +17,7 @@ const MobileSettingView = () => {
     const [lang, setLanguageState] = useRecoilState(languageState);
     const [color, setColorThemeState] = useRecoilState(colorThemeState);
     const [menuVisible, setMenuVisible] = useRecoilState(mobileMenuState);
-    const [searchVisible, setSearchVisible] = useRecoilState(mobileSearchState);
+    const [searchVisible, setSearchVisible] = useRecoilState(searchState);
 
 
     const menuOpenStyle = menuVisible ? styles.show : styles.hide;

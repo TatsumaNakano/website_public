@@ -5,7 +5,8 @@ import React, { Component } from 'react'
 import styles from "./styles.module.scss"
 // import { useSearchParams } from "next/navigation";
 import { useRecoilState } from "recoil";
-import { mobileMenuState, mobileSearchState } from "@/states";
+import { mobileMenuState, searchState, messageViewState } from "@/states";
+import CloseIcon from "@/assets/icons/icon_close.svg"
 
 
 
@@ -16,21 +17,26 @@ interface LinkProps {
     name_en: string,
     name_jp: string,
     children: any,
+    isClosable?: boolean
 }
 
-const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false, name_en, name_jp, children }: LinkProps) {
+const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false, name_en, name_jp, children, isClosable = false, }: LinkProps) {
 
     // const router = useSearchParams();
     // console.log(router)
     const [menuVisible, setMenuVisible] = useRecoilState(mobileMenuState);
-    const [searchVisible, setSearchVisible] = useRecoilState(mobileSearchState);
+    const [searchVisible, setSearchVisible] = useRecoilState(searchState);
+    const [messageVisible, setMessageVisible] = useRecoilState(messageViewState);
 
     const onClickFunc = () => {
         method();
         if (menuVisible) setMenuVisible(false);
         if (searchVisible) setSearchVisible(false);
+        if (messageVisible) setMessageVisible(false);
 
     }
+
+    const closeIcon = isClosable ? <CloseIcon /> : null;
 
 
     if (!forMobileMenuIcon) {//forMobileMenuIcon is the icon setting for the bottom bar. This is not for the mobile menu on the top
@@ -43,7 +49,7 @@ const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
                         <span className='en'>{name_en}</span>
                         <span className='jp'>{name_jp}</span>
 
-                        {children}
+                        {children}{closeIcon}
                     </Link>
 
                 </li>
@@ -56,7 +62,7 @@ const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
                         <span className='en'>{name_en}</span>
                         <span className='jp'>{name_jp}</span>
 
-                        {children}
+                        {children}{closeIcon}
                     </a>
 
                 </li>
@@ -74,7 +80,7 @@ const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
                             <span className='en'>{name_en}</span>
                             <span className='jp'>{name_jp}</span>
                         </div>
-                        <div>{children}</div>
+                        <div>{children}{closeIcon}</div>
 
 
                     </Link>
@@ -89,7 +95,7 @@ const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
                             <span className='en'>{name_en}</span>
                             <span className='jp'>{name_jp}</span>
                         </div>
-                        <div>{children}</div>
+                        <div>{children}{closeIcon}</div>
                     </a>
                 </li>
             )

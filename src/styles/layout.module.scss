@@ -35,3 +35,13 @@
     max-width: 600px;
     margin: 0 auto;
 }
+
+.inFocus {
+    filter: blur(0);
+    transition: filter var(--transition-speed-fast);
+}
+
+.outFocus {
+    filter: blur(5px);
+    transition: filter 0s ease-in;
+}

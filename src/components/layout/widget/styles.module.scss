@@ -5,9 +5,10 @@ $width: $icon-size+1rem;
 $min-height: $icon-size*6+1rem;
 
 .widget {
-    width: $width;
-    min-height: $min-height;
-    position: fixed;
+    width: $width !important;
+    min-height: $min-height !important;
+    position: fixed !important;
+    z-index: 9;
 
     top: 50%;
     transform: translateY(-50%);

@@ -14,7 +14,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
-    // transition: all var(--transition-speed-fast);
+    transition: all var(--transition-speed-fast);
 
 }
 
@@ -31,4 +31,8 @@ html {
 html,
 body {
     // touch-action: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

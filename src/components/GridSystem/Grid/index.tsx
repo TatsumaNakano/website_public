@@ -48,7 +48,8 @@ const Grid = ({
     }
 
 
-    var cellHeight = (containerWidth / colCount);
+    //This is for featured page
+    var cellHeight = (containerWidth / colCount) - gap;
     if (columns[0] == 1 && columns[1] == 1 && columns[2] == 1) {
         cellHeight = containerWidth / 3;
         if (cellHeight < 200) cellHeight = 200;

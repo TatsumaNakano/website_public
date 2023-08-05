@@ -5,9 +5,10 @@
     top: 0;
     width: 100%;
     z-index: 9;
+    // transition: background var(--transition-speed-fast);
 
     * {
-        transition: all var(--transition-speed-fast);
+        transition: all 0.2 ease-in-out;
     }
 
     >div {
@@ -33,6 +34,26 @@
                 max-width: map-get(bp.$breakpoints, tablet);
                 background-color: var(--background);
                 position: relative;
+
+                // ul {
+                //     li {
+                //         a {
+                //             span {
+                //                 display: none;
+                //             }
+                //         }
+                //     }
+
+                //     &:hover {
+                //         li {
+                //             a {
+                //                 span {
+                //                     display: block;
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
 
                 ul.desktop {
                     display: flex;

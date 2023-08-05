@@ -1,21 +1,20 @@
 "use client"
 
 import styles from "./styles.module.scss"
-
 import Icon_lang_EN from "../../../assets/icons/icon_lang_EN.svg"
 import Icon_lang_JP from "../../../assets/icons/icon_lang_JP.svg"
 import Icon_msg from "../../../assets/icons/icon_message.svg"
 import Icon_search from "../../../assets/icons/icon_search.svg"
 import Icon_switch from "../../../assets/icons/icon_theme.svg"
 import { useRecoilState } from "recoil"
-import { languageState, colorThemeState } from "@/states"
+import { languageState, colorThemeState, searchState, messageViewState } from "@/states"
 
-import { useEffect } from "react"
-
-const Widget = function ({ forMobile = false }: { forMobile?: boolean }) {
+const Widget = function ({ forMobile = false, setHeaderHeight }: { forMobile?: boolean, setHeaderHeight: Function }) {
     const [lang, setLang] = useRecoilState(languageState);
     const [color, setColor] = useRecoilState(colorThemeState);
-
+    const [searchVisible, setSearchVisible] = useRecoilState(searchState);
+    const [messageVisible, setMessageVisible] = useRecoilState(messageViewState);
+    // const [headerRefGlobal, setHeaderRefState] = useRecoilState(headerRefState);
     const iconColor = color == "light" ? "white" : "black";
 
     var langIcon = null;
@@ -24,18 +23,22 @@ const Widget = function ({ forMobile = false }: { forMobile?: boolean }) {
     const style = forMobile ? styles.widgetMobile : styles.widget;
 
     return (
-        <div className={style}>
-            <div className={styles.buttons}>
-                <ul>
+        <>
+            <div className={style}>
+                <div className={styles.buttons}>
+                    <ul>
 
-                    <li onClick={() => { setLang(lang === "en" ? "ja" : "en") }}>{langIcon}</li>
-                    <li onClick={() => { }}><Icon_search fill={iconColor} /></li>
-                    <li onClick={() => { }}><Icon_msg fill={iconColor} /></li>
-                    <li onClick={() => { setColor(color === "light" ? "dark" : "light") }}><Icon_switch fill={iconColor} /></li>
-                </ul>
-            </div>
-            {/* <div className={styles.options}></div> */}
-        </div >
+                        <li onClick={() => { setLang(lang === "en" ? "ja" : "en") }}>{langIcon}</li>
+                        <li onClick={() => { setSearchVisible(!searchVisible); setHeaderHeight(); }}><Icon_search fill={iconColor} /></li>
+                        <li onClick={() => { setMessageVisible(!messageVisible) }}><Icon_msg fill={iconColor} /></li>
+                        <li onClick={() => { setColor(color === "light" ? "dark" : "light") }}><Icon_switch fill={iconColor} /></li>
+                    </ul>
+                </div>
+                {/* <div className={styles.options}></div> */}
+
+            </div >
+
+        </>
     );
 }
 
