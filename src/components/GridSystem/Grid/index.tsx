@@ -34,7 +34,7 @@ const Grid = ({
         if (currentElem != null) {
             setContainerWidth(currentElem["clientWidth"]);
             const onResize = () => setContainerWidth(currentElem["clientWidth"]);
-            window.addEventListener("resize", onResize);
+            if (typeof (window) !== undefined) window.addEventListener("resize", onResize);
         }
     }, []);
 

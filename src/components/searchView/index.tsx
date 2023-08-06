@@ -26,9 +26,11 @@ const SearchView = () => {
 
     useEffect(() => {
         if (!ref?.current) return;
+
         register();
         window.addEventListener("resize", register);
         return window.removeEventListener("resize", register)
+
     }, [])
 
     useEffect(() => {
@@ -37,7 +39,7 @@ const SearchView = () => {
     }, [searchVisible])
 
     const isMobileLayout = () => {
-        if (typeof (window) !== undefined) return (breakpoints.tabletWide > window.innerWidth);
+        if (typeof (window) !== "undefined") return (breakpoints.tabletWide > window.innerWidth);
         else return false
     }
     const mpnAdjustment = isMobileLayout() ? (mpnHeight ? mpnHeight : 0) : 0;

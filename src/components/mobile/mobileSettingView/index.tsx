@@ -32,11 +32,13 @@ const MobileSettingView = () => {
     }
 
     useEffect(() => {
-        window.addEventListener("resize", closeMobileMenus);
-        document.addEventListener("scroll", closeMobileMenus);
-        return () => {
-            window.removeEventListener("resize", closeMobileMenus);
-            document.removeEventListener("scroll", closeMobileMenus);
+        if (typeof (window) !== undefined) {
+            window.addEventListener("resize", closeMobileMenus);
+            document.addEventListener("scroll", closeMobileMenus);
+            return () => {
+                window.removeEventListener("resize", closeMobileMenus);
+                document.removeEventListener("scroll", closeMobileMenus);
+            }
         }
     }, [])
 

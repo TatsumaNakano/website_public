@@ -41,7 +41,8 @@ const Header = function () {
     const headerRef = useRef<any>(null);
 
     const setScroll = () => {
-        setHeaderShrinkState(window.scrollY > 80);
+        const shouldShrink = (typeof (window) !== undefined) ? window.scrollY > 80 : false;
+        setHeaderShrinkState(shouldShrink);
     };
 
     const setHeight = () => {
@@ -53,16 +54,18 @@ const Header = function () {
         setHeight();
         setScroll();
 
+        if (typeof (window) !== undefined) {
 
-        if (headerRef.current != null) {
-            document.addEventListener("scroll", () => { setScroll(); });
-            window.addEventListener("resize", () => { setHeight(); });
+            if (headerRef.current != null) {
+                document.addEventListener("scroll", () => { setScroll(); });
+                window.addEventListener("resize", () => { setHeight(); });
+            }
+
+            return () => {
+                document.removeEventListener("scroll", () => { setScroll(); });
+                window.removeEventListener("resize", () => { setHeight(); });
+            };
         }
-
-        return () => {
-            document.removeEventListener("scroll", () => { setScroll(); });
-            window.removeEventListener("resize", () => { setHeight(); });
-        };
     }, [])
 
 
