@@ -27,7 +27,6 @@ const Widget = function ({ forMobile = false, setHeaderHeight }: { forMobile?: b
             <div className={style}>
                 <div className={styles.buttons}>
                     <ul>
-
                         <li onClick={() => { setLang(lang === "en" ? "ja" : "en") }}>{langIcon}</li>
                         <li onClick={() => { setSearchVisible(!searchVisible); setHeaderHeight(); }}><Icon_search fill={iconColor} /></li>
                         <li onClick={() => { setMessageVisible(!messageVisible); setHeaderHeight(); }}><Icon_msg fill={iconColor} /></li>

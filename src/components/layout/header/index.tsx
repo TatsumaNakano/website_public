@@ -7,6 +7,7 @@ import { Suspense } from 'react'
 import Link from "next/link";
 import Widget from "../widget";
 import MobileMenu from "../../mobile/mobilePageNavigator"
+import MobilePageBar from "../../mobile/mobilePageNavigator";
 
 import { useRecoilState } from "recoil";
 import React, { useEffect, useState, useRef } from 'react';
@@ -112,6 +113,7 @@ const Header = function () {
                 <Message />
             </div>
             <Widget setHeaderHeight={setHeight} />
+            <MobilePageBar setHeaderHeight={setHeight} />
         </header >
     );
 }

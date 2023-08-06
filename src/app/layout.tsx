@@ -6,15 +6,9 @@ import { M_PLUS_1p } from 'next/font/google'
 
 import Header from "../components/layout/header"
 import Footer from "../components/layout/footer/page"
-import Widget from "../components/layout/widget"
 
-
-// import { languageState } from '@/states'
-// import { useRecoilState } from "recoil"
 import RecoilWrapper from '@/components/recoilWrapper'
 import HtmlWrapper from '@/components/htmlWrapper'
-import ConsoleMessage from '@/components/layout/consoleMessage/page'
-import MobilePageBar from '@/components/mobile/mobilePageNavigator'
 
 import Head from 'next/head'
 import MainWrapper from '@/components/layout/mainWrapper'
@@ -51,11 +45,8 @@ export default async function RootLayout({
             {children}
           </MainWrapper>
           <Footer />
-
-          <MobilePageBar />
-
         </body>
-        <ConsoleMessage />
+
         <PassAllPostsToClient allPostsWP={allPostsFromWP} />
 
       </HtmlWrapper>
