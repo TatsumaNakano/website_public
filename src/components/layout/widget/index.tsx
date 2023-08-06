@@ -30,7 +30,7 @@ const Widget = function ({ forMobile = false, setHeaderHeight }: { forMobile?: b
 
                         <li onClick={() => { setLang(lang === "en" ? "ja" : "en") }}>{langIcon}</li>
                         <li onClick={() => { setSearchVisible(!searchVisible); setHeaderHeight(); }}><Icon_search fill={iconColor} /></li>
-                        <li onClick={() => { setMessageVisible(!messageVisible) }}><Icon_msg fill={iconColor} /></li>
+                        <li onClick={() => { setMessageVisible(!messageVisible); setHeaderHeight(); }}><Icon_msg fill={iconColor} /></li>
                         <li onClick={() => { setColor(color === "light" ? "dark" : "light") }}><Icon_switch fill={iconColor} /></li>
                     </ul>
                 </div>

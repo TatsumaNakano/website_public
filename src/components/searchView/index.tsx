@@ -36,8 +36,11 @@ const SearchView = () => {
         document.body.style.overflow = searchVisible ? "hidden" : "scroll";
     }, [searchVisible])
 
-    const isMobileLayout = (breakpoints.tabletWide > window.innerWidth);
-    const mpnAdjustment = isMobileLayout ? (mpnHeight ? mpnHeight : 0) : 0;
+    const isMobileLayout = () => {
+        if (typeof (window) !== undefined) return (breakpoints.tabletWide > window.innerWidth);
+        else return false
+    }
+    const mpnAdjustment = isMobileLayout() ? (mpnHeight ? mpnHeight : 0) : 0;
     const height = windowHeight - headerHeight - mpnAdjustment;
     const searchStyle = { height: `${height}px`, marginTop: `${headerHeight}px` }
 
