@@ -6,6 +6,25 @@
     --accent: #ffdd80;
     --accent-bright: #ffedba;
     --accent-gradient: linear-gradient(0, #008be5 0%, #003de5 100%);
+
+
+
     --header-shadow: rgba(10, 10, 10, 0);
     --header-text-color: var(--accent);
+
+
+
+    --chat-background: #f0f0f0;
+    --chat-message-client-box: #f7f7f7;
+    --chat-message-client-text: #2f2f2f;
+    --chat-message-agent-box: #ffffff;
+    --chat-message-agent-text: #414141;
+    --chat-client-choice-box: #009aff;
+    --chat-client-choice-text: #f5f5f5;
+    --chat-send-button: #009aff;
+    --chat-send-button-text: white;
+    --chat-send-button-disabled: #11537f;
+    --chat-send-button-text-disabled: #595959;
+    --chat-section-background: #cfcfcf;
+    --chat-input-background: #fafafa;
 }

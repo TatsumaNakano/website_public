@@ -1,0 +1,311 @@
+{
+    "message": {
+        "intro": {
+            "message": "Hello!👋 Could you please let me know the nature of your inquiry?",
+            "message_jp": "こんにちは！👋 お問い合わせ内容をお知らせください。",
+            "user": "agent",
+            "options": [
+                {
+                    "message": "Make something for me",
+                    "message_jp": "制作を依頼したい",
+                    "detail": "If I will be working on beginning to the end, please select this.",
+                    "detail_jp": "制作のすべての工程の委託をご希望の場合はこちら",
+                    "user": "suggestion",
+                    "nextAction": "requestCreate"
+                },
+                {
+                    "message": "Freelance for me",
+                    "message_jp": "仕事を手伝ってほしい",
+                    "detail": "If I will be the part of creative/development team, please select this.",
+                    "detail_jp": "一時的に制作チームへの参加のご依頼の場合はこちら",
+                    "user": "suggestion",
+                    "nextAction": "requestFreelancing"
+                },
+                {
+                    "message": "Let's have a casual meeting",
+                    "message_jp": "カジュアル面談をしたい",
+                    "user": "suggestion",
+                    "nextAction": "requestMeeting"
+                },
+                {
+                    "message": "Other inquiries",
+                    "message_jp": "その他お問い合わせ",
+                    "user": "suggestion",
+                    "nextAction": "detailGeneral"
+                }
+            ]
+        },
+        "requestCreate": {
+            "message": "Thanks for your interest!🙂 What are you looking to create?",
+            "message_jp": "興味を持っていただきありがとうございます🙂。どういった物の制作をお求めでしょうか。",
+            "user": "agent",
+            "options": [
+                {
+                    "message": "Website",
+                    "message_jp": "ウェブサイト",
+                    "nextAction": "detailWebsite"
+                },
+                {
+                    "message": "Video",
+                    "message_jp": "動画",
+                    "nextAction": "detailVideo"
+                },
+                {
+                    "message": "App(iOS & Android)",
+                    "message_jp": "アプリ",
+                    "nextAction": "detailApp"
+                },
+                {
+                    "message": "Others",
+                    "message_jp": "その他",
+                    "nextAction": "detailCreate"
+                }
+            ]
+        },
+        "requestFreelancing": {
+            "message": "Thanks for your interest!🙂 What type of job can I help you with?",
+            "message_jp": "興味を持っていただきありがとうございます🙂。どのようなお仕事のお手伝いをできるかお聞かせください。",
+            "user": "agent",
+            "options": [
+                {
+                    "message": "3D Generalist",
+                    "message_jp": "3Dジェネラリスト",
+                    "nextAction": "detailFreelance"
+                },
+                {
+                    "message": "Design",
+                    "message_jp": "デザイン",
+                    "nextAction": "detailFreelance"
+                },
+                {
+                    "message": "Front-end Engenieering",
+                    "message_jp": "フロントエンドエンジニア",
+                    "nextAction": "detailFreelance"
+                },
+                {
+                    "message": "Others",
+                    "message_jp": "その他",
+                    "nextAction": "detailFreelance"
+                }
+            ],
+            "nextAction": "email"
+        },
+        "requestMeeting": {
+            "message": "It will be nice to chat casually. Are you an individual, or are you representing a corporation?",
+            "message_jp": "気軽にお話しましょう。個人の方ですか、法人の方ですか。",
+            "user": "agent",
+            "options": [
+                {
+                    "message": "Indivisual",
+                    "message_jp": "個人・個人事業主",
+                    "nextAction": "detailIndivisual"
+                },
+                {
+                    "message": "Corporation",
+                    "message_jp": "法人",
+                    "nextAction": "companyName"
+                }
+            ],
+            "nextAction": "email"
+        },
+        "clientType": {
+            "message": "Are you an individual, or are you representing a corporation?",
+            "message_jp": "個人の方ですか、それとも法人の方ですか。",
+            "user": "agent",
+            "options": [
+                {
+                    "message": "Indivisual",
+                    "message_jp": "個人・個人事業主",
+                    "nextAction": "email"
+                },
+                {
+                    "message": "Corporation",
+                    "message_jp": "法人",
+                    "nextAction": "companyName"
+                }
+            ],
+            "nextAction": "email"
+        },
+        "companyName": {
+            "message": "Could you please share the name of your corporate entity?",
+            "message_jp": "法人名を教えてください。",
+            "user": "agent",
+            "options": "single",
+            "nextAction": "email",
+            "saveNextInputData": "companyName"
+        },
+        "detailWebsite": {
+            "message": "What type of website are you looking to make?",
+            "message_jp": "どういったウェブサイトをご希望か詳しく教えてください。",
+            "user": "agent",
+            "options": "multi",
+            "nextAction": "budget"
+        },
+        "detailVideo": {
+            "message": "What type of video are you looking for?",
+            "message_jp": "どういった動画をご希望か詳しく教えてください。",
+            "user": "agent",
+            "options": "multi",
+            "placeholder": {
+                "en": "Please write as detailed as possible.",
+                "ja": "出来るだけ詳細を教えてください。"
+            },
+            "preventSendWithEnter": true,
+            "nextAction": "budget"
+        },
+        "detailApp": {
+            "message": "What type of app are you looking for?",
+            "message_jp": "どういったアプリをご希望か教えていただけますでしょうか。",
+            "user": "agent",
+            "options": "multi",
+            "placeholder": {
+                "en": "Please write as detailed as possible.",
+                "ja": "出来るだけ詳細を教えてください。"
+            },
+            "preventSendWithEnter": true,
+            "nextAction": "budget"
+        },
+        "detailFreelance": {
+            "message": "Could you let me know more details about what can I do for you?",
+            "message_jp": "具体的にどういった内容のお仕事かお聞かせいただけますか。",
+            "user": "agent",
+            "options": "multi",
+            "placeholder": {
+                "en": "Please write as detailed as possible.",
+                "ja": "出来るだけ詳細を教えてください。"
+            },
+            "preventSendWithEnter": true,
+            "nextAction": "clientType"
+        },
+        "detailIndivisual": {
+            "message": "Please let me know little more about you. What are you looking for on our meeting?",
+            "message_jp": "あなたの事をもう少し教えてください。どういうお話をされたいのかを教えていただけますでしょうか。",
+            "user": "agent",
+            "options": "multi",
+            "preventSendWithEnter": true,
+            "nextAction": "email"
+        },
+        "detailCreate": {
+            "message": "What can I make for you? Please let me know what's in your mind.",
+            "message_jp": "何を作りたいと思っておられるかお聞かせください。",
+            "user": "agent",
+            "options": "multi",
+            "preventSendWithEnter": true,
+            "nextAction": "budget"
+        },
+        "detailGeneral": {
+            "message": "Could you let me know details?",
+            "message_jp": "詳細を教えてください。",
+            "user": "agent",
+            "options": "multi",
+            "placeholder": {
+                "en": "Please write as detailed as possible.",
+                "ja": "出来るだけ詳細を教えてください。"
+            },
+            "preventSendWithEnter": true,
+            "nextAction": "email"
+        },
+        "budget": {
+            "message": "Could you kindly provide information about your budget in US dollar?",
+            "message_jp": "ちなみにご予算は日本円でいかほどをお考えでしょうか。",
+            "append_symbol": {
+                "en": "$",
+                "ja": "¥"
+            },
+            "user": "agent",
+            "options": "price",
+            "saveNextInputData": "budget",
+            "nextAction": "deadlineOption"
+        },
+        "deadlineOption": {
+            "message": "Is there any specific deadline for this project?🕒",
+            "message_jp": "具体的な納期はありますでしょうか。🕒",
+            "user": "agent",
+            "options": [
+                {
+                    "message": "ASAP",
+                    "message_jp": "一刻も早く",
+                    "nextAction": "email"
+                },
+                {
+                    "message": "Not in rush but sooner is better",
+                    "message_jp": "急ぎではないが早いほうがいい",
+                    "nextAction": "email"
+                },
+                {
+                    "message": "In few weeks",
+                    "message_jp": "2週間から4週間",
+                    "nextAction": "email"
+                },
+                {
+                    "message": "In few month to 6month",
+                    "message_jp": "数か月から半年",
+                    "nextAction": "email"
+                },
+                {
+                    "message": "More than 6 month",
+                    "message_jp": "半年以上",
+                    "nextAction": "email"
+                },
+                {
+                    "message": "No deadline for now",
+                    "message_jp": "今のところ具体的な納期はない",
+                    "nextAction": "email"
+                }
+            ],
+            "saveNextInputData": "budget",
+            "nextAction": "email"
+        },
+        "deadline": {
+            "message": "May I ask when is the deadline for this project?🕒",
+            "message_jp": "納期はいつ頃になりますでしょうか。🕒",
+            "user": "agent",
+            "options": "single",
+            "saveNextInputData": "budget",
+            "nextAction": "email"
+        },
+        "email": {
+            "message": "What will be a good email address that I can follow back to you?📧",
+            "message_jp": "折り返し連絡させて頂きますので、メールアドレスを教えてください。📧",
+            "user": "agent",
+            "options": "email",
+            "placeholder": {
+                "en": "yourname@gmail.com",
+                "ja": "yourname@gmail.com"
+            },
+            "saveNextInputData": "userEmail",
+            "nextAction": "confirmEmail"
+        },
+        "confirmEmail": {
+            "message": "Is the email looks correct to you?",
+            "message_jp": "返信に使わせて頂きますので、入力していただいたメールアドレスの確認を今一度お願いいたします。🙇",
+            "user": "agent",
+            "options": [
+                {
+                    "message": "Yes, that's correct.",
+                    "message_jp": "間違いありません。",
+                    "nextAction": "name"
+                },
+                {
+                    "message": "No, I need to fix.",
+                    "message_jp": "修正が必要です。",
+                    "nextAction": "email"
+                }
+            ]
+        },
+        "name": {
+            "message": "Lastly, may I ask your name?",
+            "message_jp": "最後にあなたのお名前を教えてください。",
+            "user": "agent",
+            "options": "name",
+            "saveNextInputData": "name",
+            "nextAction": "sent"
+        },
+        "sent": {
+            "message": "Thank you for your inquiry! You will be receiving a confirmation email. I will be following back to you as soon as possible.🙏",
+            "message_jp": "お問い合わせありがとうございました！確認のメールをお送りさせて頂いております。できるだけ早急に連絡させて頂きますので、今しばらくお待ちください。🙏",
+            "user": "agent",
+            "options": []
+        }
+    }
+}

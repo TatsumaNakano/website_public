@@ -69,6 +69,9 @@ const Header = function () {
         }
     }, [])
 
+    useEffect(() => {
+        if (!headerShrink) setScroll();
+    }, [headerShrink])
 
     var langIcon = <ENIcon />;
     langIcon = lang == "en" ? <ENIcon /> : <JPIcon />
@@ -82,7 +85,7 @@ const Header = function () {
                     <div>
                         <Logo />
                         <ul className={styles.desktop}>
-                            <HeaderLink href="/" name_en="Work" name_jp="過去の案件">
+                            <HeaderLink href="/" name_en="Work" name_jp="実績">
                                 <WorkIcon />
                             </HeaderLink>
                             <HeaderLink href="/lab" name_en="Lab" name_jp="個人制作">
