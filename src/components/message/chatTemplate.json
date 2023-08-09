@@ -78,7 +78,7 @@
                     "nextAction": "detailFreelance"
                 },
                 {
-                    "message": "Front-end Engenieering",
+                    "message": "Front-end Engenieer",
                     "message_jp": "フロントエンドエンジニア",
                     "nextAction": "detailFreelance"
                 },
@@ -214,6 +214,10 @@
             },
             "user": "agent",
             "options": "price",
+            "default_price": {
+                "en": 3000,
+                "ja": 300000
+            },
             "saveNextInputData": "budget",
             "nextAction": "deadlineOption"
         },

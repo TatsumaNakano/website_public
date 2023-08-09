@@ -39,6 +39,13 @@ const Inputs = forwardRef(function ({ agent, onEnterKey, onChange }: Type, ref: 
         return "";
     })();
 
+    const defaultPrice = (() => {
+        if (agent.currentContext?.default_price) {
+            return agent.currentContext?.default_price[agent.systemLanguage]
+        }
+        return "";
+    })();
+
 
     // const emailValidation = (e: any) => {
     //     console.log(validate(e.target.value), e)
@@ -59,7 +66,7 @@ const Inputs = forwardRef(function ({ agent, onEnterKey, onChange }: Type, ref: 
         return (<>
             <label>{currencySymbol}</label>
             <input className={styles.priceInput} type="number" placeholder={placeholder}
-                step={100} pattern={"\d*"} defaultValue={3000} onKeyDown={onEnterKey} ref={ref} />
+                step={100} pattern={"\d*"} defaultValue={defaultPrice} onKeyDown={onEnterKey} ref={ref} />
         </>)
     } else if (agent.currentInputType === InputTypes.email) {
 

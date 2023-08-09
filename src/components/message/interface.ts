@@ -9,4 +9,5 @@ export interface MessageInterface {
     placeholder?: any,
     preventSendWithEnter?: boolean,
     append_symbol?: any,
+    default_price?: any
 }

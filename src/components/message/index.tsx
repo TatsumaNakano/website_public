@@ -192,8 +192,11 @@ const InputBar = forwardRef(function ({ setShouldUpdate }: InputBarProps, ref: a
     }
 
     const onChange = (e: any) => {
-        if (messageAgent.currentContext?.options == InputTypes.email) {
+        const options = messageAgent.currentContext?.options
+        if (options == InputTypes.email) {
             setButtonState(validate(e.target.value))
+        } else if (options == InputTypes.single || options == InputTypes.multi) {
+            setButtonState((e.target.value) > 0);
         } else {
             setButtonState(true);
         }

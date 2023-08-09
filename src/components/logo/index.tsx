@@ -21,7 +21,7 @@ export default function Logo() {
         <Link className={styles.logo} href="/" onClick={onClickFunc}>
             {/* <div>Tatsuma<br />Nakano</div> */}
             <h1 className="en">Tatsuma</h1>
-            <h1 className="jp">竜磨</h1>
+            <h1 className="jp">タツマ</h1>
         </Link>
     )
 }
