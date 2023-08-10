@@ -30,7 +30,7 @@ const MobilePageBar = function ({ setHeaderHeight }: { setHeaderHeight: Function
     }, [])
 
     const onPressMessage = () => {
-        setHeaderShrinkState(true);
+        // setHeaderShrinkState(true);
         setHeaderHeight();
         setMessageVisible(!messageVisible);
     }
@@ -39,7 +39,7 @@ const MobilePageBar = function ({ setHeaderHeight }: { setHeaderHeight: Function
     return (
         <div className={styles.mobilePageNavigator} ref={ref}>
             <ul>
-                <HeaderLink href="/" name_en="Work" name_jp="過去の案件" forMobileMenuIcon={true}>
+                <HeaderLink href="/" name_en="Work" name_jp="実績" forMobileMenuIcon={true}>
                     <WorkIcon />
                 </HeaderLink>
                 <HeaderLink href="/lab" name_en="Lab" name_jp="個人制作" forMobileMenuIcon={true}>
@@ -48,10 +48,10 @@ const MobilePageBar = function ({ setHeaderHeight }: { setHeaderHeight: Function
                 <HeaderLink href="/blog" name_en="Blog" name_jp="ブログ" forMobileMenuIcon={true}>
                     <BlogIcon />
                 </HeaderLink>
-                <HeaderLink href="/about" name_en="About" name_jp="あなたはだあれ" forMobileMenuIcon={true}>
+                <HeaderLink href="/about" name_en="About" name_jp="プロフィール" forMobileMenuIcon={true}>
                     <AboutIcon />
                 </HeaderLink>
-                <HeaderLink method={onPressMessage} name_en="Message" name_jp="お問い合わせ" forMobileMenuIcon={true}>
+                <HeaderLink method={onPressMessage} name_en="Contact" name_jp="お問い合わせ" forMobileMenuIcon={true} isMsg={true}>
                     <MsgIcon />
                 </HeaderLink>
             </ul>

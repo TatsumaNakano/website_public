@@ -98,7 +98,6 @@
 
                         li {
                             scale: 0;
-
                             pointer-events: none;
                         }
                     }
@@ -183,11 +182,13 @@
     .wide {
         padding-top: 6.853rem;
         padding-bottom: 2.617rem;
+        transition: padding var(--transition-speed-fast);
     }
 
     .shrink {
         padding-top: 0;
         padding-bottom: 0;
+        transition: padding var(--transition-speed-fast);
     }
 
 }
@@ -201,11 +202,13 @@
     .wide {
         padding-top: 6.853rem;
         padding-bottom: 2.617rem;
+        transition: padding var(--transition-speed-fast);
     }
 
     .shrink {
         padding-top: 0;
         padding-bottom: 0;
+        transition: padding var(--transition-speed-fast);
     }
 
 }
@@ -219,11 +222,13 @@
     .wide {
         padding-top: 6.853rem;
         padding-bottom: 2.617rem;
+        transition: padding var(--transition-speed-fast);
     }
 
     .shrink {
         padding-top: 0;
         padding-bottom: 0;
+        transition: padding var(--transition-speed-fast);
     }
 
 

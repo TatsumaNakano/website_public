@@ -1,20 +1,26 @@
 "use client"
 
 import styles from "./styles.module.scss"
+import layoutStyle from "@/styles/layout.module.scss"
 import Artstation from "../../../assets/sns_icon/sns_icon_artstation.svg";
 import Github from "../../../assets/sns_icon/sns_icon_github.svg";
 import Linkedin from "../../../assets/sns_icon/sns_icon_linkedin.svg";
 
 import { useRecoilState } from "recoil";
-import { colorThemeState } from "@/states";
+import { colorThemeState, headerShrinkState, headerHeightState, messageViewState, searchState } from "@/states";
 
 export default function Footer() {
 
     const [color, setColor] = useRecoilState(colorThemeState);
     const iconColor = color == "light" ? "white" : "black";
 
+    const [searchVisible, setSearchVisible] = useRecoilState(searchState);
+    const [messageVisible, setMessageVisible] = useRecoilState(messageViewState);
+
+    const outFocusStyle = searchVisible || messageVisible ? layoutStyle.outFocus : layoutStyle.inFocus;
+
     return (
-        <div className={styles.footer}>
+        <div className={`${styles.footer} ${outFocusStyle}`}>
             <ul>
                 {/* //ArtStaion */}
                 <li><a href="https://www.artstation.com/tatumanakano" target="_blank"><Artstation fill={iconColor} /></a></li>

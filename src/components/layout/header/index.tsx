@@ -101,19 +101,19 @@ const Header = function () {
                             {/* <HeaderLink method={() => { setSearchVisible(!searchVisible); setHeight(); }} name_en="Search" name_jp="サイト内検索">
                                 <SearchIcon />
                             </HeaderLink> */}
-                            <HeaderLink method={() => { setMessageVisible(!messageVisible); setHeight(); }} name_en="Contact" name_jp="お問い合わせ" isClosable={true}>
+                            <HeaderLink method={() => { setMessageVisible(!messageVisible); setHeight(); }} name_en="Contact" name_jp="お問い合わせ" isMsg={true}>
                                 <MsgIcon />
                             </HeaderLink>
 
                         </ul>
                         <ul className={styles.mobile}>
-
-                            <HeaderLink method={() => { setSearchVisible(!searchVisible); setHeight(); }} name_en="Search" name_jp="サイト内検索" isClosable={true}>
-                                <SearchIcon />
-                            </HeaderLink>
-                            <HeaderLink method={() => { setMenuVisible(!menuVisible); }} name_en="Setting" name_jp="設定">
+                            <HeaderLink method={() => { setMenuVisible(!menuVisible); }} name_en="Setting" name_jp="設定" isSetting={true}>
                                 <SettingIcon />
                             </HeaderLink>
+                            <HeaderLink method={() => { setSearchVisible(!searchVisible); setHeight(); }} name_en="Search" name_jp="サイト内検索" isSearch={true}>
+                                <SearchIcon />
+                            </HeaderLink>
+
 
                         </ul>
                     </div>

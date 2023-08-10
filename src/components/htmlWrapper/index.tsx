@@ -1,6 +1,7 @@
 "use client"
 import { languageState, colorThemeState } from '@/states'
 import { useRecoilState } from "recoil"
+import { useEffect } from "react"
 import LangTheme from "@/components/langtheme"
 import ColorTheme from '../colorTheme'
 import HighlightTheme from '@/components/highlightTheme'

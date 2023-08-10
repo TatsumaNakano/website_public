@@ -27,6 +27,7 @@ const Message = () => {
     const [inputType, setInputType] = useState<any>(InputTypes);
     const [isInputActive, setInputActive] = useState(false);
     const [buttonEnable, setCanSend] = useState(false);
+    const [headerSize, setHeaderSize] = useState(0);
 
 
     const ref = useRef<any>(null);
@@ -93,31 +94,14 @@ const Message = () => {
         messageAgent.init();
     }, [lang])
 
-    // useEffect(() => {
-    //     const onClick = (e: any, msgVisible: boolean) => {
 
-    //         // Needed to assign special class for the option items. For some reason it is not registered as the child of message view.
-    //         console.log(msgVisible);
-    //         if (msgVisible) {
 
-    //             if (!ref?.current.contains(e.target)) {
-
-    //                 setMessageVisible(false);
-    //             }
-    //         }
-    //     }
-
-    //     window.onclick = (e) => { onClick(e, messageVisible) };
-
-    // }, [])
-
-    const isMobileLayout = () => {
+    const isMobileLayout = (() => {
         if (typeof (window) !== "undefined") return (breakpoints.tabletWide > window.innerWidth);
         else return false
-    }
+    })()
 
-
-    const mpnAdjustment = isMobileLayout() ? (mpnHeight ? mpnHeight : 0) : 0;
+    const mpnAdjustment = isMobileLayout ? (mpnHeight ? mpnHeight : 0) : 0;
     const height = windowHeight - headerHeight - mpnAdjustment;
     const searchStyle = { height: `${height}px`, marginTop: `${headerHeight}px` }
 
@@ -131,12 +115,13 @@ const Message = () => {
                         {sessionContext.map((message, key) => {
                             // console.log(message)
                             if (message.user == "agent") {
-                                return (<React.Fragment key={"agent_" + key}>
-                                    <li className={styles.agent}>
-                                        <span>{message.message[messageAgent.systemLanguage]}</span>
-                                    </li>
-                                    {<OptionElement message={message} />}
-                                </React.Fragment>)
+                                return (
+                                    <React.Fragment key={"agent_" + key}>
+                                        <li className={styles.agent}>
+                                            <span>{message.message[messageAgent.systemLanguage]}</span>
+                                        </li>
+                                        {<OptionElement message={message} />}
+                                    </React.Fragment>)
                             }
                             else if (message.user == "client") {
                                 return (<li className={styles.client} key={"client_" + key}>
@@ -225,8 +210,6 @@ const InputBar = forwardRef(function ({ setShouldUpdate }: InputBarProps, ref: a
     }
 
     const buttonStyle = buttonEnabled ? styles.buttonEnabled : styles.buttonDisabled;
-
-    // const sendButtonText = messageAgent.currentContext?.placeholder
 
     return (
         <>

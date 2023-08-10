@@ -51,7 +51,7 @@ const MobileSettingView = () => {
                 <MobileSettingViewLink name_en="English" name_jp="English" method={() => { setLanguageState("en"); setMenuVisible(false); }}>
                     <ENIcon />
                 </MobileSettingViewLink>
-                <MobileSettingViewLink name_en="日本語" name_jp="日本語" method={() => { setLanguageState("jp"); setMenuVisible(false); }}>
+                <MobileSettingViewLink name_en="日本語" name_jp="日本語" method={() => { setLanguageState("ja"); setMenuVisible(false); }}>
                     <JPIcon />
                 </MobileSettingViewLink>
             </ul>

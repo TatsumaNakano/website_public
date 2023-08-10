@@ -51,10 +51,12 @@
 }
 
 .show {
+    transition: bottom 0.2s ease-in-out;
     bottom: -370px;
 }
 
 .hide {
+    transition: bottom 0.2s ease-in-out;
     bottom: 0;
 }
 

@@ -17,10 +17,12 @@ interface LinkProps {
     name_en: string,
     name_jp: string,
     children: any,
-    isClosable?: boolean
+    isMsg?: boolean,
+    isSearch?: boolean,
+    isSetting?: boolean
 }
 
-const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false, name_en, name_jp, children, isClosable = false, }: LinkProps) {
+const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false, name_en, name_jp, children, isMsg = false, isSearch = false, isSetting = false }: LinkProps) {
 
     // const router = useSearchParams();
     // console.log(router)
@@ -37,6 +39,7 @@ const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
     }
 
     const selectedStyle = ("/" + usePathname()?.split('/')[1]) === href ? styles.current : {};
+    const showClose = isMsg && messageVisible || isSearch && searchVisible || isSetting && menuVisible;
 
     //forMobileMenuIcon is the icon setting for the bottom bar. This is not for the mobile menu on the top
     if (!forMobileMenuIcon) {
@@ -49,7 +52,7 @@ const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
                         <span className='en'>{name_en}</span>
                         <span className='jp'>{name_jp}</span>
 
-                        {isClosable && messageVisible ? (<CloseIcon />) : (children)}
+                        {showClose ? (<CloseIcon />) : (children)}
                     </Link>
 
                 </li>
@@ -57,12 +60,12 @@ const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
         } else if (method !== undefined) {
             return (
                 <li className={`${styles.listItem} ${selectedStyle}`}>
+
                     <a onClick={onClickFunc}>
                         <div></div>
                         <span className='en'>{name_en}</span>
                         <span className='jp'>{name_jp}</span>
-
-                        {isClosable && messageVisible ? (<CloseIcon />) : (children)}
+                        {showClose ? (<CloseIcon />) : (children)}
                     </a>
 
                 </li>
@@ -76,27 +79,26 @@ const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
                 <li className={`${styles.listItemMobile}  ${selectedStyle}`}>
 
                     <Link onClick={onClickFunc} href={href}>
-                        <div>
-                            <span className='en'>{name_en}</span>
-                            <span className='jp'>{name_jp}</span>
-                        </div>
-                        <div>{isClosable && messageVisible ? (<CloseIcon />) : (children)}</div>
-
-
+                        <div></div>
+                        <div>{showClose ? (<CloseIcon />) : (children)}</div>
                     </Link>
-
+                    <div className={styles.mobileNavTag}>
+                        <span className='en'>{name_en}</span>
+                        <span className='jp'>{name_jp}</span>
+                    </div>
                 </li>
             )
         } else if (method !== undefined) {
             return (
                 <li className={`${styles.listItemMobile}  ${selectedStyle}`}>
                     <a onClick={onClickFunc}>
-                        <div>
-                            <span className='en'>{name_en}</span>
-                            <span className='jp'>{name_jp}</span>
-                        </div>
-                        <div>{isClosable && messageVisible ? (<CloseIcon />) : (children)}</div>
+                        <div></div>
+                        <div>{showClose ? (<CloseIcon />) : (children)}</div>
                     </a>
+                    <div className={styles.mobileNavTag}>
+                        <span className='en'>{name_en}</span>
+                        <span className='jp'>{name_jp}</span>
+                    </div>
                 </li>
             )
         } else {
