@@ -12,6 +12,7 @@ const HtmlWrapper = function ({
 }) {
 
     const [lang] = useRecoilState(languageState);
+    const [color] = useRecoilState(colorThemeState);
 
     return (
         <html lang={lang}>

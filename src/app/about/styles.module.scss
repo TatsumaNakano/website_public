@@ -30,7 +30,7 @@
 
         div {
             position: absolute;
-            background-image: url("/profile.png");
+            // background-image: url("/profile.png");
             background-color: var(--primary);
             background-size: cover;
         }
@@ -39,6 +39,8 @@
         div:first-child {
             filter: blur(30px);
             opacity: 0.6;
+            // transition-delay: 0.5s !important;
+            transition: opacity 0.2s ease-in-out 5s !important;
         }
     }
 
@@ -46,4 +48,14 @@
         text-align: center;
     }
 
+}
+
+.show {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.hide {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
 }

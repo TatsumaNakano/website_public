@@ -22,14 +22,19 @@ const Widget = function ({ forMobile = false, setHeaderHeight }: { forMobile?: b
 
     const style = forMobile ? styles.widgetMobile : styles.widget;
 
+    const onSearchButtonPress = () => {
+        setMessageVisible(false);
+        setSearchVisible(!searchVisible);
+        setHeaderHeight();
+    }
     return (
         <>
             <div className={style}>
                 <div className={styles.buttons}>
                     <ul>
+                        <li onClick={onSearchButtonPress}><Icon_search fill={iconColor} /></li>
                         <li onClick={() => { setLang(lang === "en" ? "ja" : "en") }}>{langIcon}</li>
-                        <li onClick={() => { setSearchVisible(!searchVisible); setHeaderHeight(); }}><Icon_search fill={iconColor} /></li>
-                        <li onClick={() => { setMessageVisible(!messageVisible); setHeaderHeight(); }}><Icon_msg fill={iconColor} /></li>
+                        {/* <li onClick={() => { setMessageVisible(!messageVisible); setHeaderHeight(); }}><Icon_msg fill={iconColor} /></li> */}
                         <li onClick={() => { setColor(color === "light" ? "dark" : "light") }}><Icon_switch fill={iconColor} /></li>
                     </ul>
                 </div>

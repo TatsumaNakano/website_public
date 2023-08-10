@@ -2,11 +2,10 @@
 
 $icon-size: 1.618rem;
 $width: $icon-size+1rem;
-$min-height: $icon-size*6+1rem;
 
 .widget {
     width: $width !important;
-    min-height: $min-height !important;
+    height: fit-content;
     position: fixed !important;
     z-index: 9;
 
@@ -15,7 +14,8 @@ $min-height: $icon-size*6+1rem;
 
     .buttons {
         width: $width;
-        height: $min-height;
+        height: fit-content;
+        padding: 1rem 0;
         background: var(--background);
         border: solid 2px var(--tertiary);
         border-radius: 999px;
@@ -37,13 +37,23 @@ $min-height: $icon-size*6+1rem;
                 list-style: none;
                 border-radius: 999px;
                 cursor: pointer;
+
+                transform: scale(1);
+                transition: transform var(--transition-speed-fast);
+
+                &:hover {
+                    transform: scale(1.2);
+                    transition: transform var(--transition-speed-fast);
+                }
             }
         }
+
+
     }
 
     .options {
         width: 200px;
-        height: $min-height;
+        height: fit-content;
         position: absolute;
         right: 0;
         top: 0;

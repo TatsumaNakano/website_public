@@ -56,7 +56,6 @@
 
                     color: var(--primary);
                     font-size: 1.618rem;
-                    // overflow-x: ;
                     padding: 1.618rem;
                     border-bottom: solid 1px var(--tertiary);
 
@@ -101,8 +100,19 @@
 
     ul {
         li {
+
             // padding-top: 1.618rem !important;
             // padding-bottom: 1.618rem !important;
+
+            // background-color: ;
+
+            // &:hover {
+            //     transform: scale(1.001);
+            // }
+
+            * {
+                cursor: pointer;
+            }
 
             svg {
                 fill: var(--primary);

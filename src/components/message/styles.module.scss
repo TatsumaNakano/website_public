@@ -8,9 +8,9 @@
 
     max-width: map-get(bp.$breakpoints , tablet);
     height: 100vh;
-    background-color: var(--background);
+    // background-color: var(--background);
     z-index: 2;
-    padding: 2.617924rem;
+    padding: 1.618rem;
     padding-bottom: 0;
     box-sizing: border-box;
     margin: 0 auto;
@@ -69,6 +69,8 @@
                     padding: 1rem;
                     border-radius: 10px;
                     word-wrap: break-word;
+                    opacity: 0;
+                    animation: fadeIn 0.3s ease-in 0s 1 forwards;
                 }
 
                 .agent {
@@ -112,6 +114,21 @@
                             width: fit-content;
                             cursor: pointer;
                             user-select: none;
+                            animation-name: fadeIn;
+                            animation-duration: 0.5s;
+                            animation-fill-mode: forwards;
+
+
+                            $interval: 0.03;
+                            opacity: 0;
+                            transform: scale(0.95);
+
+                            @for $i from 1 through 30 {
+                                &:nth-child(#{$i}) {
+                                    $delay: ($interval * $i)+0.5;
+                                    animation: fadeIn 0.3s ease-in $delay+s 1 forwards;
+                                }
+                            }
 
                             span {
                                 color: var(--chat-client-choice-text);
@@ -271,58 +288,15 @@
     pointer-events: none;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.95);
+    }
 
-
-// .mobileSettingVeiwLink {
-//     $icon-size: 4.235rem;
-//     width: 100%;
-//     height: $icon-size;
-//     list-style: none;
-//     display: flex;
-//     align-items: center;
-//     border: solid 1px var(--primary);
-//     border-radius: 50px;
-//     margin-bottom: 1.618rem;
-//     cursor: pointer;
-
-//     &:last-child {
-//         margin-bottom: 0;
-//     }
-
-
-//     // justify-content: center;
-
-//     div {
-//         width: $icon-size;
-//         height: $icon-size;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         margin-left: 0.618rem;
-
-//         svg {
-//             width: 1.618rem;
-//             height: 1.618rem;
-//             fill: var(--primary);
-//         }
-//     }
-
-//     a {
-//         display: flex;
-//         width: 100%;
-//         height: 100%;
-//         // justify-content: center;
-//         align-items: center;
-//         text-decoration: none;
-//         color: var(--primary);
-
-//         span {
-//             display: inline-block;
-//             margin-left: 1rem;
-//         }
-//     }
-
-//     // &:first-child {
-//     //     margin-right: 1rem;
-//     // }
-// }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

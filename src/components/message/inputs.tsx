@@ -17,7 +17,6 @@ interface Type {
     agent: MessageAgent | null,
     onEnterKey: any,
     onChange: any
-    // ref: any
 }
 
 // eslint-disable-next-line react/display-name
@@ -54,23 +53,20 @@ const Inputs = forwardRef(function ({ agent, onEnterKey, onChange }: Type, ref: 
 
     if (agent.currentInputType === InputTypes.single) {
         // console.log("InputTypes.single");
-        return <input placeholder={placeholder} ref={ref} onKeyDown={onEnterKey}></input>;
+        return <input placeholder={placeholder} ref={ref} onKeyDown={onEnterKey} onChange={onChange}></input>;
     } else if (agent.currentInputType === InputTypes.multi) {
         // console.log("InputTypes.multi");
-        return <TextareaAutosize placeholder={placeholder} maxRows={10} onKeyDown={onEnterKey} ref={ref}></TextareaAutosize>
-    } else if (agent.currentInputType === InputTypes.name) {
-        // console.log("InputTypes.name");
-        return <input placeholder={placeholder} ref={ref} onKeyDown={onEnterKey}></input>;
+        return <TextareaAutosize placeholder={placeholder} maxRows={10} onKeyDown={onEnterKey} ref={ref} onChange={onChange}></TextareaAutosize>
     } else if (agent.currentInputType === InputTypes.price) {
         // console.log("InputTypes.price");
         return (<>
             <label>{currencySymbol}</label>
-            <input className={styles.priceInput} type="number" placeholder={placeholder}
-                step={100} pattern={"\d*"} defaultValue={defaultPrice} onKeyDown={onEnterKey} ref={ref} />
+            <input className={styles.priceInput} type="number" placeholder={defaultPrice}
+                step={100} pattern={"\d*"} onKeyDown={onEnterKey} ref={ref} />
         </>)
     } else if (agent.currentInputType === InputTypes.email) {
 
-        return <input placeholder={placeholder} ref={ref} onKeyDown={onEnterKey} onChange={onChange} onFocus={onChange}></input>;
+        return <input placeholder={placeholder} type="email" ref={ref} onKeyDown={onEnterKey} onChange={onChange} onFocus={onChange}></input>;
     }
     return <input ref={ref} onKeyDown={onEnterKey}></input>;
 })

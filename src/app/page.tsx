@@ -5,16 +5,16 @@ import styles from "./page.module.scss";
 
 const App = async function () {
 
-  const res = await fetchGQL(GET_WORK_POSTS_LIST)
-  if (res == undefined) return null;
+    const res = await fetchGQL(GET_WORK_POSTS_LIST)
+    if (res == undefined) return null;
 
-  return (
-    <>
-      {/* <div className={styles.demoreel}>
+    return (
+        <>
+            {/* <div className={styles.demoreel}>
         <div><h3 className="en">Demoreel</h3><h3 className="jp">デモリール</h3></div>
       </div> */}
-      <GridSystem columns={[1, 1, 1]} data={res.data} path={""} gap={30} />
-    </>
-  )
+            <GridSystem columns={[1, 1, 1]} data={res.data} path={""} gap={30} />
+        </>
+    )
 }
 export default App;

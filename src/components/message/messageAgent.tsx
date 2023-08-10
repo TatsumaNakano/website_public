@@ -18,7 +18,7 @@ class MessageAgent {
     [key: string]: any;
 
     // static #something = 42;
-    constructor(reflesh: Function, chatTemplate: any, language: string) {
+    constructor(reflesh: Function, chatTemplate: any, language: string, ref: any) {
         // constructor() {
         this.initialized = false;
         this.m_sessionContext = [];
@@ -30,62 +30,78 @@ class MessageAgent {
         this.m_currentInputType = InputTypes.single;
         this.m_systemLanguage = language;
         this.m_buttonEnabled = true;
+        this.chatRef = ref;
         this.data = {};
     }
 
     init() {
         this.initialized = true;
+        this.data = {};
+        this.m_sessionContext = [];
         this.sendChat({ ...this.chatTemplate.message.intro });
     }
 
     sendChat(message: MessageInterface) {
-        setTimeout(() => {
-            this.m_sessionContext.push({ ...message });
-            this.currentContext = this.m_sessionContext[this.m_sessionContext.length - 1];
-            console.log(this.data);
 
-            //////////////////////////////////////
-            // AGENT MESSAGE HANDLER
-            //////////////////////////////////////
-            if (message.user === "agent") {
-                const inputType = getInputTypeFromMessage(message);
-                this.m_currentInputType = inputType as InputTypes;
-                if (inputType === InputTypes.email) {
-                    this.setButtonState(false);
-                }
+        // setTimeout(() => {
+        this.m_sessionContext.push({ ...message });
+        this.currentContext = this.m_sessionContext[this.m_sessionContext.length - 1];
+        // console.log(this.data);
 
-                if (!Array.isArray(message.options)) {
-                    if (message.nextAction === undefined) {
-                        console.error("You need to set next action property when you set user option to input.", message);
-                        return;
-                    }
-                    this.afterUserInputAction = message.nextAction;
-                }
-
-
-                if (message.saveNextInputData) {
-                    this.targetPropertyToSave = message.saveNextInputData;
-                }
-
+        //////////////////////////////////////
+        // AGENT MESSAGE HANDLER
+        //////////////////////////////////////
+        if (message.user === "agent") {
+            const inputType = getInputTypeFromMessage(message);
+            this.m_currentInputType = inputType as InputTypes;
+            if (inputType === InputTypes.email) {
+                this.setButtonState(false);
             }
 
-            ///////////////////////////////////////
-            // CLIENT MESSAGE HANDLER
-            ///////////////////////////////////////
-            if (message.user === "client") {
+            if (!Array.isArray(message.options)) {
+                if (message.nextAction === undefined) {
+                    console.error("You need to set next action property when you set user option to input.", message);
+                    return;
+                }
+                this.afterUserInputAction = message.nextAction;
+            }
 
-                if (this.targetPropertyToSave) {
-                    console.log(this.targetPropertyToSave)
-                    // this.data[this.targetPropertyToSave] = 0
-                    const property: any = this.targetPropertyToSave;
+
+            if (message.saveNextInputData) {
+                this.targetPropertyToSave = message.saveNextInputData;
+            }
+
+        }
+
+        ///////////////////////////////////////
+        // CLIENT MESSAGE HANDLER
+        ///////////////////////////////////////
+        if (message.user === "client") {
+
+            if (this.targetPropertyToSave) {
+                // console.log(this.targetPropertyToSave)
+                // this.data[this.targetPropertyToSave] = 0
+                const property: any = this.targetPropertyToSave;
+
+                if (typeof (message.message) === "object") {//If this is language based property
+                    this.data[property] = message.message[this.systemLanguage];
+                    // console.log("Language based", this.data[property])
+                } else {
                     this.data[property] = message.message;
-                    this.targetPropertyToSave = "";
+                    // console.log("Regular Property", this.data[property])
                 }
 
+                this.targetPropertyToSave = "";
             }
 
-            this.reflesh(true);
-        }, 300)
+        }
+
+        this.reflesh(true);
+        // console.log(this.data)
+        if (message.user === "agent" && message.nextAction === "finalize") { this.finalize(); }
+
+        // }, 300)
+
     }
 
     triggerAction(triggeredOption: any) {
@@ -103,6 +119,25 @@ class MessageAgent {
             this.currentContext.options = [clickedOption];
         }
 
+
+        ///////////////////////////////////////
+        // SAVE SELECTED ITEM FROM SUGGESTED OPTIONS
+        ///////////////////////////////////////
+        if (triggeredOption.user === "suggestion") {
+            if (triggeredOption.saveThisInputData) {
+                const property: any = triggeredOption.saveThisInputData;
+
+                if (typeof (triggeredOption.message) === "object") {//If this is language based property
+                    this.data[property] = triggeredOption.message[this.systemLanguage];
+                    // console.log("Language based", this.data[property])
+                } else {
+                    this.data[property] = triggeredOption.message;
+                    // console.log("Regular Property", this.data[property])
+                }
+            }
+
+        }
+
         this.afterUserInputAction !== "";
         this.sendChat(template);
     }
@@ -115,8 +150,54 @@ class MessageAgent {
     }
 
     finalize() {
-        //Send confirmation email the client
-        //Send email to myself
+
+        const registerUser = async (data: any) => {
+
+            ///////////////////////////////////////
+            // Bake class style to css
+            ///////////////////////////////////////
+            // function applyStyle(el: any) {
+            //     var s = getComputedStyle(el);
+
+            //     for (let key in s) {
+            //         let prop = key;//.replace(/\-([a-z])/g, v => v[1].toUpperCase());
+            //         el.style[prop] = s[key];
+            //     }
+            // }
+
+            // var elements = this.chatRef.current.querySelectorAll('*');
+
+            // console.log(elements);
+            // elements.forEach((element: HTMLElement) => {
+            //     var s = getComputedStyle(element);
+            //     for (let key in s) {
+            //         let prop: any = key;//.replace(/\-([a-z])/g, v => v[1].toUpperCase());
+            //         element.style[prop] = s[key];
+            //     }
+            // });
+
+            // console.log(elements);
+
+            // data.conversation = elements.innerHTML;
+            data.title = this.chatTemplate.thankyou[this.systemLanguage];
+            data.emailMessage = this.chatTemplate.emailMessage[this.systemLanguage];
+            data.summeryTags = this.chatTemplate.summeryTags[this.systemLanguage];
+            data.signature = this.chatTemplate.signature[this.systemLanguage];
+            const msg = JSON.stringify(data)
+
+            // console.log(msg)
+            const res = await fetch('/api/sendClient', {
+                body: msg,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST'
+            })
+        }
+
+
+        registerUser(this.data);
+
     }
 
     setLanguage(newLang: string) {

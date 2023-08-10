@@ -143,6 +143,19 @@ const generateItemSection = (searchResults: object[], hasInputVal: boolean, setS
                             <p className="jp">お仕事の依頼はこちらまで。</p>
                         </Link>
                     </li>
+
+                    <li>
+                        <Link href={"/"} onClick={disableSearchView}>
+                            <div>
+                                <div><WorkIcon /></div>
+                                <label className="en">Work</label>
+                                <label className="jp">実績</label>
+                            </div>
+                            <p className="en">This page shows featured work that I have worked on.</p>
+                            <p className="jp">過去の案件の中で僕にとって特別な物を選んだページです。</p>
+                        </Link>
+                    </li>
+
                     <li>
                         <Link href={"/lab"} onClick={disableSearchView}>
                             <div>
@@ -152,18 +165,6 @@ const generateItemSection = (searchResults: object[], hasInputVal: boolean, setS
                             </div>
                             <p className="en">This page shows my personal works that I did on my free time.</p>
                             <p className="jp">自分の空き時間で作った物を寄せ集めたページです。</p>
-                        </Link>
-                    </li>
-
-                    <li>
-                        <Link href={"/"} onClick={disableSearchView}>
-                            <div>
-                                <div><WorkIcon /></div>
-                                <label className="en">Work</label>
-                                <label className="jp">過去の案件</label>
-                            </div>
-                            <p className="en">This page shows featured work that I have worked on.</p>
-                            <p className="jp">過去の案件の中で僕にとって特別な物を選んだページです。</p>
                         </Link>
                     </li>
 

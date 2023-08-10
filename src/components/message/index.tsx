@@ -39,15 +39,16 @@ const Message = () => {
         setWindowHeight(window.innerHeight);
     }
 
+    const initMessageAgent = () => {
+        messageAgent.init();
+        setInputType(messageAgent.currentInputType);
+    }
+
     useEffect(() => {
         if (!ref?.current) return;
         ref.current.scrollTo(0, ref.current.scrollHeight);
         register();
-        messageAgent = new MessageAgent(setShouldUpdate, chatTemplate, lang);
-        messageAgent.init();
-        // console.log("setInputType", messageAgent.currentInputType)
-        setInputType(messageAgent.currentInputType);
-
+        messageAgent = new MessageAgent(setShouldUpdate, chatTemplate, lang, scrollTargetRef);
         window.addEventListener("resize", register);
         return window.removeEventListener("resize", register)
     }, [])
@@ -60,7 +61,9 @@ const Message = () => {
         if (messageVisible) {
             scrollTargetRef.current.scrollTo(0, scrollTargetRef.current.scrollHeight);
             setSessionContext(messageAgent.sessionContext);
+            if (messageAgent && !messageAgent.initialized) initMessageAgent();
         };
+
     }, [messageVisible])
 
     useEffect(() => {
@@ -87,7 +90,26 @@ const Message = () => {
 
     useEffect(() => {
         messageAgent.setLanguage(lang);
+        messageAgent.init();
     }, [lang])
+
+    // useEffect(() => {
+    //     const onClick = (e: any, msgVisible: boolean) => {
+
+    //         // Needed to assign special class for the option items. For some reason it is not registered as the child of message view.
+    //         console.log(msgVisible);
+    //         if (msgVisible) {
+
+    //             if (!ref?.current.contains(e.target)) {
+
+    //                 setMessageVisible(false);
+    //             }
+    //         }
+    //     }
+
+    //     window.onclick = (e) => { onClick(e, messageVisible) };
+
+    // }, [])
 
     const isMobileLayout = () => {
         if (typeof (window) !== "undefined") return (breakpoints.tabletWide > window.innerWidth);
@@ -111,10 +133,9 @@ const Message = () => {
                             if (message.user == "agent") {
                                 return (<React.Fragment key={"agent_" + key}>
                                     <li className={styles.agent}>
-                                        <span className="en">{message.message}</span>
-                                        <span className="jp">{message.message_jp}</span>
+                                        <span>{message.message[messageAgent.systemLanguage]}</span>
                                     </li>
-                                    {optionElement(message)}
+                                    {<OptionElement message={message} />}
                                 </React.Fragment>)
                             }
                             else if (message.user == "client") {
@@ -139,7 +160,7 @@ const Message = () => {
 }
 
 
-const optionElement = (message: MessageInterface) => {
+const OptionElement = ({ message }: { message: MessageInterface }) => {
     if (!message.options) return;
     if (!Array.isArray(message.options)) return;
 
@@ -148,12 +169,12 @@ const optionElement = (message: MessageInterface) => {
             {message.options.map((option: any, key: number) => {
 
                 const itemKey = `option_${Date.now()}_${key}`;
+                const anim = option.disabled ? { animation: "none", opacity: 1 } : {};
 
                 return (<li key={itemKey} onClick={() => {
                     if (option.disabled === undefined || !option.disabled) messageAgent.triggerAction(option);
-                }}>
-                    <span className="en">{option.message}</span>
-                    <span className="jp">{option.message_jp}</span>
+                }} style={anim}>
+                    <span className="msgSelectOption">{option.message[messageAgent.systemLanguage]}</span>
                 </li>)
 
             })}
@@ -187,6 +208,7 @@ const InputBar = forwardRef(function ({ setShouldUpdate }: InputBarProps, ref: a
         if (messageAgent.currentContext?.preventSendWithEnter) return;
         if (e.nativeEvent.isComposing || e.key !== "Enter") return
         if (!buttonEnabled) return;
+        if (messageAgent.currentContext?.options == InputTypes.multi) return;
         sendMessage();
 
     }
@@ -196,18 +218,11 @@ const InputBar = forwardRef(function ({ setShouldUpdate }: InputBarProps, ref: a
         if (options == InputTypes.email) {
             setButtonState(validate(e.target.value))
         } else if (options == InputTypes.single || options == InputTypes.multi) {
-            setButtonState((e.target.value) > 0);
+            setButtonState((e.target.value.length) > 0);
         } else {
             setButtonState(true);
         }
     }
-    // useEffect(() => {
-    //     console.log("This is working");
-    //     setButtonState(messageAgent?.buttonEnabled);
-    // }, [messageAgent?.buttonEnabled])
-
-
-
 
     const buttonStyle = buttonEnabled ? styles.buttonEnabled : styles.buttonDisabled;
 

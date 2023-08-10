@@ -6,7 +6,8 @@ import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/json';
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
+import LoadingTemplate from "../loading";
 
 export default function PostTemplate(data: any, props: any) {
 
@@ -24,11 +25,13 @@ export default function PostTemplate(data: any, props: any) {
     return (
 
         <div className={styles.post}>
-            <h1>
-                <span className="en">{data.data.post.title}</span>
-                <span className="jp">{jpTitle}</span>
-            </h1>
-            <div dangerouslySetInnerHTML={{ __html: data.data.post.content }}></div>
+            <Suspense fallback={<LoadingTemplate />}>
+                <h1>
+                    <span className="en">{data.data.post.title}</span>
+                    <span className="jp">{jpTitle}</span>
+                </h1>
+                <div dangerouslySetInnerHTML={{ __html: data.data.post.content }}></div>
+            </Suspense>
         </div>
     );
 }

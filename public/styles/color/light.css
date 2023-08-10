@@ -27,4 +27,8 @@
     --chat-send-button-text-disabled: #595959;
     --chat-section-background: #cfcfcf;
     --chat-input-background: #fafafa;
+
+
+    --loading-box-col-A: #ebebeb;
+    --loading-box-col-B: #dddddd;
 }

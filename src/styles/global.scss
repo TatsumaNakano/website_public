@@ -14,8 +14,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
-    transition: all var(--transition-speed-fast);
-
+    transition: color var(--transition-speed-fast),
+        background-color var(--transition-speed-fast),
+        fill var(--transition-speed-fast),
+        border-color var(--transition-speed-fast),
+        opacity var(--transition-speed-fast);
 }
 
 html {

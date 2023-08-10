@@ -34,6 +34,9 @@ export const GET_WORK_POSTS_LIST = `
         thumbnail {
           sourceUrl
         }
+        thumbnailLores {
+          sourceUrl
+        }
         jptitle
         icon{
           sourceUrl
@@ -63,6 +66,9 @@ export const GET_LAB_POSTS_LIST = `
         thumbnail {
           sourceUrl
         }
+        thumbnailLores {
+          sourceUrl
+        }
         jptitle
         icon{
           sourceUrl
@@ -90,6 +96,9 @@ export const GET_BLOG_POSTS_LIST = `
         height
         width
         thumbnail {
+          sourceUrl
+        }
+        thumbnailLores {
           sourceUrl
         }
         jptitle

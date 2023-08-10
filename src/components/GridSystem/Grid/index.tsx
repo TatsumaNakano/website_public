@@ -3,6 +3,8 @@ import React, { useRef, useLayoutEffect, useState } from 'react';
 import styles from "./styles.module.scss"
 import Cell from '../Cell';
 import breakpoints from '@/utility/breakpoints';
+import { Suspense } from 'react';
+import LoadingTemplate from '@/components/loading';
 
 interface propType {
     posts: any,
@@ -63,11 +65,15 @@ const Grid = ({
     }
 
     return (
+
         <div className={styles.grid} style={gridStyle} ref={elementRef}>
-            {posts.map((post: any, index: number) => {
-                return <Cell width={post.post_setting.width} height={post.post_setting.height} post={post} path={path} key={index} showTitle={showTitle} showBorder={showBorder} showDate={showDate} borderGlow={borderGlow} />
-            })}
+            <Suspense fallback={<LoadingTemplate />}>
+                {posts.map((post: any, index: number) => {
+                    return <Cell width={post.post_setting.width} height={post.post_setting.height} post={post} path={path} key={index} showTitle={showTitle} showBorder={showBorder} showDate={showDate} borderGlow={borderGlow} />
+                })}
+            </Suspense>
         </div>
+        /* </Suspense> */
     )
 
 }

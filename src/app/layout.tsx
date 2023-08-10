@@ -29,6 +29,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
+
   const allPostsFromWP = await fetchGQL(GET_ALLPOSTS);
 
   return (

@@ -5,16 +5,18 @@ import styles from './styles.module.scss';
 import Link from 'next/link';
 
 import { useRecoilState } from "recoil";
-import { mobileMenuState, searchState } from "@/states";
+import { mobileMenuState, searchState, messageViewState } from "@/states";
 
 
 export default function Logo() {
     const [menuVisible, setMenuVisible] = useRecoilState(mobileMenuState);
     const [searchVisible, setSearchVisible] = useRecoilState(searchState);
+    const [messageVisible, setMessageVisible] = useRecoilState(messageViewState);
 
     const onClickFunc = () => {
         if (menuVisible) setMenuVisible(false);
         if (searchVisible) setSearchVisible(false);
+        if (messageVisible) setMessageVisible(false);
     }
 
     return (

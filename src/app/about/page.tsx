@@ -1,3 +1,5 @@
+'use client'
+
 import React, { Component } from 'react'
 // import GridSystem from '../../components/grid';
 import styles from "./styles.module.scss"
@@ -5,12 +7,24 @@ import Skills from '../../components/aboutPage/skills';
 import Certificates from '../../components/aboutPage/certificates';
 import History from '../../components/aboutPage/history/page';
 import Hobbies from '../../components/aboutPage/hobbies';
+import { useEffect, useState } from "react";
+import { LoadImage } from "@/utility/loadImage";
 
 const About = function () {
+
+    const [aboutImage, setAboutImage] = useState("");
+
+    useEffect(() => {
+        LoadImage("/profile.png", setAboutImage);
+    }, [])
+
     return (
         <>
             <div className={styles.intro}>
-                <div><div></div><div></div></div>
+                <div>
+                    <div className={aboutImage === "" ? styles.hide : styles.show} style={{ backgroundImage: `url(${aboutImage})` }}></div>
+                    <div className={aboutImage === "" ? styles.hide : styles.show} style={{ backgroundImage: `url(${aboutImage})` }}></div>
+                </div>
                 <h3 className="en">Hi! I&#39;m Tatsuma.</h3>
                 <h3 className="jp">こんにちは！</h3>
 

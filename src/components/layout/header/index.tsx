@@ -11,7 +11,7 @@ import MobilePageBar from "../../mobile/mobilePageNavigator";
 
 import { useRecoilState } from "recoil";
 import React, { useEffect, useState, useRef } from 'react';
-import { languageState, mobileMenuState, headerShrinkState, headerHeightState, searchState } from "@/states";
+import { languageState, mobileMenuState, headerShrinkState, headerHeightState, searchState, messageViewState } from "@/states";
 
 import WorkIcon from "@/assets/icons/icon_home.svg"
 import LabIcon from "@/assets/icons/icon_lab.svg"
@@ -38,6 +38,7 @@ const Header = function () {
     const [headerShrink, setHeaderShrinkState] = useRecoilState(headerShrinkState);
     const [headerHeight, setHeaderHeightState] = useRecoilState(headerHeightState);
     const [searchVisible, setSearchVisible] = useRecoilState(searchState);
+    const [messageVisible, setMessageVisible] = useRecoilState(messageViewState);
 
     const headerRef = useRef<any>(null);
 
@@ -97,15 +98,21 @@ const Header = function () {
                             <HeaderLink href="/about" name_en="About" name_jp="あなたはだあれ">
                                 <AboutIcon />
                             </HeaderLink>
+                            {/* <HeaderLink method={() => { setSearchVisible(!searchVisible); setHeight(); }} name_en="Search" name_jp="サイト内検索">
+                                <SearchIcon />
+                            </HeaderLink> */}
+                            <HeaderLink method={() => { setMessageVisible(!messageVisible); setHeight(); }} name_en="Contact" name_jp="お問い合わせ" isClosable={true}>
+                                <MsgIcon />
+                            </HeaderLink>
 
                         </ul>
                         <ul className={styles.mobile}>
 
+                            <HeaderLink method={() => { setSearchVisible(!searchVisible); setHeight(); }} name_en="Search" name_jp="サイト内検索" isClosable={true}>
+                                <SearchIcon />
+                            </HeaderLink>
                             <HeaderLink method={() => { setMenuVisible(!menuVisible); }} name_en="Setting" name_jp="設定">
                                 <SettingIcon />
-                            </HeaderLink>
-                            <HeaderLink method={() => { setSearchVisible(!searchVisible); setHeight(); }} name_en="Search" name_jp="サイト内検索">
-                                <SearchIcon />
                             </HeaderLink>
 
                         </ul>

@@ -53,8 +53,6 @@ $icon-click-size-mobile: 60px;
 
 
     a {
-
-
         text-decoration: none;
         font-size: 1.2rem;
         font-weight: 800;
@@ -82,11 +80,10 @@ $icon-click-size-mobile: 60px;
             position: absolute;
             border-radius: 99999px;
             bottom: 0;
-            scale: 0;
             opacity: 0;
 
             filter: blur(30px);
-            // transition: scale var(--transition-speed-fast) ease-in-out, opacity var(--transition-speed-fast) ease-in-out;
+            transition: opacity var(--transition-speed-fast) ease-in-out;
         }
 
         svg {
@@ -101,28 +98,35 @@ $icon-click-size-mobile: 60px;
     }
 
 
-
-    &:hover {
+    @mixin highlightItem {
         div {
-            scale: 1;
             opacity: 1;
-            // transition: scale var(--transition-speed-fast) ease-in-out, opacity var(--transition-speed-fast) ease-in-out;
+            // transition: opacity var(--transition-speed-fast) ease-in-out;
         }
 
         span {
 
             color: var(--header-text-color);
             filter: drop-shadow(0 0 2px var(--accent-bright)) brightness(1.7);
-            // transition: color var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
+            transition: color var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
 
         }
 
         svg {
             filter: brightness(2) drop-shadow(0 5px 2px var(--header-shadow));
-            // transition: fill var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
+            transition: fill var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
 
         }
     }
+
+    &:hover {
+        @include highlightItem;
+    }
+
+    &.current {
+        @include highlightItem;
+    }
+
 }
 
 .listItemMobile {

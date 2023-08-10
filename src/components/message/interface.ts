@@ -1,11 +1,11 @@
 
 export interface MessageInterface {
-    message: string,
-    message_jp?: string,
+    message: any,
     user: string,
     options?: string | object[],
     nextAction?: string,
     saveNextInputData?: string,
+    saveThisInputData?: string,
     placeholder?: any,
     preventSendWithEnter?: boolean,
     append_symbol?: any,
