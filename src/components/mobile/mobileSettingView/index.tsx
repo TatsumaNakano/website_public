@@ -63,7 +63,6 @@ const MobileSettingView = () => {
                 </MobileSettingViewLink>
             </ul>
 
-            {/* <div className={styles.bar}></div> */}
         </div>
     );
 }
