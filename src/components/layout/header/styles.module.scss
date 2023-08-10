@@ -24,6 +24,10 @@
             position: relative;
             z-index: 99;
             background-color: var(--background);
+            transition: padding var(--transition-speed-fast),
+                background-color var(--transition-speed-fast),
+                color var(--transition-speed-fast);
+
 
             >div {
                 display: flex;
@@ -182,13 +186,13 @@
     .wide {
         padding-top: 6.853rem;
         padding-bottom: 2.617rem;
-        transition: padding var(--transition-speed-fast);
+
     }
 
     .shrink {
         padding-top: 0;
         padding-bottom: 0;
-        transition: padding var(--transition-speed-fast);
+
     }
 
 }
@@ -202,13 +206,13 @@
     .wide {
         padding-top: 6.853rem;
         padding-bottom: 2.617rem;
-        transition: padding var(--transition-speed-fast);
+
     }
 
     .shrink {
         padding-top: 0;
         padding-bottom: 0;
-        transition: padding var(--transition-speed-fast);
+
     }
 
 }
@@ -222,13 +226,13 @@
     .wide {
         padding-top: 6.853rem;
         padding-bottom: 2.617rem;
-        transition: padding var(--transition-speed-fast);
+
     }
 
     .shrink {
         padding-top: 0;
         padding-bottom: 0;
-        transition: padding var(--transition-speed-fast);
+
     }
 
 

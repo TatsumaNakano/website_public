@@ -90,7 +90,7 @@ $icon-click-size-mobile: 60px;
             width: $icon-size;
             height: $icon-size;
             z-index: 1;
-            fill: var(--primary);
+            fill: var(--header-icon-color);
             filter: brightness(1) drop-shadow(0 0 5px rgba(0, 0, 0, 0));
             // transition: fill var(--transition-speed-fast) ease-in-out, filter var(--transition-speed-fast) ease-in-out;
         }
@@ -183,7 +183,7 @@ $icon-click-size-mobile: 60px;
             svg {
                 width: $icon-size-mobile;
                 height: $icon-size-mobile;
-                fill: var(--primary);
+                fill: var(--header-icon-color);
 
                 // transition: fill var(--transition-speed-fast);
 
@@ -232,7 +232,7 @@ $icon-click-size-mobile: 60px;
             font-weight: 900;
             // display: none;
             position: absolute;
-            bottom: 7px;
+            bottom: 10px;
             width: 100%;
             // left: 50%;
             // scale: 0.8;

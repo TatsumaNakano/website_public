@@ -63,3 +63,8 @@ export const mobilePageNavigatorHeight = atom({
     key: "mobilePageNavigatorHeight",
     default: null
 })
+
+export const siteLoaded = atom({
+    key: "siteLoaded",
+    default: false
+})

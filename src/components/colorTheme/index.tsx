@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useMemo, useState } from 'react'
-import { colorThemeState } from '@/states';
+import { colorThemeState, siteLoaded } from '@/states';
 import { useRecoilState } from 'recoil';
 
 // type HTMLwithHref<T> = Partial<T> & { readonly href: string }
@@ -8,14 +8,21 @@ import { useRecoilState } from 'recoil';
 const ColorTheme = function () {
 
     const [color] = useRecoilState(colorThemeState);
+    const [isSiteLoaded, setSiteLoaded] = useRecoilState(siteLoaded);
 
-    useMemo(() => {
+
+    useEffect(() => {
+        setSiteLoaded(true);
+        console.log("Hello")
         switchColorTheme(color);
+        setTimeout(() => {
+            document.body.style.opacity = "1";
+        }, 500)
+
     }, [color])
 
     return (
-        <>
-        </>
+        <></>
     );
 }
 
