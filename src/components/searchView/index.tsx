@@ -12,7 +12,7 @@ import breakpoints from "@/utility/breakpoints";
 const SearchView = () => {
 
     const [searchVisible, setSearchVisible] = useRecoilState(searchState);
-    const [headerHeight, setHeaderHeight] = useRecoilState(headerHeightState);
+    const [headerHeight] = useRecoilState(headerHeightState);
     const [mpnHeight, setMpnHeight] = useRecoilState(mobilePageNavigatorHeight);
 
     const menuOpenStyle = searchVisible ? styles.show : styles.hide;

@@ -35,7 +35,6 @@ const LinkItem = function ({ href, method = () => { }, forMobileMenuIcon = false
         if (menuVisible) setMenuVisible(false);
         if (searchVisible) setSearchVisible(false);
         if (messageVisible) setMessageVisible(false);
-
     }
 
     const selectedStyle = ("/" + usePathname()?.split('/')[1]) === href ? styles.current : {};

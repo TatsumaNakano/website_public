@@ -3,7 +3,7 @@
 import styles from "./styles.module.scss"
 import { useRef, useState, useEffect } from "react"
 
-import { languageState, searchState, messageViewState } from "@/states"
+import { languageState, searchState, messageViewState, headerHeightState } from "@/states"
 import { allPosts } from "@/states";
 import { useRecoilState } from "recoil"
 import Link from "next/link";
@@ -25,10 +25,11 @@ function SearchBase() {
     const [messageVisible, setMessageVisible] = useRecoilState(messageViewState);
     const [searchVisible, setSearchVisible] = useRecoilState(searchState);
     const [hasInputVal, setIsNotEmpty] = useState(false);
+    // const [headerHeight, setHeaderHeight] = useRecoilState(headerHeightState);
 
     useEffect(() => {
         if (searchVisible) {
-            inputRef.current.focus();
+            // inputRef.current.focus();
         }
         else {
             inputRef.current.value = "";
@@ -92,19 +93,19 @@ function Search(keyword: string, posts: any[]): object[] {
 }
 
 const generateItemSection = (searchResults: object[], hasInputVal: boolean, setSearchVisible: Function, setMessageVisible: Function) => {
+
     const searchResultElements = generateSearchResultListElements(searchResults, hasInputVal, setSearchVisible);
+
     const disableSearchView = () => {
         setSearchVisible(false);
     }
 
     const disableSearchViewAndEnableMessage = () => {
+        disableSearchView();
         setMessageVisible(true)
-        // disableSearchView();
-
-        setTimeout(() => {
-            disableSearchView();
-        }, 200);
-
+        // setTimeout(() => {
+        //     disableSearchView();
+        // }, 200);
     }
 
     if ((searchResults.length > 0)) {
@@ -116,10 +117,7 @@ const generateItemSection = (searchResults: object[], hasInputVal: boolean, setS
     } else {
         if (!hasInputVal) {
             return (<div className={styles.frequentlyViewed}>
-
                 <ul>
-
-
                     <li>
                         <Link href={"/about"} onClick={disableSearchView}>
                             <div>
@@ -133,7 +131,7 @@ const generateItemSection = (searchResults: object[], hasInputVal: boolean, setS
                     </li>
 
                     <li>
-                        <Link href={""} onClick={disableSearchViewAndEnableMessage}>
+                        <a onClick={disableSearchViewAndEnableMessage}>
                             <div>
                                 <div><MsgIcon /></div>
                                 <label className="en">Contact</label>
@@ -141,7 +139,7 @@ const generateItemSection = (searchResults: object[], hasInputVal: boolean, setS
                             </div>
                             <p className="en">Feel free to drop me a message if you&#39;re interested in working together and bringing our ideas to life.</p>
                             <p className="jp">お仕事の依頼はこちらまで。</p>
-                        </Link>
+                        </a>
                     </li>
 
                     <li>
@@ -179,8 +177,6 @@ const generateItemSection = (searchResults: object[], hasInputVal: boolean, setS
                             <p className="jp">アート関係や技術関係、個人的なことなどを書いています。</p>
                         </Link>
                     </li>
-
-
                 </ul>
             </div>)
         } else {

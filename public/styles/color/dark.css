@@ -28,6 +28,6 @@
     --chat-section-background: #3f3f3f;
     --chat-input-background: #c5c5c5;
 
-    --loading-box-col-A: rgb(15, 15, 15);
-    --loading-box-col-B: rgb(10, 10, 10);
+    --loading-box-col-A: rgb(30, 30, 30);
+    --loading-box-col-B: rgb(20, 20, 20);
 }
