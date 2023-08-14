@@ -2,7 +2,7 @@
 @use "../../../../styles/breakpoints" as bp;
 
 .historyItem {
-    padding: 4em 3em;
+    padding: 4em 1em;
     @include c.box_spacing_common;
     @include c.box_min_height;
     @include c.box;
@@ -85,8 +85,8 @@
 .current {
     // background-image: linear-gradient(0deg, rgb(22, 22, 22), #414141);
     background-color: var(--background);
-    border: solid var(--accent);
-    filter: drop-shadow(0 0 5px var(--accent));
+    border: solid var(--highlight-box-border-color);
+    filter: drop-shadow(0 0 5px var(--highlight-box-glow-color));
 }
 
 .past {

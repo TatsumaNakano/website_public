@@ -35,7 +35,8 @@ const About = function () {
                 <br />
                 <p className="en">Feel free to drop me a message if you&#39;re interested in</p>
                 <p className="en">working together and bringing our ideas to life.</p>
-                <p className="jp">お仕事のご依頼は右のメッセージ欄から受け付けております。</p>
+                <p className="jp">お仕事のご依頼はお問い合わせから受け付けております。</p>
+                <p className="jp">一緒にアイデアを形にしましょう。</p>
             </div>
             <Skills />
             <History />

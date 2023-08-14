@@ -13,7 +13,6 @@ const ColorTheme = function () {
 
     useEffect(() => {
         setSiteLoaded(true);
-        console.log("Hello")
         switchColorTheme(color);
         setTimeout(() => {
             document.body.style.opacity = "1";

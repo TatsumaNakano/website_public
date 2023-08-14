@@ -7,9 +7,11 @@
     --accent-bright: #41b3ff;
     --accent-gradient: linear-gradient(0, #008be5 0%, #003de5 100%);
 
+    --highlight-box-border-color: var(--accent);
+    --highlight-box-glow-color: var(--accent);
 
 
-    --header-shadow: black;
+    --header-shadow: #00000069;
     --header-text-color: var(--accent);
     --header-icon-color: var(--primary);
 
