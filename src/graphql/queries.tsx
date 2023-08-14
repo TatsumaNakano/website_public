@@ -1,7 +1,7 @@
 
 export const fetchGQL = async (query: string) => {
   return await fetch(
-    "http://3.235.156.135/graphql",
+    "https://cm5y5tem.tatsuma.co/graphql",
     {
       method: "POST",
       body: JSON.stringify({
