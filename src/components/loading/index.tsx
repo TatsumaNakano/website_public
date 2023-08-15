@@ -9,8 +9,8 @@ const LoadingTemplate = () => {
                     <LoadingIcon />
                 </div>
                 <p>
-                    <span className="en">Taking longer to load than usual.<br />Refetching data.<br />Thanks for your patience.</span>
-                    <span className="jp">通常よりロードが長引いています。<br />もうしばらくお待ちください。</span>
+                    <span className="en">Taking longer to load than usual.<br />Thanks for your patience.</span>
+                    <span className="jp">通常よりロードが長引いています。<br />もう少しお待ちください。</span>
                 </p>
             </div>
             <div className={styles.second}>

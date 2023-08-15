@@ -25,7 +25,7 @@
     }
 
     div.first {
-        animation: FadeOut 1s ease-in-out 10s forwards;
+        animation: FadeOut 1s ease-in-out 15s forwards;
 
         div {
             $icon-size: 20px;
@@ -69,7 +69,7 @@
     }
 
     div.second {
-        animation: FadeIn 1s ease-in-out 10s forwards;
+        animation: FadeIn 1s ease-in-out 15s forwards;
 
         p {
             position: sticky;
