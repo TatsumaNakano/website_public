@@ -26,7 +26,7 @@ export default function PostTemplate(data: any, props: any) {
     useEffect(() => {
         if (!contentsContainer?.current) return;
         contentsContainer.current.innerHTML = "";
-        console.dir(contentsContainer.current)
+        // console.dir(contentsContainer.current)
         const content = sortBasedOnLanguage(data.data.post.content, lang);
         contentsContainer.current.appendChild(content);
     }, [lang])
