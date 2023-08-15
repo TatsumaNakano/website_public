@@ -29,10 +29,10 @@ export const initState = ({ set }: { set: any }) => {
         } else {
             const path = window.location.pathname;
             if (navigator.language.startsWith("en")) {
-                window.location.assign("en.tatsuma.co" + path);
+                window.location.assign("https://en.tatsuma.co" + path);
                 return;
             } else if (navigator.language.startsWith("ja")) {
-                window.location.assign("ja.tatsuma.co" + path);
+                window.location.assign("https://ja.tatsuma.co" + path);
                 return;
             }
 
