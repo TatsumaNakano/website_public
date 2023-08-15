@@ -14,10 +14,12 @@ const ColorTheme = function () {
     useEffect(() => {
         setSiteLoaded(true);
         switchColorTheme(color);
-        setTimeout(() => {
-            document.body.style.opacity = "1";
-        }, 500)
+        if (!window.location.host.startsWith("www") && window.location.host.startsWith("tatsuma")) {
+            setTimeout(() => {
+                document.body.style.opacity = "1";
 
+            }, 500)
+        }
     }, [color])
 
     return (
