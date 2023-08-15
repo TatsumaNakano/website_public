@@ -42,6 +42,15 @@ const MobileSettingView = () => {
         }
     }, [])
 
+    // const onLangPress = (lang: string) => {
+    //     // setLang(lang === "en" ? "ja" : "en")
+    //     setLang(lang);
+    //     setMenuVisible(false);
+
+    //     if (typeof (window) === "undefined") return;
+    //     window.location.assign(`https://${lang}.tatsuma.co` + window.location.pathname);
+
+    // }
 
     return (
         <div className={`${styles.mobileSettingView} ${menuOpenStyle}`}>

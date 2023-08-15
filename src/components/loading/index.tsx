@@ -10,7 +10,7 @@ const LoadingTemplate = () => {
                 </div>
                 <p>
                     <span className="en">Taking longer to load than usual.<br />Refetching data.<br />Thanks for your patience.</span>
-                    <span className="jp">通常よりロードが長引いています。<br />データを再取得中。</span>
+                    <span className="jp">通常よりロードが長引いています。<br />もうしばらくお待ちください。</span>
                 </p>
             </div>
             <div className={styles.second}>

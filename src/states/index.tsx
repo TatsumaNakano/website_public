@@ -5,7 +5,7 @@ import { atom } from "recoil"
 
 export const languageState = atom({
     key: "language",
-    default: "en" //ja
+    default: "en", //ja,
 })
 
 export const initState = ({ set }: { set: any }) => {
