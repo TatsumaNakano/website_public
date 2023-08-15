@@ -9,15 +9,29 @@ export const languageState = atom({
 
 export const initState = ({ set }: { set: any }) => {
 
+
+
     var lang = "ja";
     if (typeof window !== 'undefined') {
+
+        console.log(window.location.host);
+        if (window.location.host.startsWith("ja") || window.location.host.startsWith("jp")) {
+            set(languageState, "ja");
+            return
+        }
+
+        if (window.location.host.startsWith("en")) {
+            set(languageState, "en");
+            return
+        }
+
         if (navigator.language.startsWith("en")) {
             lang = "en";
         } else if (navigator.language.startsWith("ja")) {
             lang = "ja";
         }
-
         set(languageState, lang);
+        return;
     }
 
 
