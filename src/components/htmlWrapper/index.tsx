@@ -5,6 +5,7 @@ import { useLayoutEffect } from "react"
 import LangTheme from "@/components/langtheme"
 import ColorTheme from '../colorTheme'
 import HighlightTheme from '@/components/highlightTheme'
+import Script from 'next/script'
 
 
 const HtmlWrapper = function ({
@@ -29,6 +30,16 @@ const HtmlWrapper = function ({
             <ColorTheme />
             <HighlightTheme />
             {children}
+            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Z68WBJ5W90"></Script>
+            <Script>
+                {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'G-Z68WBJ5W90');
+                `}
+            </Script>
         </html>
     );
 }
