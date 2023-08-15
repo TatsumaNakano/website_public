@@ -1,4 +1,5 @@
 "use client"
+import { redirect } from "next/navigation";
 import { atom } from "recoil"
 // import { useRouter } from "next/router";
 
@@ -9,29 +10,35 @@ export const languageState = atom({
 
 export const initState = ({ set }: { set: any }) => {
 
-
-
     var lang = "ja";
     if (typeof window !== 'undefined') {
 
-        console.log(window.location.host);
         if (window.location.host.startsWith("ja") || window.location.host.startsWith("jp")) {
             set(languageState, "ja");
-            return
-        }
-
-        if (window.location.host.startsWith("en")) {
+            return;
+        } else if (window.location.host.startsWith("en")) {
             set(languageState, "en");
-            return
+            return;
+        } else if (window.location.host.startsWith("localhost")) {
+            if (navigator.language.startsWith("en")) {
+                set(languageState, "en");
+            } else if (navigator.language.startsWith("ja")) {
+                set(languageState, "ja");
+            }
+            return;
+        } else {
+            const path = window.location.pathname;
+            if (navigator.language.startsWith("en")) {
+                redirect("en.tatsuma.co" + path);
+                return;
+            } else if (navigator.language.startsWith("ja")) {
+                redirect("ja.tatsuma.co" + path);
+                return;
+            }
+
+            return;
         }
 
-        if (navigator.language.startsWith("en")) {
-            lang = "en";
-        } else if (navigator.language.startsWith("ja")) {
-            lang = "ja";
-        }
-        set(languageState, lang);
-        return;
     }
 
 
