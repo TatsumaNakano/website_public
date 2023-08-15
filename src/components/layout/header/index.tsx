@@ -3,10 +3,8 @@
 import HeaderLink from "./linkItem";
 import Logo from "@/components/logo";
 import styles from "./styles.module.scss"
-import { Suspense } from 'react'
-import Link from "next/link";
+
 import Widget from "../widget";
-import MobileMenu from "../../mobile/mobilePageNavigator"
 import MobilePageBar from "../../mobile/mobilePageNavigator";
 
 import { useRecoilState } from "recoil";
@@ -48,7 +46,7 @@ const Header = function () {
     };
 
     const setHeight = () => {
-        setHeaderHeightState(headerRef.current.offsetHeight);
+        setHeaderHeightState(headerRef.current?.offsetHeight);
     }
 
     useEffect(() => {
@@ -110,9 +108,9 @@ const Header = function () {
                             <HeaderLink method={() => { setMenuVisible(!menuVisible); }} name_en="Setting" name_jp="設定" isSetting={true}>
                                 <SettingIcon />
                             </HeaderLink>
-                            <HeaderLink method={() => { setSearchVisible(!searchVisible); setHeight(); }} name_en="Search" name_jp="サイト内検索" isSearch={true}>
+                            {/* <HeaderLink method={() => { setSearchVisible(!searchVisible); setHeight(); }} name_en="Search" name_jp="サイト内検索" isSearch={true}>
                                 <SearchIcon />
-                            </HeaderLink>
+                            </HeaderLink> */}
 
 
                         </ul>

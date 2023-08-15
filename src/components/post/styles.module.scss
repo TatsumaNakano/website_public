@@ -62,43 +62,65 @@
             }
         }
 
-        a {
-            img {
+        div {
+            display: flex;
+            align-items: center;
 
-                height: 100%;
-                padding-bottom: 0.3rem;
-                border-radius: 0 !important;
-                margin: 0 !important;
+            label,
+            label span {
+                color: var(--primary);
+                font-size: 0.618rem;
+                font-weight: 700;
+            }
 
-                @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+            label {
+                margin-right: 1rem;
 
-                    //Desktop
-                    width: 80px;
-                }
+            }
 
-                @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+            a {
 
-                    //Tablet
-                    width: 80px;
-                }
 
-                @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
 
-                    //Mobile
-                    width: 60px;
+                img {
+
+                    height: 100%;
+                    // padding-bottom: 0.3rem;
+                    border-radius: 0 !important;
+                    margin: 0 !important;
+
+                    @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+                        //Desktop
+                        width: 80px;
+                    }
+
+                    @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+                        //Tablet
+                        width: 80px;
+                    }
+
+                    @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+
+                        //Mobile
+                        width: 60px;
+                    }
                 }
             }
         }
     }
 
-    h3 {
+    h3,
+    h3 span {
         color: var(--primary);
         font-size: 1.618em;
         margin: $headerMargin;
 
     }
 
-    h5 {
+    h5,
+    h5 span {
         color: var(--primary);
         font-size: 1.2rem;
         margin: $headerMargin;
@@ -141,7 +163,7 @@
     iframe {
         width: 100%;
         min-width: 40% !important;
-        height: 47vw;
+        height: 30vw;
         // max-height: 450px;
         border-radius: 10px;
 

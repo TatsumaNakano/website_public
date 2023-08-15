@@ -40,7 +40,6 @@ function SearchBase() {
 
     const SearchOnChange = (e: any) => {
 
-        // console.log(posts.data.posts.nodes)
         const result = Search(e.target.value, posts.data.posts.nodes);
         setSearchResults(result);
         setIsNotEmpty(e.target.value !== "")

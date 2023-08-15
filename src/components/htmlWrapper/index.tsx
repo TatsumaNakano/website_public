@@ -6,6 +6,7 @@ import LangTheme from "@/components/langtheme"
 import ColorTheme from '../colorTheme'
 import HighlightTheme from '@/components/highlightTheme'
 
+
 const HtmlWrapper = function ({
     children,
 }: {
@@ -16,12 +17,11 @@ const HtmlWrapper = function ({
     const [color] = useRecoilState(colorThemeState);
 
     // useLayoutEffect(() => {
-    //     const langElemsToDelete = document.querySelectorAll(lang == "ja" ? "en" : "jp");
-    //     console.log(langElemsToDelete);
+    //     const langElemsToDelete = document.querySelectorAll(lang == "ja" ? ".en" : ".jp");
     //     langElemsToDelete.forEach(elem => {
-    //         elem.remove();
+    //         elem.innerHTML = "";
     //     })
-    // }, [])
+    // }, [lang])
 
     return (
         <html lang={lang}>

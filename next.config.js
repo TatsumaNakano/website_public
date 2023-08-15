@@ -23,10 +23,30 @@ const nextConfig = {
         // pathname: "/"
         // }]
     },
-    // i18n: {
-    //     locales: ["en", "ja"],
-    //     defaultLocale: "en",
-    // },
+    i18n: {
+        locales: ['en-US', 'en', 'ja-JP', 'ja'],
+        defaultLocale: 'en',
+
+        domains: [
+            {
+                // Note: subdomains must be included in the domain value to be matched
+                // e.g. www.example.com should be used if that is the expected hostname
+                domain: 'en.tatsuma.co',
+                defaultLocale: 'en',
+            },
+            {
+                domain: 'ja.tatsuma.co',
+                defaultLocale: 'ja',
+            },
+            {
+                domain: 'example.nl',
+                defaultLocale: 'nl-NL',
+                // specify other locales that should be redirected
+                // to this domain
+                locales: ['nl-BE'],
+            },
+        ],
+    },
 }
 
 module.exports = nextConfig

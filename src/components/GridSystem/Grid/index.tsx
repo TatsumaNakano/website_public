@@ -3,8 +3,6 @@ import React, { useRef, useLayoutEffect, useState } from 'react';
 import styles from "./styles.module.scss"
 import Cell from '../Cell';
 import breakpoints from '@/utility/breakpoints';
-import { Suspense } from 'react';
-import LoadingTemplate from '@/components/loading';
 import { GridType } from '@/type/gridsystem';
 
 interface propType {

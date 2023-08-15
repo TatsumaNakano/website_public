@@ -2,7 +2,7 @@
 //     height: 100%;
 //     min-width: 0;
 // }
-
+@use "../../../styles/breakpoints.scss" as bp;
 @use "../../../styles/common.scss" as c;
 
 .gridItem {
@@ -222,17 +222,36 @@
             width: 100%;
             height: fit-content;
             text-align: center;
-            margin: 1rem 0 0 0;
+            // margin: 1rem 0 0 0;
+            margin: 0;
             filter: drop-shadow(0 0 5px black);
 
             span {
                 display: block;
                 width: 90%;
-                font-size: 1rem;
-                font-weight: 100;
+
+                font-weight: 200;
                 text-align: center;
                 color: white;
                 margin: 0 auto;
+
+                @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+                    //Desktop
+                    font-size: 1.618rem;
+                }
+
+                @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+                    //Tablet
+                    font-size: 1.618rem;
+                }
+
+                @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+
+                    //Mobile
+                    font-size: 1rem;
+                }
             }
         }
     }

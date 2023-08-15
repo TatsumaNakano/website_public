@@ -2,8 +2,6 @@
 
 import '../styles/global.scss'
 import '../styles/wp-styles.scss'
-import type { Metadata } from 'next'
-
 
 import RecoilWrapper from '@/components/recoilWrapper'
 import HtmlWrapper from '@/components/htmlWrapper'
@@ -15,9 +13,11 @@ import { fetchGQL, GET_ALLPOSTS } from '@/graphql/queries'
 import PassAllPostsToClient from '@/components/passAllPostsToClient'
 
 
+import type { Metadata } from 'next'
+
 export const metadata: Metadata = {
-  title: 'Tatsuma Nakano | Creative Solution',
-  description: 'Tatsuma Nakano Website',
+  title: 'Tatsuma Nakano',
+  description: 'Tatsuma Nakano',
 }
 
 export default async function RootLayout({
