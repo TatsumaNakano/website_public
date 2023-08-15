@@ -30,7 +30,7 @@ const HtmlWrapper = function ({
             <ColorTheme />
             <HighlightTheme />
             {children}
-            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-Z68WBJ5W90"></Script>
+            <Script id="google-analytics" src="https://www.googletagmanager.com/gtag/js?id=G-Z68WBJ5W90"></Script>
             <Script>
                 {`
                 window.dataLayer = window.dataLayer || [];
