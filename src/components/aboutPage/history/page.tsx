@@ -2,13 +2,24 @@ import React, { Component } from 'react'
 import HistoryItem from './historyItem';
 import styles from './styles.module.scss';
 
+import { useRecoilState } from "recoil"
+import { languageState } from "@/states"
+
 const History = function () {
+    const [lang, setLang] = useRecoilState(languageState);
+
     return (
         <div className={styles.history}>
-            <h1><span className="en">Experiences & Education</span><span className="jp">経歴</span></h1>
+            <h1>
+                {lang == "en" ? <span className="en">Experiences & Education</span> : null}
+                {lang == "ja" ? <span className="jp">経歴</span> : null}
+            </h1>
+
+
             {history.map((item, index) => {
                 return <HistoryItem key={index} data={item} isCurrent={index == 0} />
             })}
+
         </div>
     )
 }

@@ -230,7 +230,7 @@
                 display: block;
                 width: 90%;
 
-                font-weight: 200;
+
                 text-align: center;
                 color: white;
                 margin: 0 auto;
@@ -238,18 +238,21 @@
                 @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
 
                     //Desktop
+                    font-weight: 200;
                     font-size: 1.618rem;
                 }
 
                 @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
 
                     //Tablet
+                    font-weight: 200;
                     font-size: 1.618rem;
                 }
 
                 @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
 
                     //Mobile
+                    font-weight: 400;
                     font-size: 1rem;
                 }
             }
