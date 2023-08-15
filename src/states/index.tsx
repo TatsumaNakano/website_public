@@ -29,10 +29,10 @@ export const initState = ({ set }: { set: any }) => {
         } else {
             const path = window.location.pathname;
             if (navigator.language.startsWith("en")) {
-                redirect("en.tatsuma.co" + path);
+                window.location.href = "en.tatsuma.co" + path;
                 return;
             } else if (navigator.language.startsWith("ja")) {
-                redirect("ja.tatsuma.co" + path);
+                window.location.href = "ja.tatsuma.co" + path;
                 return;
             }
 
