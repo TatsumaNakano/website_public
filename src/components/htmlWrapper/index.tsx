@@ -30,8 +30,8 @@ const HtmlWrapper = function ({
             <ColorTheme />
             <HighlightTheme />
             {children}
-            <Script id="google-analytics" src="https://www.googletagmanager.com/gtag/js?id=G-Z68WBJ5W90"></Script>
-            <Script>
+            <Script src="https://www.googletagmanager.com/gtag/js?id=G-Z68WBJ5W90"></Script>
+            <Script id="google-analytics">
                 {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
