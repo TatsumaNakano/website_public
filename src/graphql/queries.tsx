@@ -11,7 +11,7 @@ export const fetchGQL = async (query: string) => {
         "Content-Type": "application/json",
       },
       next: {
-        revalidate: 1
+        revalidate: 60
       }
     }
   ).then((res) => {
@@ -41,6 +41,8 @@ export const GET_WORK_POSTS_LIST = `
         icon{
           sourceUrl
         }
+        tagline
+        taglineJp
       }
       tags {
         nodes {
@@ -66,13 +68,7 @@ export const GET_LAB_POSTS_LIST = `
         thumbnail {
           sourceUrl
         }
-        thumbnailLores {
-          sourceUrl
-        }
         jptitle
-        icon{
-          sourceUrl
-        }
       }
       tags {
         nodes {
@@ -98,13 +94,7 @@ export const GET_BLOG_POSTS_LIST = `
         thumbnail {
           sourceUrl
         }
-        thumbnailLores {
-          sourceUrl
-        }
         jptitle
-        icon{
-          sourceUrl
-        }
       }
       tags {
         nodes {
@@ -131,6 +121,7 @@ export const GET_ALLPOSTS = `
       title
       post_setting {
         jptitle
+        workAt
       }
       date
       categories {
@@ -146,7 +137,7 @@ export const GET_ALLPOSTS = `
 
 export const GET_POST = (id: string) => {
   return `
-        {
+{
             post(idType: SLUG, id: "${id}") {
                 title
                 content
@@ -162,6 +153,7 @@ export const GET_POST = (id: string) => {
                     icon{
                       sourceUrl
                     }
+                  workAt
                   }
             }
         }

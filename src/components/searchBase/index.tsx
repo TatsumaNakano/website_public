@@ -39,6 +39,8 @@ function SearchBase() {
     }, [searchVisible])
 
     const SearchOnChange = (e: any) => {
+
+        // console.log(posts.data.posts.nodes)
         const result = Search(e.target.value, posts.data.posts.nodes);
         setSearchResults(result);
         setIsNotEmpty(e.target.value !== "")
@@ -82,6 +84,26 @@ function Search(keyword: string, posts: any[]): object[] {
     for (var item of posts) {
 
         if (item.post_setting.jptitle && item.post_setting.jptitle.toLowerCase().includes(keywordLowered)) {
+            if (searchResults.indexOf(item) == -1) {//If object doesn't exist on the english search yet
+                searchResults.push(item);
+            }
+        }
+    }
+
+    // Search from tag
+
+    for (var item of posts) {
+        for (var node of item.tags.nodes)
+            if (node.name && node.name.toLowerCase().includes(keywordLowered)) {
+                if (searchResults.indexOf(item) == -1) {//If object doesn't exist on the english search yet
+                    searchResults.push(item);
+                }
+            }
+    }
+
+    // Search from company name
+    for (var item of posts) {
+        if (item.post_setting.workAt && item.post_setting.workAt.toLowerCase().includes(keywordLowered)) {
             if (searchResults.indexOf(item) == -1) {//If object doesn't exist on the english search yet
                 searchResults.push(item);
             }

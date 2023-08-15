@@ -10,33 +10,39 @@ const Skills = function () {
                 <div>
                     <ul>
                         <li>
-                            <span className="en">UI/UX Design</span>
-                            <span className="jp">UI/UX デザイン</span>
-                        </li>
-                        <li>
-                            <span className="en">Web & App Development</span>
-                            <span className="jp">ウェブ＆アプリ開発</span>
-                        </li>
-                        <li>
-                            <span className="en">VR & AR Development</span>
-                            <span className="jp">VR & AR開発</span>
+                            <span className="en">CG Video Production</span>
+                            <span className="jp">CG動画制作</span>
                         </li>
                         <li>
                             <span className="en">Poster Design</span>
                             <span className="jp">ポスター制作</span>
                         </li>
                         <li>
+                            <span className="en">UI/UX Design</span>
+                            <span className="jp">UI/UX デザイン</span>
+                        </li>
+                        <li>
+                            <span className="en">Web Development</span>
+                            <span className="jp">ウェブサイト制作</span>
+                        </li>
+                        {/* <li>
+                            <span className="en">VR & AR Development</span>
+                            <span className="jp">VR & AR開発</span>
+                        </li> */}
+                        <li>
+                            <span className="en">Web Operation & Management</span>
+                            <span className="jp">サイト運用保守</span>
+                        </li>
+
+                        {/* <li>
                             <span className="en">Animation</span>
                             <span className="jp">アニメーション制作</span>
-                        </li>
-                        <li>
-                            <span className="en">Video Production</span>
-                            <span className="jp">コマーシャル制作</span>
-                        </li>
-                        <li>
+                        </li> */}
+
+                        {/* <li>
                             <span className="en">Interaction Design & Development</span>
                             <span className="jp">インタラクションデザイン開発</span>
-                        </li>
+                        </li> */}
                         <li>
                             <span className="en">Technical Support</span>
                             <span className="jp">テクニカルサポート</span>

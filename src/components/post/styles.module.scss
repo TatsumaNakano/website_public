@@ -2,56 +2,91 @@
 
 .post {
 
-    * {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-        // width: inherit;
-        // object-fit: cover;
-        margin: 0;
-    }
+    // * {
+    //     max-width: 100%;
+    //     // width: 100%;
+    //     height: auto;
+    //     // width: inherit;
+    //     object-fit: cover;
+    //     // margin: 0;
+    // }
 
     $headerMargin: 2.617rem auto 1rem auto;
 
-    h1 {
-
-
-        margin: $headerMargin;
-        margin-top: 0;
-        padding-bottom: 1rem;
+    div.titleSection {
         border-bottom: solid 1px white;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
 
-        span {
-            color: var(--primary);
-        }
+        h1 {
+            // margin: $headerMargin;
+            margin-top: 0;
+            // padding-bottom: 1rem;
+            margin-bottom: 0;
 
-        @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
-
-            //Desktop
             span {
-                font-size: 2.617rem;
-                font-weight: 100;
-                // text-align: center;
+                color: var(--primary);
+            }
+
+            @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+                //Desktop
+                span {
+                    font-size: 2.617rem;
+                    font-weight: 100;
+                    // text-align: center;
+                }
+            }
+
+            @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+                //Tablet
+                span {
+                    font-size: 2.617rem;
+                    font-weight: 100;
+                    // text-align: center;
+                }
+            }
+
+            @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+
+                //Mobile
+                span {
+                    font-size: 1.618rem;
+                    font-weight: 100;
+                    // text-align: center;
+                }
             }
         }
 
-        @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+        a {
+            img {
 
-            //Tablet
-            span {
-                font-size: 2.617rem;
-                font-weight: 100;
-                // text-align: center;
-            }
-        }
+                height: 100%;
+                padding-bottom: 0.3rem;
+                border-radius: 0 !important;
+                margin: 0 !important;
 
-        @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+                @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
 
-            //Mobile
-            span {
-                font-size: 1.618rem;
-                font-weight: 100;
-                // text-align: center;
+                    //Desktop
+                    width: 80px;
+                }
+
+                @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+
+                    //Tablet
+                    width: 80px;
+                }
+
+                @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+
+                    //Mobile
+                    width: 60px;
+                }
             }
         }
     }
@@ -94,17 +129,25 @@
     img {
         border-radius: 10px;
         margin-bottom: 1.618em;
+
+        max-width: 100%;
+        // width: 100%;
+        height: auto;
+        // width: inherit;
+        object-fit: cover;
+        // margin: 0;
     }
 
     iframe {
         width: 100%;
+        min-width: 40% !important;
         height: 47vw;
-        max-height: 450px;
+        // max-height: 450px;
         border-radius: 10px;
 
-        body {
-            height: fit-content;
-        }
+        // body {
+        //     height: fit-content;
+        // }
     }
 
     // li::before {

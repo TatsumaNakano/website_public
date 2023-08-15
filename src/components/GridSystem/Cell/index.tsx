@@ -2,17 +2,14 @@ import styles from "./styles.module.scss"
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LoadImage } from "@/utility/loadImage";
+import { GridType } from "@/type/gridsystem";
 
 interface propsType {
     post: any,
     path: string,
     width: number,
     height: number,
-    gap?: string,
-    showTitle?: boolean,
-    showBorder?: boolean,
-    showDate?: boolean,
-    borderGlow?: boolean
+    type: GridType
 }
 
 
@@ -20,11 +17,7 @@ const Cell = ({ post,
     path,
     width,
     height,
-    gap = "8px",
-    showTitle = false,
-    showBorder = false,
-    showDate = false,
-    borderGlow = false }: propsType) => {
+    type }: propsType) => {
 
     const [bgImage, setBgImage] = useState("");
     // const [bgLoResImage, setBgLoResImage] = useState("");
@@ -52,47 +45,97 @@ const Cell = ({ post,
     const jpTitle = post.post_setting.jptitle ? post.post_setting.jptitle : post.title;
     const icon = post.post_setting.icon ? iconImage : "";
 
-    //Show title or not
-    const title = showTitle ? (<p>
-        <span className="en">{post.title}</span>
-        <span className="jp">{jpTitle}</span>
-    </p>) : null;
-
-    //Show border or Not
-    const borderStyle = showBorder ? { borderStyle: "solid" } : { borderStyle: "none" };
+    // //Show border or Not
+    // const borderStyle = showBorder ? { borderStyle: "solid" } : { borderStyle: "none" };
 
     const date = new Date(post.date);
-    const dateComponent = showDate ?
-        (<>
-            <label className="en">{date.toDateString()}</label>
-            <label className="jp">{`${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`}</label>
-        </>)
-        : null
 
     const gridStyle = {
         gridColumnEnd: `span ${width}`,
         gridRowEnd: `span ${height}`
     }
 
-    const borderGlowStyle = borderGlow ? styles.borderGlow : null;
+    // const borderGlowStyle = borderGlow ? styles.borderGlow : null;
 
-    return (
-        <div className={styles.cell} style={gridStyle}>
-            <Link href={path + "/" + post.slug} className={`${styles.gridItem} ${borderGlowStyle}`} style={borderStyle}>
-                <div className={`${styles.glow} ${bgImage === "" ? styles.hide : styles.show}`} style={bg}></div>{ /*For glow */}
-                <div className={styles.loading}></div>
-                <div className={`${styles.main} ${bgImage === "" ? styles.hide : styles.show}`} style={bg}>
-                    <div className={styles.imageWrapper}>
-                        <img className={bgImage === "" || icon === "" ? styles.hide : styles.show} src={icon as string} alt='' />
-                        {/* <Image src={icon} fill={true} alt='' /> */}
-                        <div></div>
+    if (type === GridType.main) {
+        return (
+            <div className={`${styles.cell} ${styles.main}`} style={gridStyle}>
+                <Link href={path + "/" + post.slug} className={`${styles.gridItem}`}>
+                    <div className={`${styles.glow} ${bgImage === "" ? styles.hide : styles.show}`} style={bg}></div>{ /*For glow */}
+                    <div className={styles.loading}></div>
+                    <div className={`${styles.cellContext} ${bgImage === "" ? styles.hide : styles.show}`} style={bg}>
+                        <div className={styles.imageWrapper}>
+                            <img className={bgImage === "" || icon === "" ? styles.hide : styles.show} src={icon as string} alt='' />
+                            {/* <Image src={icon} fill={true} alt='' /> */}
+                            {/* <div></div> */}
+
+                        </div>
+
+                        <p>
+                            <span className="en">{post.post_setting.tagline}</span>
+                            <span className="jp">{post.post_setting.taglineJp}</span>
+                        </p>
+                        {/* <div className={styles.mainDesc}> */}
+                        {/* <h4>
+                            <span className="en">{post.title}</span>
+                            <span className="jp">{jpTitle}</span>
+                        </h4> */}
+
+                        {/* </div> */}
                     </div>
-                    {title}
-                    {dateComponent}
-                </div>
-            </Link>
-        </div>
-    );
+                </Link>
+
+            </div>
+        )
+    } else if (type === GridType.lab) {
+        return (
+            <div className={`${styles.cell} ${styles.lab}`} style={gridStyle}>
+                <Link href={path + "/" + post.slug} className={`${styles.gridItem}`}>
+                    <div className={`${styles.glow} ${bgImage === "" ? styles.hide : styles.show}`} style={bg}></div>{ /*For glow */}
+                    <div className={styles.loading}></div>
+                    <div className={`${styles.cellContext} ${bgImage === "" ? styles.hide : styles.show}`} style={bg}>
+                        <div className={styles.imageWrapper}>
+                            <img className={bgImage === "" || icon === "" ? styles.hide : styles.show} src={icon as string} alt='' />
+                            {/* <Image src={icon} fill={true} alt='' /> */}
+                            <div></div>
+                        </div>
+                        <p>
+                            <span className="en">{post.title}</span>
+                            <span className="jp">{jpTitle}</span>
+                        </p>
+                        {/* <>
+                            <label className="en">{date.toDateString()}</label>
+                            <label className="jp">{`${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`}</label>
+                        </> */}
+                    </div>
+                </Link>
+            </div>
+        )
+    } else if (type === GridType.blog) {
+        return (
+            <div className={`${styles.cell} ${styles.blog}`} style={gridStyle}>
+                <Link href={path + "/" + post.slug} className={`${styles.gridItem}`}>
+                    <div className={`${styles.glow} ${bgImage === "" ? styles.hide : styles.show}`} style={bg}></div>{ /*For glow */}
+                    <div className={styles.loading}></div>
+                    <div className={`${styles.cellContext} ${bgImage === "" ? styles.hide : styles.show}`} style={bg}>
+                        <div className={styles.imageWrapper}>
+                            <img className={bgImage === "" || icon === "" ? styles.hide : styles.show} src={icon as string} alt='' />
+                            {/* <Image src={icon} fill={true} alt='' /> */}
+                            <div></div>
+                        </div>
+                        <p>
+                            <span className="en">{post.title}</span>
+                            <span className="jp">{jpTitle}</span>
+                        </p>
+                        <>
+                            <label className="en">{date.toDateString()}</label>
+                            <label className="jp">{`${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`}</label>
+                        </>
+                    </div>
+                </Link>
+            </div>
+        )
+    }
 }
 
 

@@ -39,57 +39,52 @@
         flex-direction: column;
         transition: filter 0.2s ease-out, opacity 1s ease-out;
 
-        * {
-            font-size: 1.618rem;
-            text-align: center;
-        }
-
         z-index: 1;
 
-        >div {
-            width: 40%;
-            max-width: 180px;
-            max-height: 100%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            ;
+        // >div {
+        //     width: 40%;
+        //     max-width: 180px;
+        //     max-height: 100%;
+        //     position: relative;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     ;
 
-            >div {
-                width: 100%;
-                height: 40%;
-                background-color: rgb(15, 15, 15);
-                opacity: 0.9;
-                position: absolute;
-                filter: blur(60px);
-            }
+        //     >div {
+        //         width: 100%;
+        //         height: 40%;
+        //         background-color: rgb(15, 15, 15);
+        //         opacity: 0.9;
+        //         position: absolute;
+        //         filter: blur(60px);
+        //     }
 
-            // >div:hover {
-            //     background-color: rgb(0, 0, 0);
-            //     opacity: 1;
-            //     filter: blur(60px);
-            // }
+        //     // >div:hover {
+        //     //     background-color: rgb(0, 0, 0);
+        //     //     opacity: 1;
+        //     //     filter: blur(60px);
+        //     // }
 
-            img {
-                width: 100%;
-                z-index: 2;
+        //     img {
+        //         width: 100%;
+        //         z-index: 2;
 
-                filter: drop-shadow(0 0 10px #ffffffa4);
-            }
-        }
+        //         filter: drop-shadow(0 0 10px #ffffffa4);
+        //     }
+        // }
 
         p {
             max-width: 80%;
         }
     }
 
-    >div.main {
+    >div.cellContext {
         z-index: 2;
         background-color: var(--background);
     }
 
-    >div.main:hover {
+    >div.cellContext:hover {
         filter: brightness(1.2);
         // transition: filter 0.5s ease-out;
     }
@@ -127,7 +122,7 @@
 
     &:hover {
         div.glow {
-            filter: brightness(5) saturate(5) blur(18px);
+            filter: brightness(5) saturate(2) blur(10px);
             // transition: filter 0.3s ease-out, opacity 2s ease-out;
         }
 
@@ -182,13 +177,112 @@
     transition: all 0.2s ease-in-out;
 }
 
-.borderGlow {
+.main {
+
+
+    .cellContext {
+        flex-direction: column;
+        justify-content: center;
+
+        div {
+            width: 80%;
+        }
+
+        h4 {
+            width: 0;
+            height: 0;
+            opacity: 0;
+
+            span {
+                font-size: 0;
+            }
+        }
+
+        .mainDesc {
+            flex-direction: column;
+            justify-content: left;
+
+        }
+
+
+        .imageWrapper {
+            // padding-left: 4rem;
+            flex-direction: column;
+            justify-content: left;
+            max-width: 190px;
+
+            img {
+                width: 100%;
+            }
+
+
+        }
+
+        p {
+            width: 100%;
+            height: fit-content;
+            text-align: center;
+            margin: 1rem 0 0 0;
+            filter: drop-shadow(0 0 5px black);
+
+            span {
+                display: block;
+                width: 90%;
+                font-size: 1rem;
+                font-weight: 100;
+                text-align: center;
+                color: white;
+                margin: 0 auto;
+            }
+        }
+    }
+
+}
+
+.lab {
+
+
+    p,
+    p>span {
+        opacity: 0;
+        transition: opacity var(--transition-speed-fast);
+        font-size: 1.618rem;
+        font-weight: 100;
+        color: white;
+    }
+
+    &:hover {
+
+        p,
+        p>span {
+            opacity: 1;
+            transition: opacityvar(--transition-speed-fast);
+        }
+    }
+
+}
+
+.blog {
+
+    .gridItem {
+        border: solid 3px var(--primary);
+    }
+
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
     transition: filter 0.2s ease-out;
 
     &:hover {
         filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
         transition: filter 0.2s ease-out;
+    }
+
+
+
+    p,
+    p>span {
+        font-size: 1.618rem;
+        text-align: center;
+        font-weight: 100;
     }
 }
 

@@ -1,6 +1,7 @@
 // "use client"
 
 import '../styles/global.scss'
+import '../styles/wp-styles.scss'
 import type { Metadata } from 'next'
 
 

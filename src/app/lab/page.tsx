@@ -1,7 +1,8 @@
 
 import { GET_LAB_POSTS_LIST, fetchGQL } from '@/graphql/queries';
-import GridSystem from '../../components/GridSystem/page';
+import Grid from '../../components/GridSystem/Grid';
 import styles from "./styles.module.scss";
+import { GridType } from '@/type/gridsystem';
 
 const Lab = async function () {
 
@@ -9,7 +10,7 @@ const Lab = async function () {
     if (res == undefined) return null;
     return (
         <>
-            <GridSystem columns={[2, 3, 3]} data={res.data} path={"/lab"} gap={10} />
+            <Grid type={GridType.lab} columns={[2, 3, 3]} posts={res.data.posts.nodes} path={"/lab"} />
         </>
     )
 }

@@ -1,7 +1,8 @@
 // 'use client'
 import { GET_WORK_POSTS_LIST, fetchGQL } from '@/graphql/queries';
-import GridSystem from '../components/GridSystem/page';
+import Grid from '../components/GridSystem/Grid';
 import styles from "./page.module.scss";
+import { GridType } from '@/type/gridsystem';
 
 const App = async function () {
 
@@ -13,7 +14,7 @@ const App = async function () {
             {/* <div className={styles.demoreel}>
         <div><h3 className="en">Demoreel</h3><h3 className="jp">デモリール</h3></div>
       </div> */}
-            <GridSystem columns={[1, 1, 1]} data={res.data} path={""} gap={30} />
+            <Grid columns={[1, 1, 1]} posts={res.data.posts.nodes} path={""} type={GridType.main} />
         </>
     )
 }

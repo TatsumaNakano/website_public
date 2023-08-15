@@ -1,6 +1,8 @@
 import { GET_BLOG_POSTS_LIST, fetchGQL } from '@/graphql/queries';
-import GridSystem from '../../components/GridSystem/page';
+import Grid from '../../components/GridSystem/Grid';
 import breakpoints from '@/utility/breakpoints';
+import { GridType } from '@/type/gridsystem';
+
 
 const Blog = async function () {
 
@@ -8,7 +10,7 @@ const Blog = async function () {
     if (res == undefined) return null;
 
     return (
-        <GridSystem columns={[1, 2, 2]} data={res.data} path={"/blog"} gap={25} showTitle={true} showBorder={true} showDate={true} borderGlow={true} />
+        <Grid type={GridType.blog} columns={[1, 2, 2]} posts={res.data.posts.nodes} path={"/blog"} />
     )
 }
 

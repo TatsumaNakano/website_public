@@ -1,7 +1,7 @@
 "use client"
 import { languageState, colorThemeState } from '@/states'
 import { useRecoilState } from "recoil"
-import { useEffect } from "react"
+import { useLayoutEffect } from "react"
 import LangTheme from "@/components/langtheme"
 import ColorTheme from '../colorTheme'
 import HighlightTheme from '@/components/highlightTheme'
@@ -14,6 +14,14 @@ const HtmlWrapper = function ({
 
     const [lang] = useRecoilState(languageState);
     const [color] = useRecoilState(colorThemeState);
+
+    // useLayoutEffect(() => {
+    //     const langElemsToDelete = document.querySelectorAll(lang == "ja" ? "en" : "jp");
+    //     console.log(langElemsToDelete);
+    //     langElemsToDelete.forEach(elem => {
+    //         elem.remove();
+    //     })
+    // }, [])
 
     return (
         <html lang={lang}>

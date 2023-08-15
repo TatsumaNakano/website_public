@@ -1,0 +1,85 @@
+@use "./breakpoints.scss" as bp;
+
+.is-layout-flex {
+    display: flex;
+    object-fit: contain;
+    gap: 2.618rem;
+    justify-content: center;
+    align-items: center;
+
+
+
+    ///////////////////
+    //Desktop /////////
+    ///////////////////
+    @media screen and (min-width: map-get(bp.$breakpoints, tablet-wide)) {
+        flex-direction: row;
+
+        >* {
+            width: 50%;
+        }
+    }
+
+    ///////////////////
+    // Tablet /////////
+    ///////////////////
+    @media screen and (min-width: map-get(bp.$breakpoints, mobile)) and (max-width: map-get(bp.$breakpoints, tablet-wide)) {
+        flex-direction: row;
+
+        >* {
+            width: 50%;
+        }
+    }
+
+    ///////////////////
+    // Mobile /////////
+    ///////////////////
+    @media screen and (max-width: map-get(bp.$breakpoints, mobile)) {
+        flex-direction: column;
+
+        >* {
+            width: 100%;
+        }
+    }
+}
+
+.instagram-media {}
+
+
+.wp-block-group {
+    max-width: 100%;
+
+
+    // align-items: center;
+    // justify-content: center;
+    // >* {
+    //     margin-right: 1rem;
+    // }
+    >* {
+        justify-content: center;
+        align-items: center;
+
+    }
+}
+
+.wp-block-video {
+    video {
+        width: 100%;
+    }
+}
+
+.wp-block-image {
+    width: 100%;
+
+    image {
+        width: 100%;
+    }
+}
+
+.is-vertical {
+    flex-direction: column;
+}
+
+[class*="wp-block"] {
+    margin: 0;
+}
