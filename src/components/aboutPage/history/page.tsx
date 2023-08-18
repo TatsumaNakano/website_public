@@ -10,11 +10,10 @@ const History = function () {
 
     return (
         <div className={styles.history}>
-            <h1>
+            <h4>
                 {lang == "en" ? <span className="en">Experiences & Education</span> : null}
                 {lang == "ja" ? <span className="jp">経歴</span> : null}
-            </h1>
-
+            </h4>
 
             {history.map((item, index) => {
                 return <HistoryItem key={index} data={item} isCurrent={index == 0} />

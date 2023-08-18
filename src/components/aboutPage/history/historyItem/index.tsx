@@ -21,4 +21,5 @@ const HistoryItem = function ({ data, isCurrent }: { data: any, isCurrent: boole
     )
 }
 
+
 export default HistoryItem;

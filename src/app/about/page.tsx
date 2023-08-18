@@ -7,6 +7,7 @@ import Skills from '../../components/aboutPage/skills';
 import Certificates from '../../components/aboutPage/certificates';
 import History from '../../components/aboutPage/history/page';
 import Hobbies from '../../components/aboutPage/hobbies';
+import Reference from "../../components/aboutPage/reference"
 import { useEffect, useState } from "react";
 import { LoadImage } from "@/utility/loadImage";
 import { useRecoilState } from "recoil"
@@ -45,6 +46,7 @@ const About = function () {
             <Skills />
             <History />
             <Certificates />
+            <Reference />
             <Hobbies />
         </>
     )

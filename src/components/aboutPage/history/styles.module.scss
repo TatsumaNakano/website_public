@@ -3,7 +3,7 @@
 .history {
     @include c.section;
 
-    h1 {
+    h4 {
         @include c.heading
     }
 }
