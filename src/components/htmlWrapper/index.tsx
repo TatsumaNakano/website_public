@@ -40,6 +40,8 @@ const HtmlWrapper = function ({
                 gtag('config', 'G-Z68WBJ5W90');
                 `}
             </Script>
+            <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9817111574699036"
+                crossOrigin="anonymous"></Script>
         </html>
     );
 }
