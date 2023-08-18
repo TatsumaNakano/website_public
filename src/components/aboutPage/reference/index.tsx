@@ -8,17 +8,14 @@ import breakpoints from '@/utility/breakpoints';
 function Reference() {
     const [lang, setLang] = useRecoilState(languageState);
     const [containerWidth, setContainerWidth] = useState(0);
-    const elementRef = useRef(null);
+
 
     useLayoutEffect(() => {
-        const currentElem = elementRef.current;
+        setContainerWidth(window.innerWidth);
+        const onResize = () => setContainerWidth(window.innerWidth);
+        if (typeof (window) !== undefined) window.addEventListener("resize", onResize);
+    }, [])
 
-        if (currentElem != null) {
-            setContainerWidth(currentElem["clientWidth"]);
-            const onResize = () => setContainerWidth(currentElem["clientWidth"]);
-            if (typeof (window) !== undefined) window.addEventListener("resize", onResize);
-        }
-    }, []);
 
     return (
         <div className={styles.reference}>
@@ -30,7 +27,7 @@ function Reference() {
                 <div>
                     {
                         (() => {
-                            if (containerWidth > breakpoints.mobile) {
+                            if (containerWidth > breakpoints.tablet) {
                                 if (lang == "en") {
 
                                     return (<>
@@ -44,7 +41,7 @@ function Reference() {
                                         <p>{ja_text_B}</p>
                                     </>)
                                 }
-                            } else if (containerWidth < breakpoints.mobile) {
+                            } else if (containerWidth < breakpoints.tablet) {
                                 if (lang == "en") {
 
                                     return <p>{en_text_A + en_text_B}</p>
