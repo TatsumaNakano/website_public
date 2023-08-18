@@ -1,4 +1,5 @@
 @use "../../../styles/common" as c;
+@use "../../../styles/breakpoints.scss" as bp;
 
 .reference {
     @include c.section;
@@ -8,8 +9,17 @@
     }
 
     >div {
-        width: 80%;
+
         margin: 0 auto;
+
+        @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
+            width: 80%;
+        }
+
+        @media screen and (max-width: map-get(bp.$breakpoints, tablet)) {
+            width: 90%;
+        }
+
 
 
         h5 {
@@ -35,15 +45,34 @@
 
             display: flex;
 
+            @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
+                flex-direction: row;
+            }
+
+            @media screen and (max-width: map-get(bp.$breakpoints, tablet)) {
+                flex-direction: column;
+            }
+
             p {
                 color: var(--secondary);
                 line-height: 1.618rem;
                 // text-align: center;
                 font-size: 0.618rem;
-                padding-right: 1.618rem;
+                // text-indent: 1.618rem;
+
+                margin: 0;
+
+                @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
+                    padding-right: 1.618rem;
+                }
+
+                @media screen and (max-width: map-get(bp.$breakpoints, tablet)) {
+                    padding-right: 0;
+                }
 
                 &:last-child {
                     padding: 0;
+                    // text-indent: 0;
                 }
             }
         }
