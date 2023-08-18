@@ -30,7 +30,7 @@ function Reference() {
                 <div>
                     {
                         (() => {
-                            if (containerWidth < breakpoints.tablet) {
+                            if (containerWidth > breakpoints.mobile) {
                                 if (lang == "en") {
 
                                     return (<>
