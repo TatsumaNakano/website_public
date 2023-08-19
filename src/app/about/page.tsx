@@ -46,7 +46,7 @@ const About = function () {
             <Skills />
             <History />
             <Certificates />
-            <Reference />
+            {/* <Reference /> */}
             <Hobbies />
         </>
     )
