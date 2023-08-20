@@ -19,7 +19,7 @@ function Reference() {
 
     return (
         <div className={styles.reference}>
-            {lang == "en" ? <h4 className='en'>Recommendations</h4> : null}
+            {lang == "en" ? <h4 className='en'>Reference</h4> : null}
             {lang == "ja" ? <h4 className='jp'>推薦</h4> : null}
             <div>
                 <h5>Matt Silverman</h5>
