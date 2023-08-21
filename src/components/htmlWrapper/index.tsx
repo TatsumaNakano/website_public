@@ -24,6 +24,7 @@ const HtmlWrapper = function ({
     //     })
     // }, [lang])
 
+
     return (
         <html lang={lang}>
             <LangTheme />
