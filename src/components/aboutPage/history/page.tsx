@@ -1,3 +1,5 @@
+"use client"
+
 import React, { Component } from 'react'
 import HistoryItem from './historyItem';
 import styles from './styles.module.scss';

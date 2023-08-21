@@ -12,14 +12,23 @@ import { fetchGQL, GET_ALLPOSTS } from '@/graphql/queries'
 import PassAllPostsToClient from '@/components/passAllPostsToClient'
 
 
-import type { Metadata } from 'next'
+
 import HeadTag from '@/components/headTag'
 
+import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Tatsuma Nakano',
   description: 'Tatsuma Nakano',
+  metadataBase: new URL("https://tatsuma.co"),
+  // alternates: {
+  //   canonical: "/",
+  //   languages: {
+  //     "x-default": "https://tatsuma.co/",
+  //     "en": "https://en.tatsuma.co/",
+  //     "ja": "https://ja.tatsuma.co/",
+  //   }
+  // }
 }
-
 
 export default async function RootLayout({
   children,

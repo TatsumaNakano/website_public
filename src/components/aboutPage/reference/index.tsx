@@ -1,3 +1,5 @@
+"use client"
+
 import styles from "./styles.module.scss"
 import { useRecoilState } from "recoil"
 import { languageState } from "@/states"
