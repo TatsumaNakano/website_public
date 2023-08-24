@@ -6,7 +6,7 @@
 
     @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
         //Desktop
-        height: 430px;
+        height: fit-content;
     }
 
     @media screen and (max-width: map-get(bp.$breakpoints, tablet)) {
