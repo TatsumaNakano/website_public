@@ -80,6 +80,16 @@
     flex-direction: column;
 }
 
+.aligncenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.has-text-align-center {
+    text-align: center;
+}
+
 [class*="wp-block"] {
     margin: 0;
 }

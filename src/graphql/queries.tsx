@@ -153,7 +153,8 @@ export const GET_POST = (id: string) => {
                     icon{
                       sourceUrl
                     }
-                  workAt
+                    workAt
+                    hidead
                   }
             }
         }

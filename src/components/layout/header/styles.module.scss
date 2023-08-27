@@ -13,13 +13,13 @@
 
     >div {
         width: 100%;
-        max-width: map-get(bp.$breakpoints, tablet);
+        max-width: map-get(bp.$breakpoints, tablet-wide);
         margin: 0 auto;
         position: relative;
 
         >div.navigation {
             width: 100%;
-            max-width: map-get(bp.$breakpoints, tablet);
+            max-width: map-get(bp.$breakpoints, tablet-wide);
             margin: 0 auto;
             position: relative;
             z-index: 99;
@@ -35,7 +35,7 @@
                 justify-content: space-between;
                 margin: 0 auto;
                 z-index: 10;
-                max-width: map-get(bp.$breakpoints, tablet);
+                max-width: map-get(bp.$breakpoints, tablet-wide);
                 background-color: var(--background);
                 position: relative;
 

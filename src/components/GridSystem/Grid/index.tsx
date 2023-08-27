@@ -68,7 +68,7 @@ const Grid = ({
         )
     } else if (type == GridType.lab) {
 
-        const gap = 1;
+        const gap = 1.618;
         var cellHeight = (containerWidth / colCount) - gap;
         if (columns[0] == 1 && columns[1] == 1 && columns[2] == 1) {
             cellHeight = containerWidth / 3;

@@ -1,7 +1,7 @@
 @use "../styles/breakpoints.scss" as bp;
 
 .contents {
-    max-width: var(--tablet);
+    max-width: map-get(bp.$breakpoints, tablet-wide);
     padding: 2.617924rem;
     // padding-top: calc(6.853rem + 2.617rem + 80px + 2.617rem);
     margin: 0 auto;

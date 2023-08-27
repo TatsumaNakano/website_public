@@ -68,9 +68,9 @@ const en_text_A = `I had the pleasure of working with Tatsuma Nakano for five ye
                     This included an 8k streaming 360-video tour of the San Francisco waterfront where users could hyper-port between 20 different destinations using eye gaze.
                     We then explored creating 360 equirectangular matte paintings in Photoshop which Tatsuma spherically re-projected onto 3D geometry in Unity to create parallax with 6 degrees of freedom (6-DOF) in Vive.
                     Tatsuma also ported this test to WebVR for playback in a browser, and Apple ARKit for an augmented reality version on iPhone.
-                    We shared the results with clients from `;
+                    We shared the results with`;
 
-const en_text_B = `companies like Facebook, Google, and Dolby, and everyone agreed that the results were stunning. 
+const en_text_B = `clients from companies like Facebook, Google, and Dolby, and everyone agreed that the results were stunning. 
                     After graduation I hired Tatsuma on staff as a full-time Creative Technologist.
                     Within months our workload shifted to rely more and more on Unity and Unreal Engine, with Tatsuma leading those parts of the projects.
                     Additionally, his core motion design skills continued to improve, both as an animator, designer, and technologist.
