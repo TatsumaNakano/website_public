@@ -22,7 +22,7 @@ const App = async function () {
 import type { Metadata, ResolvingMetadata } from 'next'
 export const metadata: Metadata = {
     alternates: {
-        canonical: "/",
+        // canonical: "/",
         languages: {
             "x-default": "https://tatsuma.co/",
             "en": "https://en.tatsuma.co/",

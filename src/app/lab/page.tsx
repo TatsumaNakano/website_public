@@ -29,7 +29,7 @@ export async function generateMetadata(
 
     return {
         alternates: {
-            canonical: "/",
+            // canonical: "/",
             languages: {
                 "x-default": `https://tatsuma.co/lab/`,
                 "en": `https://en.tatsuma.co/lab/`,

@@ -25,7 +25,7 @@ export async function generateMetadata(
 
     return {
         alternates: {
-            canonical: "/",
+            // canonical: "/",
             languages: {
                 "x-default": `https://tatsuma.co/${params.slug}`,
                 "en": `https://en.tatsuma.co/${params.slug}`,
