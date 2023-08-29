@@ -107,6 +107,32 @@ export const GET_BLOG_POSTS_LIST = `
 }
 `
 
+export const GET_TEST_POSTS_LIST = `
+{
+  posts(where: {categoryName: "test"}) {
+    nodes {
+      title
+      slug
+      date
+      post_setting {
+        height
+        width
+        thumbnail {
+          sourceUrl
+        }
+        jptitle
+      }
+      tags {
+        nodes {
+          slug
+          name
+        }
+      }
+    }
+  }
+}
+`
+
 export const GET_ALLPOSTS = `
 {
   posts {

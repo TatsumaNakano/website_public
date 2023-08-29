@@ -27,21 +27,29 @@ export default function PostTemplate(data: any, props: any) {
         if (!contentsContainer?.current) return;
         contentsContainer.current.innerHTML = "";
         // console.dir(contentsContainer.current)
-        const content = sortBasedOnLanguage(data.data.post.content, lang);
+        const content = sortBasedOnLanguage(data.data.post?.content, lang);
+        // if (typeof (content) !== Node) return
         contentsContainer.current.appendChild(content);
     }, [lang])
 
-    const icon = getCompany(data.data?.post.post_setting.workAt);
-    const jpTitle = data.data.post.post_setting.jptitle ? data.data.post.post_setting.jptitle : data.data.post.title
+    const icon = getCompany(data.data?.post?.post_setting.workAt);
+    const jpTitle = data.data?.post?.post_setting.jptitle ? data.data.post?.post_setting.jptitle : data.data.post?.title
+
+    const date = new Date(data.data.post?.date);
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     return (
 
         <div className={styles.post}>
             <div className={styles.titleSection}>
-                <h1>
-                    <span className="en">{data.data.post.title}</span>
-                    <span className="jp">{jpTitle}</span>
-                </h1>
+                <div>
+                    <label className="en">{`${date.getFullYear()} ${monthNames[date.getMonth()]} ${date.getDate()}`}</label>
+                    <label className="jp">{`${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`}</label>
+                    <h1>
+                        <span className="en">{data.data.post?.title}</span>
+                        <span className="jp">{jpTitle}</span>
+                    </h1>
+                </div>
                 {icon ? icon : null}
                 {/* <img src={"/company_icons/swordfish.svg"} alt="" /> */}
             </div>

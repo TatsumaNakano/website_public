@@ -1,0 +1,77 @@
+@use "../../../styles/breakpoints.scss" as bp;
+
+.blog {
+    display: flex;
+
+
+    @media screen and (min-width: map-get(bp.$breakpoints, tablet)) {
+        flex-direction: row;
+
+        //Desktop
+        >div:first-child {
+            width: 70%;
+        }
+
+        >div:last-child {
+            width: 30%;
+            margin-left: 3rem;
+        }
+    }
+
+
+    @media screen and (max-width: map-get(bp.$breakpoints, tablet)) {
+        flex-direction: column;
+
+        //Mobile & Tablet
+        >div:first-child {
+            width: 100%;
+        }
+
+        >div:last-child {
+            width: 100%;
+            margin-top: 5rem;
+        }
+    }
+
+}
+
+
+
+.buymeacoffee,
+.ad {
+    margin-top: 100px;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 1.618rem 2.618rem;
+    line-height: 1.618rem;
+    // background-color: ;
+    border: solid 1px var(--primary);
+    border-radius: 10px;
+
+    p {
+        color: var(--primary);
+        margin: 0 0 1rem 0;
+    }
+}
+
+.buymeacoffee {
+
+    div {
+        display: flex;
+        gap: 1rem;
+
+        a {
+            display: block;
+            background-color: var(--accent);
+            text-align: center;
+            width: 100%;
+            // height: 2.6rem;
+            padding: 1rem 0;
+            border-radius: 10px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+    }
+}
