@@ -13,7 +13,9 @@ const Test = async function () {
 
 
     return (
-        <Grid type={GridType.blog} columns={[1, 2, 2]} posts={res.data.posts.nodes} path={"/test"} />
+        <>
+            {/* <Grid type={GridType.blog} columns={[1, 2, 2]} posts={res.data.posts.nodes} path={"/test"} /> */}
+        </>
     )
 }
 

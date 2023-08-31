@@ -14,12 +14,12 @@ const TestPost = async function (props: any) {
 
     return (
         <>
-            <div className={styles.blog}>
+            {/* <div className={styles.blog}>
                 <div>
                     <Post data={res.data} />
                 </div>
                 <SideBar />
-            </div>
+            </div> */}
         </>
     );
 }
