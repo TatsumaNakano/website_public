@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request, res: any) {
     const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey("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"); //SendGridのAPIキー
+    sgMail.setApiKey("XXXXXXXXXX"); //SendGridのAPIキー
 
     const request = await req.json();
     const context = `
